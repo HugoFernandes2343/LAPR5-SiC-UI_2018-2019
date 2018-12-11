@@ -1,0 +1,19 @@
+<h2>Materials</h2>
+<h3>Create </h3>
+<div>
+  <label>Descrição:
+    <input #MaterialDescricao />
+  </label><br />
+  <button (click)="add(MaterialDescricao.value); MaterialDescricao.value=''">
+    add
+  </button><br />
+</div>
+<h3>List</h3>
+<ul class="materials">
+  <li *ngFor="let material of materials">
+    <a routerLink="/material/{{material.id}}">
+      <span class="badge">.</span> {{material.descricao}}
+    </a>
+    <button class="delete" title="delete material" (click)="delete(material)">x</button>
+  </li>
+</ul>

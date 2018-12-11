@@ -1,0 +1,10 @@
+<h2>Encomendas</h2>
+<h3>List</h3>
+<ul class="gerirencomendas">
+    <li *ngFor="let encomenda of encomendas">
+        <a routerLink="/gerirencomendas/{{encomenda.encomendaId}}">
+            <span class="badge">.</span> {{encomenda.name}} {{encomenda.date}} 
+        </a>
+        <button class="delete" title="delete encomenda" (click)="delete(encomenda)">x</button>
+    </li>
+</ul>

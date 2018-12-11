@@ -1,0 +1,22 @@
+<h2>Materiais com Acabamentos</h2>
+<h3>Create </h3>
+<div>
+  <label>Material:
+    <input #Material />
+  </label><br />
+  <label>Acabamentos (separados por virgula):
+    <input #Acabamentos />
+  </label><br />
+  <button (click)="add(Material.value, Acabamentos.value); Material.value=''; Acabamentos.value=''">
+    add
+  </button><br />
+</div>
+<h3>List</h3>
+<ul class="materialacabamentos">
+  <li *ngFor="let materialAcabamento of materiaisAcabamentos">
+    <a routerLink="/materialacabamento/{{materialAcabamento.id}}">
+      <span class="badge">.</span> {{materialAcabamento.nome}}
+    </a>
+    <button class="delete" title="delete materialAcabamento" (click)="delete(materialAcabamento)">x</button>
+  </li>
+</ul>

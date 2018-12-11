@@ -1,0 +1,18 @@
+<div *ngIf="item">
+
+  <h2>Item Produto Details</h2>
+  <div><label>Nome: <input [(ngModel)]="item.nome" placeholder="Nome" /></label></div>
+  <div><label>Custo: <input [(ngModel)]="item.custo" placeholder="Custo" /></label></div>
+  <div><label>Categoria: <input [(ngModel)]="item.categoria" placeholder="Categoria" /></label></div>
+  <div><label>Altura: <input [(ngModel)]="item.altura" placeholder="Altura" /></label></div>
+  <div><label>Largura: <input [(ngModel)]="item.largura" placeholder="Largura" /></label></div>
+  <div><label>Profundidade: <input [(ngModel)]="item.profundidade" placeholder="Profundidade" /></label></div>
+  <div><label>Materiais e Acabamentos ( "X com acabamentos de Ys" separados por ponto e virgula): <input [(ngModel)]="item.materiaisAcabamentos" placeholder="Materiais e Acabamentos" /></label></div>
+  <div><label>Partes Opcionais (separadas por virgula): <input [(ngModel)]="item.partesOpcionais" placeholder="Partes Opcionais" /></label></div>
+  <div><label>Partes Obrigatorias (separadas por virgula): <input [(ngModel)]="item.partesObrigatorias" placeholder="Partes Obrigatorias" /></label></div>
+
+  <button (click)="deletePartes()">Delete Parts</button>
+  <button (click)="save()">save</button>
+  <button (click)="goBack()">go back</button>
+
+</div>

@@ -1,0 +1,22 @@
+<div *ngIf="encomenda">
+
+  <h2>Encomenda Details </h2>
+  <div><label>Nome Do Cliente: <input [(ngModel)]="encomenda.name" placeholder="Nome" /></label></div>
+  <div><label>Data: <input [(ngModel)]="encomenda.date" placeholder="Data" /></label></div>
+  <div><label>Morada: <input [(ngModel)]="encomenda.address" placeholder="Morada" /></label></div>
+  <div><label>Preço: <input [value]="encomenda.cost" placeholder="Preço" /></label></div>
+
+  <h3>Produtos</h3>
+  <ul class="gerirencomendas">
+    <li *ngFor="let item of itens">
+      <a routerLink="/gerirencomendas/{{encomenda.encomendaId}}/itensProduto/{{item.idProduto}}">
+        <span class="badge">.</span> {{item.nome}}
+      </a>
+      <button class="delete" title="delete item" (click)="delete(item)">x</button>
+    </li>
+  </ul>
+
+  <button (click)="save()">save encomenda details</button>
+  <button routerLink="/encomenda/{{encomenda.encomendaId}}/createitemproduto">add Item Produto</button>
+  <button (click)="goBack()">go back</button>
+</div>

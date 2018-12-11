@@ -1,0 +1,25 @@
+<h2>Categorias</h2>
+<h3>Create </h3>
+<div>
+  <label>Descrição:
+    <input #CategoriaDescricao />
+  </label>
+  <label>SuperCategoria:
+    <input #CategoriaSuperCategoria />
+  </label>
+  <label>SubCategorias (separadas por virgula):
+    <input #CategoriaSubCategoria />
+  </label>
+  <button (click)="add(CategoriaDescricao.value,CategoriaSuperCategoria.value,CategoriaSubCategoria.value); CategoriaDescricao.value=''; CategoriaSuperCategoria.value='';CategoriaSubCategoria.value=''">
+    add
+  </button>
+</div>
+<h3>List</h3>
+<ul class="categorias">
+  <li *ngFor="let categoria of categorias">
+    <a routerLink="/categoria/{{categoria.id}}">
+      <span class="badge">.</span> {{categoria.descricao}}
+    </a>
+    <button class="delete" title="delete catgeoria" (click)="delete(categoria)">x</button>
+  </li>
+</ul>
