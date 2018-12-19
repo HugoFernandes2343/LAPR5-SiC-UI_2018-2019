@@ -1,0 +1,112 @@
+
+
+<h3>Product Details</h3>
+<hr><br>
+
+
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+  // Get the modal
+  var modal = document.getElementById('myModal');
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  } 
+  </script>
+  <div *ngIf="product">
+    <main class="container">
+      
+      <!-- Left Column / Headphones Image -->
+      <div class="left-column">
+        <img class="active" src="../../../assets/product.png" alt="Product">
+      </div>
+      
+      
+      <!-- Right Column -->
+      <div class="right-column">
+        
+        <!-- Product Description -->
+        <div class="product-description">
+          <span> {{product.prod_category[0].category_name}}</span>
+          <button routerLink="/edit/{{product.prod_dotnetid}}" class="btn"><i class="fa fa-pencil"></i> Edit</button>          
+          <h1>{{product.prod_name}}</h1>
+          <p>{{product.prod_desc}}</p>
+          <table>
+            <tr>
+              <td>Min/Max Occupation</td>
+              <td>{{product.prod_minOccupation}} / {{product.prod_maxOccupation}}</td>
+            </tr>
+            <tr>
+              <tr>
+                <td>Materials</td>
+                <td>{{materials}}</td>
+              </tr>
+              <tr>
+                <div *ngIf="discreteHeight; then showDiscreteHeight; else showContinuousHeight"></div>
+                <ng-template #showDiscreteHeight>
+                  <td>Height</td>
+                  <td>{{product.prod_height}}</td>
+                </ng-template>
+              <ng-template #showContinuousHeight>
+                <td>Height / Max Height</td>
+                <td>{{product.prod_height}} up to {{product.prod_heightMax}}</td>
+              </ng-template>
+            </tr>
+            <tr>
+              <div *ngIf="discreteWidth; then showDiscreteWidth; else showContinuousWidth"></div>
+              <ng-template #showDiscreteWidth>
+                <td>Width</td>
+                <td>{{product.prod_width}}</td>
+              </ng-template>
+              <ng-template #showContinuousWidth>
+                <td>Width / Max Width</td>
+                <td>{{product.prod_width}} up to {{product.prod_widthMax}}</td>
+              </ng-template>
+            </tr>
+            <tr>
+              <div *ngIf="discreteDepth; then showDiscreteDepth; else showContinuousDepth"></div>
+              <ng-template #showDiscreteDepth>
+                <td>Depth</td>
+                <td>{{product.prod_depth}}</td>
+              </ng-template>
+              <ng-template #showContinuousDepth>
+                <td>Depth / Max Depth</td>
+                <td>{{product.prod_depth}} up to {{product.prod_depthMax}}</td>
+              </ng-template>
+            </tr>
+          </table><br><br>
+          
+        </div>
+        
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+        </div>
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>{{product.prod_price}}€</span>
+          <a routerLink="/wizard1/{{product.prod_dotnetid}}" class="cart-btn">Start Wizard</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>

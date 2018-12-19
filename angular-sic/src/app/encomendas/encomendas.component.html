@@ -1,9 +1,0 @@
-<h3>Encomendas</h3>
-<h4>Nesta secção da aplicação, podemos gerir as encomendas de armários.</h4>
-<div class="grid grid-pad">
-    <a *ngFor="let opcao of opcoes" class="col-1-2" routerLink="{{opcao.name}}">
-        <div class="module opcao">
-            <h4>{{opcao.name | uppercase}}</h4>
-        </div>
-    </a>
-</div>

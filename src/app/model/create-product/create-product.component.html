@@ -1,0 +1,238 @@
+<h3>Create Product</h3>
+<hr><br>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <form action="/action_page.php">
+
+        <!--Warning/Info header-->
+        <div class="row">
+            <div class="isa_info">
+                <p><i class="fa fa-pencil"></i><b>How should we perceive your product?</b></p>
+            </div>
+            <br>
+        </div>
+
+        <!--Name Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="NameLabel">Name</label>
+            </div>
+            <div class="col-75">
+                <input [(ngModel)]="selectedName" type="text" name="prod_name" [(value)]="selectedName" (ngModelChange)="setName(selectedName);validateForms()"
+                    required>
+            </div>
+        </div>
+
+        <!--Description Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="DescriptionLabel">Description</label>
+            </div>
+            <div class="col-75">
+                <input [(ngModel)]="selectedDescription" type="text" name="prod_desc" [(value)]="selectedDescription"
+                    (ngModelChange)="setDescription(selectedDescription);validateForms()" required>
+
+            </div>
+        </div>
+        <!--Price Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="PriceLabel">Price</label>
+            </div>
+            <div class="col-75">
+                <input [(ngModel)]="selectedPrice" type="number" name="prod_price" [(value)]="selectedPrice"
+                    (ngModelChange)="setPrice(selectedPrice);validateForms()" required>
+            </div>
+        </div>
+
+        <!--Category Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="Category">Category</label>
+            </div>
+            <div class="col-75">
+                <select (change)="setCategory($event.target.value);validateForms()" name="category" [(ngModel)]="selectedCategory">
+                    <option *ngFor="let category of availableCategories" value={{category.id}}>{{category.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <!--Warning/Info header-->
+        <div class="row">
+            <br>
+            <div class="isa_info">
+                <p><i class="fa fa-cubes"></i><b>Define its measurements and limits.</b></p>
+            </div>
+            <br>
+        </div>
+
+        <!--Min/Max Occupation Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="MinOccupationLabel">Min Occupation</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_minOccupation" [(ngModel)]="selectedMinOccupation" type="number" name="prod_minOcc"
+                    [(value)]="selectedMinOccupation" (ngModelChange)="setMinOccupation(selectedMinOccupation);validateForms()"
+                    required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="MaxOccupationLabel">Max Occupation</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_maxOccupation" [(ngModel)]="selectedMaxOccupation" type="number" name="prod_maxOcc"
+                    [(value)]="selectedMaxOccupation" (ngModelChange)="setMaxOccupation(selectedMaxOccupation);validateForms()"
+                    required>
+            </div>
+        </div>
+
+        <!--Height Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="HeightLabel">Height</label>
+            </div>
+            <div class="col-75">
+                <input [(ngModel)]="selectedHeight" type="number" name="prod_height" [(value)]="selectedHeight"
+                    (ngModelChange)="setHeight(selectedHeight);validateForms()" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="HeightMaxLabel">Max Height</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_heightmax" type="number" [(ngModel)]="selectedHeightMax" [(value)]="selectedHeightMax"
+                    (ngModelChange)="setHeightMax(selectedHeightMax);validateForms()" required>
+            </div>
+        </div>
+
+
+        <!--Width Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="WidthLabel">Width</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_width" type="number" [(ngModel)]="selectedWidth" [(value)]="selectedWidth"
+                    (ngModelChange)="setWidth(selectedWidth);validateForms()" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="WidthMaxLabel">Max Width</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_widthmax" type="number" [(ngModel)]="selectedWidthMax" [(value)]="selectedWidthMax"
+                    (ngModelChange)="setWidthMax(selectedWidthMax);validateForms()" required>
+            </div>
+        </div>
+
+
+        <!--Depth Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="DepthLabel">Depth</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_depth" type="number" [(ngModel)]="selectedDepth" [(value)]="selectedDepth"
+                    (ngModelChange)="setDepth(selectedDepth);validateForms()" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="DepthMaxLabel">Max Depth</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_depthhmax" type="number" [(ngModel)]="selectedDepthMax" [(value)]="selectedDepthMax"
+                    (ngModelChange)="setDepthMax(selectedDepthMax);validateForms()" required>
+            </div>
+        </div>
+
+
+        <!--Warning/Info header-->
+        <div class="row">
+            <br>
+            <div class="isa_info">
+                <p><i class="fa fa-tint"></i><b>What finishing touches can we add?</b></p>
+            </div>
+            <br>
+        </div>
+
+
+        <!--Material Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="Material">Material</label>
+            </div>
+            <div class="col-75">
+                <select (change)="setMaterial($event.target.value);validateForms()" name="material" [(ngModel)]="selectedMaterial">
+                    <option *ngFor="let material of availableMaterials" value={{material.id}}>{{material.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <!--Finish Row-->
+        <div class="row">
+            <div class="col-25">
+                <label for="Finish">Finish</label>
+            </div>
+            <div class="col-75">
+                <br>
+                <div *ngFor="let finish of availableFinishes">
+                    {{finish.name}} : {{finish.description}}
+                </div>
+            </div>
+        </div>
+
+
+        <!--Warning/Info header-->
+        <div class="row">
+            <br>
+            <div class="isa_info">
+                <p><i class="fa fa-object-group"></i><b>Does it have a parent product?</b></p>
+            </div>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="parentLabel">Parent ID</label>
+            </div>
+            <div class="col-75">
+                <input name="prod_parent" type="number" [(ngModel)]="selectedParent" [(value)]="selectedParent"
+                    (ngModelChange)="setParent(selectedParent);validateForms()" placeholder="Leave empty if you do not wish to have a parent product.">
+            </div>
+        </div>
+
+
+
+        <div class="row"><br>
+            <div class="hr-dotted"> </div>
+        </div>
+
+
+        <!--Buttons buttons-->
+        <div class="row"><br>
+            <div *ngIf="valid; else disable_button">
+                <button (click)="createProduct()" class="button" style="vertical-align:middle">
+                    <span>Create</span>
+                </button>
+            </div>
+            <ng-template #disable_button>
+                <button (click)="createProduct()" class="button" style="vertical-align:middle" disabled>
+                    <span>Create</span>
+                </button>
+            </ng-template>
+            <button (click)="goBack()" class="button-delete" style="vertical-align:middle">
+                <span>Cancel</span>
+            </button>
+        </div>
+
+    </form>
+</div>
+<br><br>
+<br><br>
+<br><br>

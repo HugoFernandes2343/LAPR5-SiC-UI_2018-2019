@@ -1,0 +1,31 @@
+<h3>User Item List</h3>
+<hr><br>
+<div *ngIf="hasProducts; else no_products">
+
+
+
+  <div class="grid grid-pad">
+
+    <div class="main">
+      <a *ngFor="let product of itemProducts" class="col-1-4">
+        <div class="card">
+          <img src="../../../assets/product.png" alt="Product" style="width:50%; height:50%" >
+          <h4>{{product.prod_name}}</h4>
+          <p class="price">{{product.prod_price}}</p>
+          <p>{{product.prod_desc}}</p>
+          <p>Min/Max Occ: {{product.prod_minOccupation}} | {{product.prod_maxOccupation}}</p>
+          <p><b>Measurements: </b></p>
+          <p>Height: {{product.prod_height}} | {{product.prod_heightMax}}</p>
+          <p>Width: {{product.prod_width}} | {{product.prod_widthMax}}</p>
+          <p>Depth: {{product.prod_depth}} | {{product.prod_depthMax}}</p>
+          <p>---------</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<ng-template no_products>
+  <p> The user does not have any product items. </p>
+</ng-template>

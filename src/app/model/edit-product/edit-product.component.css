@@ -1,0 +1,260 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Basic Styling */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type=number],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+.button {
+    border-radius: 4px;
+    background-color: #2196F3;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 240px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: right;
+}
+
+.button-delete {
+    border-radius: 4px;
+    background-color: rgb(243, 33, 86);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 20px;
+    width: 240px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: right;
+}
+
+.button-add {
+    border-radius: 4px;
+    background-color: #2196F3;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    width: 110px;
+    height: 35px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: right;
+}
+
+.button-add-delete {
+    border-radius: 4px;
+    background-color: rgb(243, 33, 86);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    width: 110px;
+    height: 35px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: right;
+}
+
+.button-delete span,
+.button-add span,
+.button-add-delete span,
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-delete span:after,
+.button-add span:after,
+.button-add-delete span:after,
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button-delete:hover span,
+.button-add:hover span,
+.button-add-delete:hover span,
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button-delete:hover span:after,
+.button-add:hover span:after,
+.button-add-delete:hover span:after,
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button:disabled,
+.button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: default;
+}
+
+.isa_info,
+.isa_success,
+.isa_warning,
+.isa_error {
+    margin: 10px 0px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.isa_info {
+    color: rgb(255, 255, 255);
+    background-color: #2196F3;
+    border-radius: 5px;
+}
+
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border-radius: 5px;
+}
+
+.isa_warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(179, 57, 0);
+}
+
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border-radius: 5px;
+}
+
+.isa_info i,
+.isa_success i,
+.isa_warning i,
+.isa_error i {
+    margin: 10px 22px;
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+/* Red border */
+
+.hr-dotted {
+    border-top: 1px dashed rgb(100, 180, 245);
+}
+
+.divide-in-3 {
+    column-count: 3;
+}
+.divide-in-2 {
+    column-count: 2;
+}

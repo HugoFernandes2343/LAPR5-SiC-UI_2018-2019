@@ -1,0 +1,30 @@
+<!-- header -->
+
+<nav class="navbar">
+    <div class="banner">
+        <img height="90px" src="../assets/banner.jpg" alt="Snow" style="width:100%;">
+        <div class="top-left">SiC Catalog</div>
+    </div>
+
+    <div class="topnav">
+
+        <a class="active" routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/catalog">Catalog</a>
+        <a routerLink="/list-itemproduct">Ordered Products</a>
+        <a routerLink="/about">About</a>
+
+        <div class="search-container">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/register">Register</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- routes will be rendered here -->
+<router-outlet></router-outlet>
+
+<!-- footer -->
+<div class="footer">
+</div>
