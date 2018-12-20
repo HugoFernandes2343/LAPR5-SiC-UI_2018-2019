@@ -48,14 +48,14 @@ export class ProductService {
     * @param id product id
     */
   getDotNetProductById(id: number): Observable<any> {
-    return this.http.get<any>("https://arqsiweb-app.azurewebsites.net/api/product" + "/" + id);
+    return this.http.get<any>("https://lapr5-gc.azurewebsites.net/api/product" + "/" + id);
   }
 
   /**
    * REturns all the materials in the dotnet Server
    */
   getDotnetMaterials(): Observable<any> {
-    return this.http.get<any>("https://arqsiweb-app.azurewebsites.net/api/material/");
+    return this.http.get<any>("https://lapr5-gc.azurewebsites.net/api/material/");
   }
 
   /**
@@ -63,27 +63,27 @@ export class ProductService {
    * @param id material id
    */
   getDotnetMaterialById(id: number): Observable<any> {
-    return this.http.get<any>("https://arqsiweb-app.azurewebsites.net/api/materialfinish/" + id);
+    return this.http.get<any>("https://lapr5-gc.azurewebsites.net/api/materialfinish/" + id);
   }
 
   /**
    * Returns the all the categories in the dotnet server
    */
   getDotnetCategories(): Observable<any> {
-    return this.http.get<any>("https://arqsiweb-app.azurewebsites.net/api/category/1");
+    return this.http.get<any>("https://lapr5-gc.azurewebsites.net/api/category/1");
   }
 
   editDotnetProduct(id: number, product: any): Observable<any> {
-    return this.http.put<any>("https://arqsiweb-app.azurewebsites.net/api/product" + "/" + id,
+    return this.http.put<any>("https://lapr5-gc.azurewebsites.net/api/product" + "/" + id,
       product);
   }
 
   createDotnetProduct(product: any): Observable<any> {
-    return this.http.post("https://arqsiweb-app.azurewebsites.net/api/product", product);
+    return this.http.post("https://lapr5-gc.azurewebsites.net/api/product", product);
   }
 
   deleteDotnetMaterial(productId: number, materialId: number): Observable<any> {
-    return this.http.request('DELETE', "https://arqsiweb-app.azurewebsites.net/api/material/productmaterial", {
+    return this.http.request('DELETE', "https://lapr5-gc.azurewebsites.net/api/material/productmaterial", {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
@@ -92,7 +92,7 @@ export class ProductService {
   }
 
   createDotnetMaterialProduct(productId: number, materialId: number): Observable<any> {
-    return this.http.post<any>("https://arqsiweb-app.azurewebsites.net/api/material/productmaterial", {ProductId: productId, MaterialId: materialId});
+    return this.http.post<any>("https://lapr5-gc.azurewebsites.net/api/material/productmaterial", {ProductId: productId, MaterialId: materialId});
   }
 
   createDotnetDimension(
@@ -103,14 +103,14 @@ export class ProductService {
       Depth: depth, DepthMax: depthMax
     }
 
-    return this.http.post<any>("https://arqsiweb-app.azurewebsites.net/api/dimension", dimension);
+    return this.http.post<any>("https://lapr5-gc.azurewebsites.net/api/dimension", dimension);
   }
 
   deleteDotnetProduct(id: number): Observable<any> {
-    return this.http.delete<any>("https://arqsiweb-app.azurewebsites.net/api/product/" + id);
+    return this.http.delete<any>("https://lapr5-gc.azurewebsites.net/api/product/" + id);
   }
 
   addDotnetComponent(parentId: number, childId: number): Observable<any> {
-    return this.http.put<any>("https://arqsiweb-app.azurewebsites.net/api/product/addComponent/" + parentId + "/" + childId, {});
+    return this.http.put<any>("https://lapr5-gc.azurewebsites.net/api/product/addComponent/" + parentId + "/" + childId, {});
   }
 }

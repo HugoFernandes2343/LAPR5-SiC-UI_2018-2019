@@ -10,7 +10,7 @@ import { Category } from '../data/category';
 
 export class CategoryService{
 
-    private categoryURL = 'https://arqsiweb-app.azurewebsites.net/api/category'
+    private categoryURL = 'https://lapr5-gc.azurewebsites.net/api/category'
 
     constructor(private http: HttpClient, ){ }
 
