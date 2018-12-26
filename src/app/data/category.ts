@@ -1,3 +1,5 @@
-export class Category{
-    name: string;
-};
+export class Category {
+    type: string;
+    categoryId: number;
+    categoryDescription: string;
+  }
