@@ -27,13 +27,13 @@ export class WizardStep1Component implements OnInit {
 
   realizedProduct: Product = new Product();
 
-  finishes: String[] = [];
+  finishes: string[] = [];
 
-  selectedMaterial: String = "--Select--";
-  selectedFinish: String = "--Select--";
-  selectedHeight: Number;
-  selectedDepth: Number;
-  selectedWidth: Number;
+  selectedMaterial: string = "--Select--";
+  selectedFinish: string = "--Select--";
+  selectedHeight: number;
+  selectedDepth: number;
+  selectedWidth: number;
 
 
   discreteHeight: boolean;
@@ -67,22 +67,22 @@ export class WizardStep1Component implements OnInit {
         () => this.initProductDetails());
   }
 
-  setHeight(selectedHeight: Number): void {
+  setHeight(selectedHeight: number): void {
     this.selectedHeight = selectedHeight;
   }
 
-  setDepth(selectedDepth: Number): void {
+  setDepth(selectedDepth: number): void {
     this.selectedDepth = selectedDepth;
   }
 
-  setWidth(selectedWidth: Number): void {
+  setWidth(selectedWidth: number): void {
     this.selectedWidth = selectedWidth;
   }
 
-  setMaterial(selectedMaterial: String): void {
+  setMaterial(selectedMaterial: string): void {
     this.selectedMaterial = selectedMaterial;
   }
-  setFinish(selectedFinish: String): void {
+  setFinish(selectedFinish: string): void {
     this.selectedFinish = selectedFinish;
   }
 
@@ -192,14 +192,14 @@ export class WizardStep1Component implements OnInit {
 
   }
 
-  validateDiscreteMeasurements(input: Number, ProdValue: Number): boolean {
+  validateDiscreteMeasurements(input: number, ProdValue: number): boolean {
     if (input != ProdValue) {
       return false;
     }
     return true;
   }
 
-  validateContinuousMeasurements(input: Number, ProdValue: Number, ProdValueMax: Number): boolean {
+  validateContinuousMeasurements(input: number, ProdValue: number, ProdValueMax: number): boolean {
     if (input < ProdValue) return false;
     if (input > ProdValueMax) return false;
     return true;

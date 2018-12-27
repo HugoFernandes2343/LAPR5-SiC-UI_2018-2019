@@ -12,7 +12,7 @@ import { ProductService} from '../../services/product.service';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
 
-  materials: String = "";
+  materials: string = "";
   discreteHeight: boolean;
   discreteDepth: boolean;
   discreteWidth: boolean;
