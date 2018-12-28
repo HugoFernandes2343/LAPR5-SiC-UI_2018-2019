@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'Category/:categoryId', component: CategoryDetailComponent },
   { path: 'Finishing', component: FinishingComponent},
   { path: 'Material', component: MaterialComponent},
-  { path: 'Dimension', component: DimensionComponent},
+  { path: 'Dimension/:dimensionId', component: DimensionComponent},
   { path: 'Combination', component: CombinationComponent},
   { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
   { path: 'Order', component: OrderComponent}

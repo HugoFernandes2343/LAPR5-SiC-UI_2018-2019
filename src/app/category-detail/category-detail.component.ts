@@ -37,7 +37,7 @@ export class CategoryDetailComponent implements OnInit {
   addCategory(): void {
     this.new_cat = this.new_cat.trim();
     if (!this.new_cat) { return; }
-    this.category.type=this.new_cat;
+    this.category.name=this.new_cat;
     this.categoryService.addCategory(this.category)
     .subscribe(() => this.goBack());
   }

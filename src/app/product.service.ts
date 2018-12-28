@@ -55,6 +55,30 @@ export class ProductService {
     );
   }
 
+  addDimension(productId: number, dimensionId: number): Observable<Product> {
+    const url = `${this.productUrl}/${productId}/Dimension/${dimensionId}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`added new dimension to product`)),
+      catchError(this.handleError<any>('addDimension'))
+    );
+  }
+
+  addMaterial(productId: number, materialId: number): any {
+    const url = `${this.productUrl}/${productId}/Material/${materialId}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`added new material to product`)),
+      catchError(this.handleError<any>('addMaterial'))
+    );
+  }
+
+  removeMaterial(productId: number, materialId: number): any {
+    const url = `${this.productUrl}/${productId}/Material/${materialId}`;
+    return this.http.delete(url, httpOptions).pipe(
+      tap(_ => this.log(`removed material from product`)),
+      catchError(this.handleError<any>('removeMaterial'))
+    );
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
@@ -75,7 +99,6 @@ export class ProductService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`ProductService: ${message}`);
   }

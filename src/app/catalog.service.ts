@@ -52,7 +52,7 @@ export class CatalogService {
       tap(_ => this.log(`updated catalog`)),
       catchError(this.handleError<any>('updateCatalog'))
     );
-  }
+  } 
 
 /**
  * Handle Http operation that failed.
