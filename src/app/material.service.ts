@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class MaterialService {
 
-  private materialUrl = 'https://arqsisic.azurewebsites.net/api/Material';
+  private materialUrl = 'https://lapr5-gc.azurewebsites.net/api/Material';
+  //private materialUrl = 'https://localhost:5001/api/Material';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

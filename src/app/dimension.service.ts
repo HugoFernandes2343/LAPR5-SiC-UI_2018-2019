@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class DimensionService {
 
-  private dimensionUrl = 'https://arqsisic.azurewebsites.net/api/Dimension';
+  private dimensionUrl = 'https://lapr5-gc.azurewebsites.net/api/Dimension';
+  //private dimensionUrl = 'https://localhost:5001/api/Dimension';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

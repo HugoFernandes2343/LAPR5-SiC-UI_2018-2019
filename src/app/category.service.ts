@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class CategoryService {
 
-  private categoryUrl = 'https://arqsisic.azurewebsites.net/api/Category';
+  private categoryUrl = 'https://lapr5-gc.azurewebsites.net/api/Category';
+  //private categoryUrl = 'https://localhost:5001/api/Category';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

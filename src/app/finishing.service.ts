@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class FinishingService {
 
-  private finishingUrl = 'https://arqsisic.azurewebsites.net/api/Finishing';
+  private finishingUrl = 'https://lapr5-gc.azurewebsites.net/api/Finishing';
+  //private finishingUrl = 'https://localhost:5001/api/Finishing';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

@@ -14,7 +14,8 @@ const httpOptions = {
 })
 export class CombinationService {
 
-  private combinationUrl = 'https://arqsisic.azurewebsites.net/api/Combination';
+  private combinationUrl = 'https://lapr5-gc.azurewebsites.net/api/Combination';
+  //private combinationUrl = 'https://localhost:5001/api/Combination';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
