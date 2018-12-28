@@ -6,6 +6,7 @@ import { Category } from './category';
 export class Product {
   productId: number;
   name: string;
+  description: string;
   dimensions: Dimension[];
   materials: Material[];
   category: Category;
