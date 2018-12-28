@@ -19,6 +19,7 @@ import { DimensionComponent } from './dimension/dimension.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
+import { CatalogComponent } from './catalog/catalog.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { OrderComponent } from './order/order.component';
     DimensionComponent,
     ItemproductDetailComponent,
     CombinationComponent,
-    OrderComponent
+    OrderComponent,
+    CatalogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
