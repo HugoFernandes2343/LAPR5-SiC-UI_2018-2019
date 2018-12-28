@@ -1,15 +1,19 @@
-<h1>List of all the Dimensions</h1>
-
-<ul class="dimensions">
-  <li *ngFor="let dimension of dimensions">
-    <a>
-      <span class="badge"></span> {{dimension.length}};{{dimension.height}};{{dimension.width}};{{dimension.maxLength}};{{dimension.maxHeight}};{{dimension.maxWidth}}
-    </a>
-    <button class="delete" title="delete dimension" 
-      (click)="delete(dimension)">x</button>
-  </li>
-</ul>
+<h1>Dimension Details</h1>
+<h2>Depth: </h2>
+<h3>Is this measure discrete: {{dimension.depth.isDiscrete}} </h3>
+<input [(ngModel)]="dimension.depth.value" placeholder="Value for depth"/>&nbsp;
+<input [(ngModel)]="dimension.depth.valueMax" placeholder="Value for max depth"/>
+<h2>Height: </h2>
+<h3>Is this measure discrete: {{dimension.height.isDiscrete}} </h3>
+<input [(ngModel)]="dimension.height.value" placeholder="Value for height"/>&nbsp;
+<input [(ngModel)]="dimension.height.valueMax" placeholder="Value for max height"/>
+<h2>Width: </h2>
+<h3>Is this measure discrete: {{dimension.width.isDiscrete}} </h3>
+<input [(ngModel)]="dimension.width.value" placeholder="Value for width"/>&nbsp;
+<input [(ngModel)]="dimension.width.valueMax" placeholder="Value for max width"/>
 
 <div>
+  <button (click)="delete()">Delete Dimension</button>
+  &nbsp;
   <button (click)="goBack()">Go Back</button>
 </div>

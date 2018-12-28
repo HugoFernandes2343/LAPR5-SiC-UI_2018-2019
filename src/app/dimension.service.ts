@@ -28,6 +28,21 @@ export class DimensionService {
       );
   }
 
+  addDimension(dimensionDTO: Dimension): Observable<Dimension> {
+    return this.http.post<Dimension>(this.dimensionUrl, dimensionDTO, httpOptions).pipe(
+      tap((dimensionDTO: Dimension) => this.log(`added dimension`)),
+      catchError(this.handleError<Dimension>('addDimension'))
+    );
+  }
+
+  getDimension(dimensionId: number): any {
+    const url = `${this.dimensionUrl}/${dimensionId}`;
+    return this.http.get<Dimension>(url).pipe(
+      tap(_ => this.log(`fetched dimension`)),
+      catchError(this.handleError<Dimension>('getDimension'))
+    );
+  }
+
   deleteDimension(dimension: Dimension): Observable<Dimension> {
     const url = `${this.dimensionUrl}/${dimension.dimensionId}`;
 

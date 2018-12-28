@@ -8,6 +8,9 @@ import { Dimension } from '../model/dimension';
 import { Material } from '../model/material';
 import { Finishing } from '../model/finishing';
 import { ShareService } from '../share.service';
+import { Measure } from '../model/measure';
+import { DimensionService } from '../dimension.service';
+import { MaterialService } from '../material.service';
 
 
 @Component({
@@ -21,36 +24,38 @@ export class ProductDetailComponent implements OnInit {
   @Input() dim: Dimension;
   @Input() mat: Material;
   @Input() mat_type: string;
-  @Input() fin: Finishing;
+  materials: Material[];
+  selectedMaterial: number;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
+    private dimensionService: DimensionService,
+    private materialService: MaterialService,
     private location: Location,
     private share: ShareService
   ) { }
 
   ngOnInit(): void {
-    if (this.share.checkData()) {
-      this.getProductActual();
-    } else {
-      this.getProduct();
-    }
-
+    this.getProduct();
+    this.getMaterials();
     this.initializeDim();
     this.initializeMat();
-    this.initializeFin();
+  }
+
+  getMaterials(): any {
+    this.materialService.getMaterials().subscribe(materials => this.materials = materials)
   }
 
   initializeDim(): any {
     this.dim = new Dimension;
+    this.dim.depth = new Measure;
+    this.dim.height = new Measure;
+    this.dim.width = new Measure;
   }
   initializeMat(): any {
     this.mat = new Material;
-    this.mat.finishesDTO = [];
-  }
-  initializeFin(): any {
-    this.fin = new Finishing;
+    this.mat.finishes = [];
   }
 
   getProduct(): void {
@@ -59,92 +64,73 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(product => this.product = product);
   }
 
-  getProductActual(): void {
-    this.product = this.share.getData();
-  }
-
   addDim(): void {
-    this.product.dimensions[this.product.dimensions.length] = this.dim;
-    this.share.setData(this.product);
-    window.location.reload();
+    if (this.dim.depth.value == null || this.dim.depth.value <= 0.0) {
+      this.initializeDim();
+      window.alert("Depth has invalid value");
+      return
+    }
+
+    if (this.dim.height.value == null || this.dim.height.value <= 0.0) {
+      this.initializeDim();
+      window.alert("Height has invalid value");
+      return
+    }
+
+    if (this.dim.width.value == null || this.dim.width.value <= 0.0) {
+      this.initializeDim();
+      window.alert("Width has invalid value");
+      return;
+    }
+
+    if (this.dim.depth.valueMax == null) {
+      this.dim.depth.valueMax = 0;
+    } else if (this.dim.depth.value >= this.dim.depth.valueMax) {
+      this.initializeDim();
+      window.alert("Max Depth must be bigger than Depth or non-existent");
+      return
+    }
+
+    if (this.dim.height.valueMax == null) {
+      this.dim.height.valueMax = 0;
+    } else if (this.dim.height.value >= this.dim.height.valueMax) {
+      this.initializeDim();
+      window.alert("Max Height must be bigger than Height or non-existent");
+      return
+    }
+
+    if (this.dim.width.valueMax == null) {
+      this.dim.width.valueMax = 0;
+    } else if (this.dim.width.value >= this.dim.width.valueMax) {
+      this.initializeDim();
+      window.alert("Max Width must be bigger than Width or non-existent");
+      return
+    }
+
+    this.dimensionService.addDimension(this.dim)
+      .subscribe(dimension => this.productService.addDimension(this.product.productId, dimension.dimensionId)
+        .subscribe(() => window.location.reload()));
   }
 
   addMat(): void {
-    if(this.checkMat()){
-      window.alert("The Material already exixsts or the field is empty");
-    } else {
-      this.product.materials[this.product.materials.length] = this.mat;
-      this.share.setData(this.product);
-      window.location.reload();
-    }
+    this.productService.addMaterial(this.product.productId, this.selectedMaterial).subscribe(() => window.location.reload());
   }
 
-  addFin(): void {
-    if(this.checkFin()){
-      window.alert("Invalid fields");
-    } else{
-      for (let i = 0; i < this.product.materials.length; i++) {
-        if (this.product.materials[i].type == this.mat_type) {
-          this.product.materials[i].finishesDTO[this.product.materials[i].finishesDTO.length] = this.fin;
-          this.share.setData(this.product);
-          window.location.reload();
-        }
-      }
-    }
-  }
-
-  checkMat(): any {
-    this.mat.type = this.mat.type.trim();
-    if (!this.mat.type) {
-      return true;
-    }
-    for (let i = 0; i < this.product.materials.length; i++) {
-      if (this.product.materials[i].type == this.mat.type) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  checkFin(): any {
-    this.mat_type = this.mat_type.trim();
-    this.fin.type = this.fin.type.trim();
-    let flag=1;
-    if (!this.fin.type) {
-      return true;
-    }
-    if (!this.mat_type) {
-      return true;
-    }
-    for (let i = 0; i < this.product.materials.length; i++) {
-      if (this.product.materials[i].type == this.mat_type) {
-        flag=0;
-        for (let j = 0; j < this.product.materials[i].finishesDTO.length; j++) {
-          if (this.product.materials[i].finishesDTO[j].type == this.fin.type) {
-            return true;
-          }
-        }
-      }
-    }
-    if(flag>0){
-      return true;
-    }
-    return false;
+  delMat(materialId: number): void {
+    this.productService.removeMaterial(this.product.productId, materialId)
+      .subscribe(() => window.location.reload());
   }
 
   reset(): void {
-    this.share.clearData();
     window.location.reload();
   }
 
   goBack(): void {
-    this.share.clearData();
     this.location.back();
   }
 
   save(): void {
-    this.share.clearData();
     this.productService.updateProduct(this.product)
-      .subscribe(() => this.goBack());
+      .subscribe(() => window.location.reload());
   }
 }

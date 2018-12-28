@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Dimension } from '../model/dimension';
 import { DimensionService } from '../dimension.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dimension',
@@ -10,9 +11,9 @@ import { DimensionService } from '../dimension.service';
 })
 export class DimensionComponent implements OnInit {
   @Input() dimension: Dimension;
-  dimensions: Dimension[];
 
   constructor(
+    private route: ActivatedRoute,
     private dimensionService: DimensionService,
     private location: Location
   ) {
@@ -20,21 +21,21 @@ export class DimensionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.displayList();
+    this.getDimension();
   }
 
-  displayList(): void {
+  getDimension(): void {
 
-    this.dimensionService.getDimensions()
-      .subscribe(dimensions => this.dimensions = dimensions);
+    const id = +this.route.snapshot.paramMap.get('dimensionId');
+    this.dimensionService.getDimension(id)
+      .subscribe(dimension => this.dimension = dimension);
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  delete(dimension: Dimension): void {
-    this.dimensions = this.dimensions.filter(c => c !== dimension);
-    this.dimensionService.deleteDimension(dimension).subscribe();
+  delete(): void {
+    this.dimensionService.deleteDimension(this.dimension).subscribe(() => this.goBack());
   }
 }
