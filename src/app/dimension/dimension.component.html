@@ -1,0 +1,15 @@
+<h1>List of all the Dimensions</h1>
+
+<ul class="dimensions">
+  <li *ngFor="let dimension of dimensions">
+    <a>
+      <span class="badge"></span> {{dimension.length}};{{dimension.height}};{{dimension.width}};{{dimension.maxLength}};{{dimension.maxHeight}};{{dimension.maxWidth}}
+    </a>
+    <button class="delete" title="delete dimension" 
+      (click)="delete(dimension)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

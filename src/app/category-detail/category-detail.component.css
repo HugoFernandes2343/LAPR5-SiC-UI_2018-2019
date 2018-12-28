@@ -1,0 +1,54 @@
+/* CategoryDetailComponent's private CSS styles */
+table {
+    table-layout: fixed;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+  }
+  th {
+    height: 30px;
+    background-color: #607D8B;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    color: #ccc;
+    text-align: center;
+  }
+  td {
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    color: black;
+    text-align: center;
+  }
+  
+  label {
+      display: inline-block;
+      width: 12em;
+      margin: .5em 0;
+      color: #607D8B;
+      font-weight: bold;
+    }
+    input {
+      height: 2em;
+      font-size: 1em;
+      padding-left: .4em;
+    }
+    button {
+      margin-top: 20px;
+      font-family: Arial;
+      background-color: #eee;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer; cursor: hand;
+    }
+    button:hover {
+      background-color: #cfd8dc;
+    }
+    button:disabled {
+      background-color: #eee;
+      color: #ccc;
+      cursor: auto;
+    }
+   
+  

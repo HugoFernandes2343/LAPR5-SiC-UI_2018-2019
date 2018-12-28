@@ -1,0 +1,85 @@
+<div *ngIf="product">
+  <h2>{{product.name | uppercase}} Details</h2>
+    <div>
+      <label>name:
+        <input [(ngModel)]="product.name" placeholder="name" />
+      </label>
+    </div>
+    <div>
+      <label>category:
+        <input [(ngModel)]="product.category.type" placeholder="name" />
+      </label>
+    </div>
+    <table style="width: 69em">
+      <tr>
+        <th>Dimensions</th>
+      </tr>
+    </table>
+    <table style="width: 69em">
+        <tr>
+          <th>Length</th>
+          <th>Height</th>
+          <th>Width</th>
+          <th>Max Length</th>
+          <th>Max Height</th>
+          <th>Max Width</th>
+        </tr>
+    </table>
+    <li *ngFor="let dimension of product.dimensions">
+      <table style="width: 69em">
+        <tr>
+          <td><input [(ngModel)]="dimension.length" placeholder="length" /></td>
+          <td><input [(ngModel)]="dimension.height" placeholder="height" /></td>
+          <td><input [(ngModel)]="dimension.width" placeholder="width" /></td>
+          <td><input [(ngModel)]="dimension.maxLength" placeholder="maxLength" /></td>
+          <td><input [(ngModel)]="dimension.maxHeight" placeholder="maxHeight" /></td>
+          <td><input [(ngModel)]="dimension.maxWidth" placeholder="maxWidth" /></td>
+         </tr>
+      </table>
+    </li>
+    <p></p>
+    <table style="width: 69em">
+      <tr>
+        <td><input [(ngModel)]="dim.length" placeholder="length" /></td>
+        <td><input [(ngModel)]="dim.height" placeholder="height" /></td>
+        <td><input [(ngModel)]="dim.width" placeholder="width" /></td>
+        <td><input [(ngModel)]="dim.maxLength" placeholder="maxLength" /></td>
+        <td><input [(ngModel)]="dim.maxHeight" placeholder="maxHeight" /></td>
+        <td><input [(ngModel)]="dim.maxWidth" placeholder="maxWidth" /></td>
+      </tr>
+    </table>
+    <button (click)="addDim()">Add Dimension</button>
+    <p></p>
+  <label>Materials and finishings
+  </label>
+  <li *ngFor="let material of product.materials">
+    <input [(ngModel)]="material.type" placeholder="name" />
+    <ul>
+      <li *ngFor="let finishing of material.finishesDTO">
+        <input [(ngModel)]="finishing.type" placeholder="name" />
+      </li>
+    </ul>
+  </li>
+
+  <div>
+    <label>New Material:
+      <input [(ngModel)]="mat.type" placeholder="New Material" />
+    </label>
+    <button (click)="addMat()">Add Material</button>
+  </div>
+
+  <div>
+    <label>New Finishing:
+        <input [(ngModel)]="mat_type" placeholder="Material for update" />
+      <input [(ngModel)]="fin.type" placeholder="New Finishing" />
+    </label>
+    <button (click)="addFin()">Add Finishing</button>
+  </div>
+
+  <div>
+    <button (click)="reset()">Reset</button>
+    <button (click)="goBack()">Exit</button>
+    <button (click)="save()">Save</button>
+  </div>
+</div>
+

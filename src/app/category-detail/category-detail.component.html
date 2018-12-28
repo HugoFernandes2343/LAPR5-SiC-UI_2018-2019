@@ -1,0 +1,19 @@
+<div *ngIf="category">
+  <h2>{{category.type | uppercase}} Details</h2>
+  <div>
+    <label>Full Taxonomie:
+      <input [(ngModel)]="category.type" placeholder="name" />
+    </label>
+  </div>
+  <div>
+    <label>New category:
+      <input [(ngModel)]="new_cat" placeholder="full taxonomie" />
+    </label>
+    <button (click)="addCategory()">Add Category</button>
+  </div>
+  <div>
+    <button (click)="goBack()">Exit</button>
+    <button (click)="save()">Save</button>
+  </div>
+</div>
+

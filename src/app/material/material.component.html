@@ -1,0 +1,15 @@
+<h1>List of all the Materials</h1>
+
+<ul class="materials">
+  <li *ngFor="let material of materials">
+    <a>
+      <span class="badge"></span> {{material.type}}
+    </a>
+    <button class="delete" title="delete material" 
+      (click)="delete(material)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

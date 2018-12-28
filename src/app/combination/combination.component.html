@@ -1,0 +1,25 @@
+<h1>List of all the Combinations</h1>
+
+<ul class="combinations">
+  <li *ngFor="let combination of combinations"> 
+    <a>
+      <span class="badge"></span> {{combination.containingProduct}} & {{combination.containedProduct}} required: {{combination.required}}
+    </a>
+    <button class="delete" title="delete combination" 
+      (click)="delete(combination)">x</button>
+  </li>
+</ul>
+
+<div>
+  <label>New Combination:
+    <input [(ngModel)]="containingProduct" placeholder="Containing Product" />
+    <input [(ngModel)]="containedProduct" placeholder="Contained Product" />
+    <input [(ngModel)]="required" placeholder="Required: true or false" />
+  </label>
+</div>
+  
+
+<div>
+  <button (click)="addCombination()">Add Combination</button>
+  <button (click)="goBack()">Go Back</button>
+</div>

@@ -1,0 +1,15 @@
+<h1>List of all the Categories</h1>
+
+<ul class="categories">
+  <li *ngFor="let category of categories">
+    <a routerLink="/Category/{{category.categoryId}}">
+      <span class="badge"></span> {{category.type}}
+    </a>
+    <button class="delete" title="delete category" 
+      (click)="delete(category)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

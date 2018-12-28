@@ -1,0 +1,15 @@
+<h1>List of all the Items</h1>
+
+<ul class="items">
+  <li *ngFor="let itemProduct of items">
+    <a routerLink="/ItemProduct/{{itemProduct.itemId}}">
+      <span class="badge"></span> {{itemProduct.name}}
+    </a>
+    <button class="delete" title="delete itemProduct" 
+      (click)="delete(itemProduct)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

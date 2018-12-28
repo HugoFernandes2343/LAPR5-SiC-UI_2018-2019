@@ -1,33 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { DashboardComponent } from './model/dashboard/dashboard.component';
-import { CatalogComponent } from './model/catalog/catalog.component';
-import { LoginComponent } from './model/login/login.component';
-import { RegisterComponent } from './model/register/register.component';
-import { ProductComponent } from './model/product/product.component';
-import { WizardStep1Component } from './model/wizard/wizard-step1/wizard-step1.component';
-import { WizardStep2Component } from './model/wizard/wizard-step2/wizard-step2.component';
-import { WizardStep3Component } from './model/wizard/wizard-step3/wizard-step3.component';
-import { AboutComponent } from './model/about/about.component';
-import { EditProductComponent } from './model/edit-product/edit-product.component';
-import { CreateProductComponent } from './model/create-product/create-product.component';
-import { ListItemproductComponent } from './model/list-itemproduct/list-itemproduct.component';
+import { SiCCMDashboardComponent } from './si-c-cm-dashboard/si-c-cm-dashboard.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ItemProductComponent } from './itemproduct/itemproduct.component';
+import { SicClientDashboardComponent } from './sic-client-dashboard/sic-client-dashboard.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { MaterialComponent } from './material/material.component';
+import { FinishingComponent } from './finishing/finishing.component';
+import { DimensionComponent } from './dimension/dimension.component';
+import { CombinationComponent } from './combination/combination.component';
+import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'catalog', component: CatalogComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'product/:id', component: ProductComponent },
-  { path: 'wizard1/:id', component: WizardStep1Component },
-  { path: 'wizard2', component: WizardStep2Component },
-  { path: 'wizard3', component: WizardStep3Component },
-  { path: 'about', component: AboutComponent },
-  { path: 'edit/:id', component: EditProductComponent },
-  { path: 'create-product', component: CreateProductComponent },
-  { path: 'list-itemproduct', component: ListItemproductComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: 'SiC_it1', component: SiCCMDashboardComponent },
+  { path: 'SiC_it2', component: SicClientDashboardComponent},
+  { path: 'Product', component: ProductComponent },
+  { path: 'Product/:productId', component: ProductDetailComponent },
+  { path: 'ItemProduct', component: ItemProductComponent},
+  { path: 'Category', component: CategoryComponent},
+  { path: 'Category/:categoryId', component: CategoryDetailComponent },
+  { path: 'Finishing', component: FinishingComponent},
+  { path: 'Material', component: MaterialComponent},
+  { path: 'Dimension', component: DimensionComponent},
+  { path: 'Combination', component: CombinationComponent},
+  { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
+  { path: 'Order', component: OrderComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,15 @@
+<h1>List of all the Finishings</h1>
+
+<ul class="finishings">
+  <li *ngFor="let finishing of finishings">
+    <a>
+      <span class="badge"></span> {{finishing.type}}
+    </a>
+    <button class="delete" title="delete finishing" 
+      (click)="delete(finishing)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>
