@@ -46,7 +46,7 @@ export class CatalogService {
     );
   }
 
-  updateProduct(catalog: Catalog): Observable<Catalog> {
+  updateCatalog(catalog: Catalog): Observable<Catalog> {
     const url = `${this.catalogUrl}/${catalog.catalogId}`;
     return this.http.put(url, JSON.stringify(catalog), httpOptions).pipe(
       tap(_ => this.log(`updated catalog`)),
