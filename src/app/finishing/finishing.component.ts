@@ -9,7 +9,7 @@ import { FinishingService } from '../finishing.service';
   styleUrls: ['./finishing.component.css']
 })
 export class FinishingComponent implements OnInit {
-  @Input() finishing: Finishing;
+  @Input() fin: Finishing;
   finishings: Finishing[];
 
   constructor(
@@ -21,12 +21,31 @@ export class FinishingComponent implements OnInit {
 
   ngOnInit() {
     this.displayList();
+    this.initializeFinishing();
   }
 
   displayList(): void {
 
     this.finishingService.getFinishings()
       .subscribe(finishings => this.finishings = finishings);
+  }
+
+  initializeFinishing(): any {
+    this.fin= new Finishing();
+  }
+
+  save(): void {
+    this.fin.name = this.fin.name.trim();
+    if (!this.fin.name) { return; }
+
+    this.fin.description = this.fin.description.trim();
+    if (!this.fin.description) { return; }
+
+    this.finishingService.addFinishing(this.fin).subscribe(() => window.location.reload());
+  }
+
+  reset(): void {
+    window.location.reload();
   }
 
   goBack(): void {

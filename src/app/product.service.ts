@@ -47,6 +47,15 @@ export class ProductService {
     );
   }
 
+  deleteProduct(product: Product): any {
+    const url = `${this.productUrl}/${product.productId}`;
+
+    return this.http.delete<Product>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted product`)),
+      catchError(this.handleError<Product>('deleteProduct'))
+    );
+  }
+
   updateProduct(product: Product): Observable<Product> {
     const url = `${this.productUrl}/${product.productId}`;
     return this.http.put(url, JSON.stringify(product), httpOptions).pipe(

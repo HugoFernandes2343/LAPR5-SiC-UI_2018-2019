@@ -14,6 +14,7 @@ import { CombinationComponent } from './combination/combination.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderComponent } from './order/order.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
+import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'Category', component: CategoryComponent},
   { path: 'Category/:categoryId', component: CategoryDetailComponent },
   { path: 'Finishing', component: FinishingComponent},
+  { path: 'Finishing/:finishingId', component: FinishingDetailComponent },
   { path: 'Material', component: MaterialComponent},
   { path: 'Material/:materialId', component: MaterialDetailComponent },
   { path: 'Dimension/:dimensionId', component: DimensionComponent},

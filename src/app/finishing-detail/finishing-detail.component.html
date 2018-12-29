@@ -1,0 +1,23 @@
+<div *ngIf="finishing">
+    <h1>{{finishing.name | uppercase}} Details</h1>
+
+    <div>
+      <h3>Name:</h3>
+      <input [(ngModel)]="finishing.name" placeholder="name" />
+    </div>
+  
+    <div>
+      <h3>Description:</h3>
+      <textarea [(ngModel)]="finishing.description"></textarea>
+    </div>
+  
+    <div>
+      <button (click)="reset()">Reset</button>
+      &nbsp;
+      <button (click)="save()">Save</button>
+    </div>
+  
+    <div>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>

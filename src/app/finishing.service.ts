@@ -28,12 +28,35 @@ export class FinishingService {
       );
   }
 
+  getFinishing(id: number): any {
+    const url = `${this.finishingUrl}/${id}`;
+    return this.http.get<Finishing>(url).pipe(
+      tap(_ => this.log(`fetched finishing`)),
+      catchError(this.handleError<Finishing>(`getFinishing`))
+    );
+  }
+
   deleteFinishing(finishing: Finishing): Observable<Finishing> {
     const url = `${this.finishingUrl}/${finishing.finishingId}`;
 
     return this.http.delete<Finishing>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted finishing`)),
       catchError(this.handleError<Finishing>('deleteFinishing'))
+    );
+  }
+
+  addFinishing(finishingDTO: Finishing): any {
+    return this.http.post<Finishing>(this.finishingUrl, finishingDTO, httpOptions).pipe(
+      tap((finishingDTO: Finishing) => this.log(`added finishing`)),
+      catchError(this.handleError<Finishing>('addFinishing'))
+    );
+  }
+
+  updateFinishing(finishing: Finishing): any {
+    const url = `${this.finishingUrl}/${finishing.finishingId}`;
+    return this.http.put(url, JSON.stringify(finishing), httpOptions).pipe(
+      tap(_ => this.log(`updated finishing`)),
+      catchError(this.handleError<any>('updateFinishing'))
     );
   }
 

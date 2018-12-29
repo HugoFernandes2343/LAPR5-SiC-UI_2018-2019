@@ -49,6 +49,10 @@ export class MaterialComponent implements OnInit {
     window.location.reload();
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
   delete(material: Material): void {
     this.materials = this.materials.filter(m => m !== material);
     this.materialService.deleteMaterial(material).subscribe();

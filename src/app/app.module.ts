@@ -20,6 +20,7 @@ import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-det
 import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
+import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MaterialDetailComponent } from './material-detail/material-detail.compo
     ItemproductDetailComponent,
     CombinationComponent,
     OrderComponent,
-    MaterialDetailComponent
+    MaterialDetailComponent,
+    FinishingDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

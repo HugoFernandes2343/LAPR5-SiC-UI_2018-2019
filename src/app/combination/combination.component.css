@@ -51,36 +51,45 @@
     border-radius: 4px 0 0 4px;
   }
   
-  button {
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
-    font-family: Arial;
-  }
-  
-  button:hover {
-    background-color: #cfd8dc;
-  }
-  
-  button.delete {
-    position: relative;
-    left: 220px;
-    top: -37px;
-    background-color: gray !important;
-    color: white;
-  }
   label {
     display: inline-block;
-    width: 12em;
+    width: 100%;
     margin: .5em 0;
     color: #607D8B;
     font-weight: bold;
   }
   input {
     height: 2em;
+    padding: .4em;
+    box-sizing: border-box;
+    border: 2px solid #607D8B;
+    font-family: Arial;
     font-size: 1em;
-    padding-left: .4em;
+    border-radius: 4px;
+    background-color: #ffffff;
+  }
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    font-size: 1em;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer; cursor: hand;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+  button.delete {
+    position: relative;
+    left: 194px;
+    top: -60px;
+    background-color: gray !important;
+    color: white;
   }

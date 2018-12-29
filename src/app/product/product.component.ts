@@ -59,6 +59,10 @@ export class ProductComponent implements OnInit {
     window.location.reload();
   }
 
+  delete(product: Product): void {
+    this.productService.deleteProduct(product).subscribe(() => window.location.reload());
+  }
+
   goBack(): void {
     this.location.back();
   }

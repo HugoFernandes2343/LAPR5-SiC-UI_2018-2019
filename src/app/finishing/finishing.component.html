@@ -2,13 +2,30 @@
 
 <ul class="finishings">
   <li *ngFor="let finishing of finishings">
-    <a>
-      <span class="badge"></span> {{finishing.type}}
+    <a routerLink="/Finishing/{{finishing.finishingId}}">
+      <span class="badge"></span> {{finishing.name}}
     </a>
-    <button class="delete" title="delete finishing" 
-      (click)="delete(finishing)">x</button>
+    <button class="delete" title="delete finishing" (click)="delete(finishing)">x</button>
   </li>
 </ul>
+
+<h1>Create a new Finishing</h1>
+
+<div>
+  <h2>Name:</h2>
+  <input [(ngModel)]="fin.name" placeholder="name" />
+</div>
+
+<div>
+  <h2>Description:</h2>
+  <textarea [(ngModel)]="fin.description"></textarea>
+</div>
+
+<div>
+  <button (click)="reset()">Reset Fields</button>
+  &nbsp;
+  <button (click)="save()">Save Finishing</button>
+</div>
 
 <div>
   <button (click)="goBack()">Go Back</button>
