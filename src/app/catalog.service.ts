@@ -30,7 +30,7 @@ export class CatalogService {
   }
 
   /** GET catalog by id. */
-  getProduct(id: number): Observable<Catalog> {
+  getCatalog(id: number): Observable<Catalog> {
     const url = `${this.catalogUrl}/${id}`;
     return this.http.get<Catalog>(url).pipe(
       tap(_ => this.log(`fetched catalog`)),
@@ -52,14 +52,14 @@ export class CatalogService {
       tap(_ => this.log(`updated catalog`)),
       catchError(this.handleError<any>('updateCatalog'))
     );
-  } 
+  }
 
-/**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result 
- */
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result 
+   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

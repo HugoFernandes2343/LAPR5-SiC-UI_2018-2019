@@ -4,6 +4,6 @@ export class Catalog {
     catalogId: number;
     name: string;
     description: string;
-    date : Date;
-    product_list : Product[];
+    date: Date;
+    product_list: Product[];
 }

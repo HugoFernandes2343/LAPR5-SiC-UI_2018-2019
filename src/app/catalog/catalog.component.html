@@ -1,3 +1,15 @@
-<p>
-  catalog works!
-</p>
+<h1>List of all the Catalogs</h1>
+
+<ul class="catalogs">
+  <li *ngFor="let catalog of catalogs">
+    <a routerLink="/Catalog/{{catalog.catalogId}}">
+      <span class="badge"></span> {{catalog.name}}
+    </a>
+    <button class="delete" title="delete catalog" 
+      (click)="delete(catalog)">x</button>
+  </li>
+</ul>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

@@ -13,6 +13,8 @@ import { DimensionComponent } from './dimension/dimension.component';
 import { CombinationComponent } from './combination/combination.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderComponent } from './order/order.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';  
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: 'Dimension/:dimensionId', component: DimensionComponent},
   { path: 'Combination', component: CombinationComponent},
   { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
-  { path: 'Order', component: OrderComponent}
+  { path: 'Order', component: OrderComponent},
+  { path: 'Catalog', component: CatalogComponent},
+  { path: 'Catalog/:catalogId', component: CatalogDetailComponent}
 ];
 
 @NgModule({
