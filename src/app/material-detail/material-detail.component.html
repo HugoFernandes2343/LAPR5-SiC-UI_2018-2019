@@ -1,0 +1,43 @@
+<div *ngIf="material">
+  <h1>{{material.name | uppercase}} Details</h1>
+
+  <h2>Basic Informations</h2>
+
+  <div>
+    <h3>Name:</h3>
+    <input [(ngModel)]="material.name" placeholder="name" />
+  </div>
+
+  <div>
+    <h3>Description:</h3>
+    <textarea [(ngModel)]="material.description"></textarea>
+  </div>
+
+  <div>
+    <button (click)="reset()">Reset basic informations</button>
+    &nbsp;
+    <button (click)="save()">Save basic informations</button>
+  </div>
+
+  <h3>Finishings (Press x to remove finishing from material)</h3>
+
+  <ul class="finishings">
+    <li *ngFor="let finishing of material.finishes">
+      <a routerLink="/Finishing/{{finishing.finishingId}}">
+        <span class="badge"></span> {{finishing.name}}
+      </a>
+      <button class="delete" title="delete" (click)="delFin(finishing.finishingId)">x</button>
+    </li>
+  </ul>
+
+  <h3>Add a Finishing</h3>
+  <select name="finishing" [(ngModel)]="selectedFinishing">
+      <option *ngFor="let finishing of finishings" value={{finishing.finishingId}}>{{finishing.name}}: {{finishing.description}}</option>
+  </select>
+  <button (click)="addFin()">Add Finishing</button>
+
+
+  <div>
+    <button (click)="goBack()">Go Back</button>
+  </div>
+</div>

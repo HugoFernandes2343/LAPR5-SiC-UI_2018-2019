@@ -28,12 +28,51 @@ export class MaterialService {
       );
   }
 
+  addMaterial(materialDTO: Material): any {
+    return this.http.post<Material>(this.materialUrl, materialDTO, httpOptions).pipe(
+      tap((materialDTO: Material) => this.log(`added material`)),
+      catchError(this.handleError<Material>('addMaterial'))
+    );
+  }
+
   deleteMaterial(material: Material): Observable<Material> {
     const url = `${this.materialUrl}/${material.materialId}`;
 
     return this.http.delete<Material>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted material`)),
       catchError(this.handleError<Material>('deleteMaterial'))
+    );
+  }
+
+  getMaterial(id: number): any {
+    const url = `${this.materialUrl}/${id}`;
+    return this.http.get<Material>(url).pipe(
+      tap(_ => this.log(`fetched material`)),
+      catchError(this.handleError<Material>(`getMaterial`))
+    );
+  }
+
+  addFinishing(materialId: number, selectedFinishing: number): any {
+    const url = `${this.materialUrl}/${materialId}/Finishing/${selectedFinishing}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`added new finishing to material`)),
+      catchError(this.handleError<any>('addFinishing'))
+    );
+  }
+
+  removeFinishing(materialId: number, finishingId: number): any {
+    const url = `${this.materialUrl}/${materialId}/Finishing/${finishingId}`;
+    return this.http.delete(url, httpOptions).pipe(
+      tap(_ => this.log(`removed finishing from material`)),
+      catchError(this.handleError<any>('removeFinishing'))
+    );
+  }
+
+  updateMaterial(material: Material): any {
+    const url = `${this.materialUrl}/${material.materialId}`;
+    return this.http.put(url, JSON.stringify(material), httpOptions).pipe(
+      tap(_ => this.log(`updated material`)),
+      catchError(this.handleError<any>('updateMaterial'))
     );
   }
 

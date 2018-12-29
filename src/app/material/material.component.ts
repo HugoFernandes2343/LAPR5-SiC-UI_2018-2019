@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Material } from '../model/material';
 import { MaterialService } from '../material.service';
+import { windowTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-material',
@@ -9,7 +10,7 @@ import { MaterialService } from '../material.service';
   styleUrls: ['./material.component.css']
 })
 export class MaterialComponent implements OnInit {
-  @Input() material: Material;
+  @Input() mat: Material;
   materials: Material[];
 
   constructor(
@@ -21,6 +22,7 @@ export class MaterialComponent implements OnInit {
 
   ngOnInit() {
     this.displayList();
+    this.initializeMaterial();
   }
 
   displayList(): void {
@@ -29,8 +31,22 @@ export class MaterialComponent implements OnInit {
       .subscribe(materials => this.materials = materials);
   }
 
-  goBack(): void {
-    this.location.back();
+  initializeMaterial(): any {
+    this.mat= new Material();
+  }
+
+  save(): void {
+    this.mat.name = this.mat.name.trim();
+    if (!this.mat.name) { return; }
+
+    this.mat.description = this.mat.description.trim();
+    if (!this.mat.description) { return; }
+
+    this.materialService.addMaterial(this.mat).subscribe(() => window.location.reload());
+  }
+
+  reset(): void {
+    window.location.reload();
   }
 
   delete(material: Material): void {
