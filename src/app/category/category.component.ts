@@ -9,7 +9,7 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  @Input() category: Category;
+  @Input() cat: Category;
   categories: Category[];
 
   constructor(
@@ -21,8 +21,9 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.displayList();
+    this.initializeCategory();
   }
-
+ 
   displayList(): void {
 
     this.categoryService.getCategories()
@@ -31,6 +32,21 @@ export class CategoryComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  initializeCategory(): any {
+    this.cat = new Category();
+  }
+
+  addCategory(): void {
+    this.cat.name = this.cat.name.trim();
+    if (!this.cat.name) { return; }
+    
+    this.cat.description = this.cat.description.trim();
+    if (!this.cat.description) { return; }
+
+    this.categoryService.addCategory(this.cat)
+    .subscribe(() => window.location.reload());
   }
 
   delete(category: Category): void {

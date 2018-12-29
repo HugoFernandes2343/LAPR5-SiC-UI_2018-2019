@@ -11,7 +11,6 @@ import { Category } from '../model/category';
 })
 export class CategoryDetailComponent implements OnInit {
   @Input() category: Category;
-  @Input() new_cat: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,15 +30,7 @@ export class CategoryDetailComponent implements OnInit {
 
   save(): void {
     this.categoryService.updateCategory(this.category)
-      .subscribe(() => this.goBack());
-  }
-
-  addCategory(): void {
-    this.new_cat = this.new_cat.trim();
-    if (!this.new_cat) { return; }
-    this.category.name=this.new_cat;
-    this.categoryService.addCategory(this.category)
-    .subscribe(() => this.goBack());
+      .subscribe(() => window.location.reload());
   }
 
   goBack(): void {

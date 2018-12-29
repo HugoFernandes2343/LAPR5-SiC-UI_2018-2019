@@ -10,6 +10,29 @@
   </li>
 </ul>
 
+<h1>Create a new Product</h1>
+
+  <div>
+    <h2>Name:</h2>
+    <input [(ngModel)]="product.name" placeholder="name" />
+  </div>
+
+  <div>
+    <h2>Description:</h2>
+    <textarea [(ngModel)]="product.description"></textarea>
+  </div>
+
+  <h2>Add a Category</h2>
+  <select name="category" [(ngModel)]="product.category">
+      <option *ngFor="let category of categories" value=category>{{category.name}}: {{category.description}}</option>
+  </select>
+
+  <div>
+    <button (click)="reset()">Reset Fields</button>
+    &nbsp;
+    <button (click)="save()">Save Product</button>
+  </div>
+
 <div>
   <button (click)="goBack()">Go Back</button>
 </div>

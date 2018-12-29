@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Product } from '../model/product';
 import { ProductService } from '../product.service';
+import { CategoryService } from '../category.service';
+import { Category } from '../model/category';
 
 @Component({
   selector: 'app-product',
@@ -12,31 +14,49 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
 
   products: Product[];
+  selectedCategory: number;
+  categories: Category[];
 
   constructor(
     private productService: ProductService,
+    private categoryService: CategoryService,
     private location: Location
   ) { }
 
   ngOnInit() {
     this.displayList();
+    this.getCategories();
+    this.initializeProduct();
   }
 
   displayList(): void {
 
     this.productService.getProducts()
       .subscribe(products => this.products = products);
+  }
 
-    /*var ul = document.querySelector("ul");
+  getCategories(): any {
+    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
+  }
 
-    for (var i = 0; i < this.products.length; i++) {
-      var element = this.products[i];
+  initializeProduct(): any {
+    this.product = new Product();
+  }
 
-      var listItem = document.createElement("li");
-      listItem.title = element.name;
-      listItem.textContent = element.category.name;
+  save(): void {
+    this.product.name = this.product.name.trim();
+    if (!this.product.name) { return; }
 
-      ul.appendChild(listItem);*/
+    this.product.description = this.product.description.trim();
+    if (!this.product.description) { return; }
+
+    if (this.product.category == null) { return; }
+
+    this.productService.addProduct(this.product).subscribe(() => window.location.reload());
+  }
+
+  reset(): void {
+    window.location.reload();
   }
 
   goBack(): void {

@@ -3,12 +3,31 @@
 <ul class="categories">
   <li *ngFor="let category of categories">
     <a routerLink="/Category/{{category.categoryId}}">
-      <span class="badge"></span> {{category.type}}
+      <span class="badge"></span> {{category.name}}
     </a>
     <button class="delete" title="delete category" 
       (click)="delete(category)">x</button>
   </li>
 </ul>
+
+<h1>New Category</h1>
+
+<div>
+  <h2>Taxonomie:</h2>
+  <h3>Please separate each category with a ; in order to build the taxonomie</h3>
+  <input [(ngModel)]="cat.name" placeholder="name" />
+</div>
+
+<div>
+  <h2>Description:</h2>
+  <textarea [(ngModel)]="cat.description"></textarea>
+</div>
+
+<div>
+  <button (click)="addCategory()">Add a Category</button>
+</div>
+
+<p></p>
 
 <div>
   <button (click)="goBack()">Go Back</button>
