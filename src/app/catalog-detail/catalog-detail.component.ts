@@ -33,7 +33,7 @@ export class CatalogDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('catalogId');
     this.catalogService.getCatalog(id)
       .subscribe(catalog => this.catalog = catalog);
-  }
+  } 
 
   displayCustomProducts(): any {
     this.productService.getProducts().subscribe(products => this.products = products);

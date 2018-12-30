@@ -23,7 +23,6 @@ export class CatalogComponent implements OnInit {
   }
 
   displayList(): void {
-
     this.catalogService.getCatalogs()
       .subscribe(catalogs => this.catalogs = catalogs);
   }

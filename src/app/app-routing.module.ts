@@ -15,6 +15,7 @@ import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-det
 import { OrderComponent } from './order/order.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';  
+import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component'; 
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
   { path: 'Order', component: OrderComponent},
   { path: 'Catalog', component: CatalogComponent},
-  { path: 'Catalog/:catalogId', component: CatalogDetailComponent}
+  { path: 'Catalog/:catalogId', component: CatalogDetailComponent},
+  { path: 'Catalog/Creator', component: CatalogCustomCreationComponent}
 ];
 
 @NgModule({

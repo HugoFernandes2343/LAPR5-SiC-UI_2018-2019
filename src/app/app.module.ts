@@ -21,6 +21,7 @@ import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
+import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { CatalogDetailComponent } from './catalog-detail/catalog-detail.componen
     CombinationComponent,
     OrderComponent,
     CatalogComponent,
-    CatalogDetailComponent
+    CatalogDetailComponent,
+    CatalogCustomCreationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

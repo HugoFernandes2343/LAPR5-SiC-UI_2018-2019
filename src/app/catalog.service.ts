@@ -4,6 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 import { Catalog } from './model/catalog';
+import { Product } from './model/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
