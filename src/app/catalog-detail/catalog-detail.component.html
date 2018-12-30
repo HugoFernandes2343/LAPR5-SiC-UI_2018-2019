@@ -1,0 +1,47 @@
+<h1>Catalog Details</h1>
+
+<h2>Catalog {{catalog.name}} Details</h2>
+
+<div>
+  <h3>Name:</h3>
+  <input [(ngModel)]="catalog.name" placeholder="name" />
+</div>
+
+<div>
+  <h3>Description:</h3>
+  <textarea [(ngModel)]="catalog.description"></textarea>
+</div>
+
+</div>
+
+<div class="cards">
+  <div *ngFor="let product of products">
+    <a routerLink="/Product/{{product.productId}}">
+      <div class="card">
+        <div class="card-header">
+          <div><input class="checkForm" type="checkbox"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">{{product.name}}
+          </div>
+          <div class="card-desc">{{product.description}}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<h1>==============WIP==============</h1>
+
+<div>
+  <button (click)="reset()">Reset</button>
+</div>
+
+<div>
+  <button (click)="save()">Save basic informations</button>
+</div>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

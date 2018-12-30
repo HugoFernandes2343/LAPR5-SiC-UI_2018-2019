@@ -21,6 +21,9 @@ import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
+import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
 
 
 @NgModule({
@@ -48,7 +51,10 @@ import { FinishingDetailComponent } from './finishing-detail/finishing-detail.co
     CombinationComponent,
     OrderComponent,
     MaterialDetailComponent,
-    FinishingDetailComponent
+    FinishingDetailComponent,
+    CatalogComponent,
+    CatalogDetailComponent,
+    CatalogCustomCreationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

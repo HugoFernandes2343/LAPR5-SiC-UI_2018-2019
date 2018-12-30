@@ -1,0 +1,33 @@
+<h1>List of all the Catalogs</h1>
+
+
+<div class="cards">
+  <div *ngFor="let catalog of catalogs">
+    <a routerLink="/Catalog/{{catalog.catalogId}}">
+      <div class="card">
+        <div class="card-header">
+          <div><input class="checkForm" type="checkbox"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">{{catalog.name}}
+          </div>
+          <div class="card-desc">{{catalog.description}}
+          </div>
+          <div>
+            <button class="delete" title="delete catalog" (click)="delete(catalog)">x</button>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div>
+  <a routerLink="/Catalog/Creator">
+    <button>Create Custom Catalog</button>
+  </a>
+</div>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>
