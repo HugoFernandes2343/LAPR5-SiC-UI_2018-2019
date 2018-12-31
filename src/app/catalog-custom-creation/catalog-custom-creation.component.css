@@ -63,6 +63,26 @@
     font-size:0.85rem;
     line-height:17px;
   }
+
+  button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+  }
+  
+  button:hover {
+    background-color: #cfd8dc;
+  }
+
+  .endButtons{
+    display:flex;
+    justify-content:space-around;
+    flex-flow:wrap;
+  }
   .checkForm{
     height:30px;
     width:30px; 
