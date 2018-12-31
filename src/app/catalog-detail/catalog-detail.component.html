@@ -12,7 +12,11 @@
   <textarea [(ngModel)]="catalog.description"></textarea>
 </div>
 
+<div>
+  <h3>Date of creation: {{catalog.date}}</h3>
 </div>
+
+<h2>List of Products</h2>
 
 <div class="cards">
   <div *ngFor="let product of products">
@@ -39,7 +43,7 @@
 </div>
 
 <div>
-  <button (click)="save()">Save basic informations</button>
+  <button (click)="save()">Save</button>
 </div>
 
 <div>
