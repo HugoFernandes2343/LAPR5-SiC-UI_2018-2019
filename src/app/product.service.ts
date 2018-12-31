@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class ProductService {
 
-  //private productUrl = 'https://lapr5-gc.azurewebsites.net/api/Product';
-  private productUrl = 'https://localhost:5001/api/Product';
+  private productUrl = 'https://lapr5-gc.azurewebsites.net/api/Product';
+  //private productUrl = 'https://localhost:5001/api/Product';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
