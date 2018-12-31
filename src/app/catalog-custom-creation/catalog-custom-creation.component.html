@@ -6,7 +6,7 @@
   <div *ngFor="let product of products">
     <div class="card">
       <div class="card-header">
-        <input class="checkForm" type="checkbox">
+        <input class="checkForm" type="checkbox" name="products" value="{{products}}" [checked]="products.indexOf(product) >= 0">
       </div>
       <div class="card-body">
         <a routerLink="/Product/{{product.productId}}">
@@ -29,13 +29,14 @@
   <textarea [(ngModel)]="description" placeholder="description"></textarea>
 </div>
 
-
-<div>
-  <button (click)="goBack()">Save Catalog</button>
-</div>
-<div>
-  <button (click)="reset()">Reset</button>
-</div>
-<div>
-  <button (click)="goBack()">Go Back</button>
+<div class="endButtons">
+  <div>
+    <button (click)="goBack()">Save Catalog</button>
+  </div>
+  <div>
+    <button (click)="reset()">Reset</button>
+  </div>
+  <div>
+    <button (click)="goBack()">Go Back</button>
+  </div>
 </div>
