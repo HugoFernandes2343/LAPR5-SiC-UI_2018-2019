@@ -1,0 +1,29 @@
+<div *ngIf="factory">
+  <h2>{{factory.description | uppercase}} Details</h2>
+
+  <h3>Basic Informations</h3>
+
+  <div>
+    <h3>Description:</h3>
+    <input [(ngModel)]="factory.description" placeholder="description" />
+  </div>
+
+  <div>
+    <h3>City</h3>
+    <div>
+      <label>Name: {{factory.city.name}}</label>
+    </div>
+    <div>
+      <label>Longitude: {{factory.city.longitude}}</label>
+    </div>
+    <div>
+      <label>Latitude: {{factory.city.latitude}}</label>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="reset()">Reset basic informations</button>
+    &nbsp;
+    <button (click)="save()">Save basic informations</button>
+  </div>
+</div>

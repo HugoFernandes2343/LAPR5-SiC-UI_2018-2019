@@ -25,6 +25,8 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { FactoriesComponent } from './factories/factories.component';
+import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     CatalogComponent,
     CatalogDetailComponent,
     CatalogCustomCreationComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    FactoriesComponent,
+    FactoryDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

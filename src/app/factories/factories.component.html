@@ -1,0 +1,34 @@
+<h1>List of all the Factories</h1>
+
+<div *ngIf="factories">
+  <ul class="factories">
+    <li *ngFor="let factory of factories">
+      <a routerLink="/Factories/{{factory.factoryId}}">
+        <span class="badge"></span> {{factory.description}}
+      </a>
+      <button class="delete" title="delete factory" (click)="delete(factory)">x</button>
+    </li>
+  </ul>
+</div>
+
+<h1>Create a new Factory</h1>
+
+<div>
+  <h2>Description:</h2>
+  <input [(ngModel)]="factory.description" placeholder="description" />
+</div>
+
+<h2>Chose a city</h2>
+<select name="city" [(ngModel)]="factory.city">
+  <option *ngFor="let city of cities" value=city>{{city.name}}</option>
+</select>
+
+<div>
+  <button (click)="reset()">Reset Fields</button>
+  &nbsp;
+  <button (click)="save()">Save Factory</button>
+</div>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>
