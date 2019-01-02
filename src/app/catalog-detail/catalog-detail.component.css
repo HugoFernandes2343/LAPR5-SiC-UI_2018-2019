@@ -52,22 +52,17 @@ table {
       background-color: #ffffff;
     }
     button {
-      margin-top: 20px;
-      font-family: Arial;
-      font-size: 1em;
       background-color: #eee;
       border: none;
       padding: 5px 10px;
       border-radius: 4px;
-      cursor: pointer; cursor: hand;
+      cursor: pointer;
+      cursor: hand;
+      font-family: Arial;
     }
+    
     button:hover {
       background-color: #cfd8dc;
-    }
-    button:disabled {
-      background-color: #eee;
-      color: #ccc;
-      cursor: auto;
     }
     .materials {
       margin: 0 0 2em 0;
@@ -138,5 +133,10 @@ table {
       font-size: 1em;
       border-radius: 4px;
       background-color: #ffffff;
+  }
+  .endButtons{
+    display:flex;
+    justify-content:space-around;
+    flex-flow:wrap;
   }
   

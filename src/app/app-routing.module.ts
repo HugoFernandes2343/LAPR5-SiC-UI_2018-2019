@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'Order/:orderId', component: OrderDetailComponent},
   { path: 'Catalog', component: CatalogComponent},
   { path: 'Catalog/:catalogId', component: CatalogDetailComponent},
-  { path: 'Catalog/Creator', component: CatalogCustomCreationComponent}
+  { path: 'CatalogCreator', component: CatalogCustomCreationComponent}
 ];
 
 @NgModule({

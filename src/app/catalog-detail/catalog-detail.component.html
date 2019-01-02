@@ -12,7 +12,11 @@
   <textarea [(ngModel)]="catalog.description"></textarea>
 </div>
 
+<div>
+  <h3>Date of creation: {{catalog.date}}</h3>
 </div>
+
+<h2>List of Products</h2>
 
 <div class="cards">
   <div *ngFor="let product of products">
@@ -34,14 +38,14 @@
 
 <h1>==============WIP==============</h1>
 
-<div>
-  <button (click)="reset()">Reset</button>
-</div>
-
-<div>
-  <button (click)="save()">Save basic informations</button>
-</div>
-
-<div>
-  <button (click)="goBack()">Go Back</button>
+<div class="endButtons">
+  <div>
+    <button (click)="save()">Save</button>
+  </div>
+  <div>
+    <button (click)="reset()">Reset</button>
+  </div>
+  <div>
+    <button (click)="goBack()">Go Back</button>
+  </div>
 </div>

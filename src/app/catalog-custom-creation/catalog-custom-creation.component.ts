@@ -12,7 +12,7 @@ import { ProductService } from '../product.service';
 })
 export class CatalogCustomCreationComponent implements OnInit {
 
-  //@Input() catalog: Catalog;
+  @Input() catalog: Catalog;
   @Input() name: string;
   @Input() description: string;
 
@@ -35,13 +35,11 @@ export class CatalogCustomCreationComponent implements OnInit {
   }
 
   createCustomCatalog(prodList: Product[]): void {
-    var catalog = new Catalog();
-    catalog.date = new Date();
-    catalog.name = this.name;
-    catalog.description = this.description;
-    catalog.product_list = prodList;
-
-    this.catalogService.addCatalog(catalog);
+    this.catalog.date = new Date();
+    this.catalog.name = this.name;
+    this.catalog.description = this.description;
+    this.catalog.product_list = prodList;
+    this.catalogService.addCatalog(this.catalog);
   }
 
   getSelectedProducts(): void {

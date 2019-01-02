@@ -4,25 +4,39 @@
 
 <div class="cards">
   <div *ngFor="let product of products">
-    <a routerLink="/Product/{{product.productId}}">
-      <div class="card">
-        <div class="card-header">
-          <div><input class="checkForm" type="checkbox"></div>
-        </div>
-        <div class="card-body">
-          <div class="card-title">{{product.name}}
-          </div>
-          <div class="card-desc">{{product.description}}
-          </div>
-        </div>
+    <div class="card">
+      <div class="card-header">
+        <input class="checkForm" type="checkbox" name="products" value="{{products}}" [checked]="products.indexOf(product) >= 0">
       </div>
-    </a>
+      <div class="card-body">
+        <a routerLink="/Product/{{product.productId}}">
+          <div class="card-title">{{product.name}}</div>
+        </a>
+        <div class="card-desc">{{product.description}}</div>
+      </div>
+    </div>
   </div>
 </div>
 
+
 <div>
-  <button (click)="reset()">Reset</button>
+  <h3>Name:</h3>
+  <textarea [(ngModel)]="name" placeholder="name"></textarea>
 </div>
+
 <div>
-  <button (click)="goBack()">Go Back</button>
+  <h3>Description:</h3>
+  <textarea [(ngModel)]="description" placeholder="description"></textarea>
+</div>
+
+<div class="endButtons">
+  <div>
+    <button (click)="goBack()">Save Catalog</button>
+  </div>
+  <div>
+    <button (click)="reset()">Reset</button>
+  </div>
+  <div>
+    <button (click)="goBack()">Go Back</button>
+  </div>
 </div>
