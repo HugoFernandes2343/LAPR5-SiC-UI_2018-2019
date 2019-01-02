@@ -42,13 +42,22 @@ export class CatalogCustomCreationComponent implements OnInit {
     this.catalogService.addCatalog(this.catalog);
   }
 
-  getSelectedProducts(): void {
-    var prodList: Product[];
+  updateCheckedProducts(option, event) {
+    //updates the selectedProducts array
+  }
+
+  getSelectedProducts(): any {
     //retriveve selected products in checkboxes
   }
 
   reset(): void {
     window.location.reload();
+  }
+
+  save(): void {
+    let productFinalList : Product[];
+    productFinalList = this.getSelectedProducts();
+    this.createCustomCatalog(productFinalList);
   }
 
   goBack(): void {

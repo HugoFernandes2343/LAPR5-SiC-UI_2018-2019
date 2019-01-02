@@ -6,7 +6,7 @@
   <div *ngFor="let product of products">
     <div class="card">
       <div class="card-header">
-        <input class="checkForm" type="checkbox" name="products" value="{{products}}" [checked]="products.indexOf(product) >= 0">
+        <input class="checkForm" type="checkbox" name="products_check" value="{{product}}" (change)="updateCheckedProducts(option, $event)"><!-- [checked]="products.indexOf(product) >= 0"-->
       </div>
       <div class="card-body">
         <a routerLink="/Product/{{product.productId}}">
@@ -31,7 +31,7 @@
 
 <div class="endButtons">
   <div>
-    <button (click)="goBack()">Save Catalog</button>
+    <button (click)="save()">Save Catalog</button>
   </div>
   <div>
     <button (click)="reset()">Reset</button>
