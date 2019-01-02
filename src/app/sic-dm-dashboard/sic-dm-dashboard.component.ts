@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
 
 @Component({
-  selector: 'app-sic-client-dashboard',
-  templateUrl: './sic-client-dashboard.component.html',
-  styleUrls: ['./sic-client-dashboard.component.css']
+  selector: 'app-sic-dm-dashboard',
+  templateUrl: './sic-dm-dashboard.component.html',
+  styleUrls: ['./sic-dm-dashboard.component.css']
 })
-export class SicClientDashboardComponent implements OnInit {
+export class SicDmDashboardComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,

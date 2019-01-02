@@ -1,0 +1,16 @@
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <input #Username type="text" placeholder="username" />
+        <input #Email type="text" placeholder="email" />
+        <input #Role type="text" placeholder=" Role (Client, Delivery Manager, Content Manager)" />
+        <input #Password type="password" placeholder="password" />
+        <input #confirmPassword type="password" placeholder="confirmPassword" />
+        <button type="button" (click)="register(Username.value,Email.value,Role.value,Password.value,confirmPassword.value);
+      Username.value='';Password.value='';Email.value='';Role.value='';confirmPassword.value='';">create</button>
+        <p class="message">Already registered? <a routerLink="/login">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+</body>

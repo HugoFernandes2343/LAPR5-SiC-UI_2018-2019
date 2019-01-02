@@ -1,29 +1,90 @@
-/* AppComponent's private CSS styles */
-h1 {
-    font-size: 1.2em;
-    color: #999;
-    margin-bottom: 0;
+body {
+  position: relative;
+  padding-top: 5em;
+}
+
+#header {
+  background: rgb(52, 103, 133);
+  color: #d5d5d5;
+  cursor: default;
+  height: 5em;
+  left: 0;
+  line-height: 5em;
+  position: fixed;
+  text-align: right;
+  top: 0;
+  width: 100%;
+  z-index: 10001;
+}
+
+  #header .inner {
+      max-width: 65em;
+      width: calc(100% - 6em);
+      margin: 0 auto;
+      position: relative;
   }
-  h2 {
-    font-size: 2em;
-    margin-top: 0;
-    padding-top: 0;
+
+      @media screen and (max-width: 480px) {
+
+          #header .inner {
+              max-width: 90%;
+              width: 90%;
+          }
+
+      }
+
+  #header .logo {
+      font-family: 'Verdana', cursive;
+      display: inline-block;
+      height: inherit;
+      left: 0;
+      line-height: inherit;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      color: #fdfdfd;
+      font-size: 1.75em;
+      text-transform: none;
+      font-weight: normal;
+      padding: 0;
   }
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
+
+  #header a {
+      font-family: 'Verdana';
+      -moz-transition: color 0.2s ease-in-out;
+      -webkit-transition: color 0.2s ease-in-out;
+      -ms-transition: color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out;
+      display: inline-block;
+      padding: 0 2em;
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .85em;
   }
-  nav a:visited, a:link {
-    color: #607d8b;
+
+      #header a:hover {
+          color: rgba(255, 255, 255, 0.75);
+      }
+
+      #header a:last-child {
+          padding-right: 0em;
+      }
+
+      @media screen and (max-width: 736px) {
+
+          #header a {
+              padding: 0 0.5em;
+          }
+
+      }
+
+@media screen and (max-width: 480px) {
+
+  #header {
+      min-width: 320px;
   }
-  nav a:hover {
-    color: #039be5;
-    background-color: #cfd8dc;
-  }
-  nav a.active {
-    color: #039be5;
-  }
+
+}

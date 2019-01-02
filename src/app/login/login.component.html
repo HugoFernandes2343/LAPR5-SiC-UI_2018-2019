@@ -1,0 +1,12 @@
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <input #Username type="text" placeholder="username" />
+        <input #Password type="password" placeholder="password" />
+        <button type="button" (click)="login(Username.value,Password.value);Username.value='';Password.value='';">login</button>
+        <p class="message">Not registered? <a routerLink="/RGPD">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</body>

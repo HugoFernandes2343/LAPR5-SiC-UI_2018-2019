@@ -25,6 +25,12 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { DeleteComponent } from './delete/delete.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RgpdComponent } from './rgpd/rgpd.component';
+import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.component';
 
 
 @NgModule({
@@ -56,7 +62,13 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     CatalogComponent,
     CatalogDetailComponent,
     CatalogCustomCreationComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    AuthenticationComponent,
+    DeleteComponent,
+    LoginComponent,
+    RegisterComponent,
+    RgpdComponent,
+    SicDmDashboardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

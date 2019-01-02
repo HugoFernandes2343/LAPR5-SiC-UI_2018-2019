@@ -1,0 +1,10 @@
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form class="login-form">
+        <input #Code type="text" placeholder="code" />
+        <button type="button" (click)="checkCode(Code.value);Code.value='';">check authentication code</button>
+      </form>
+    </div>
+  </div>
+</body>
