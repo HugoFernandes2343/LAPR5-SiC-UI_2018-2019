@@ -24,6 +24,7 @@ import { FinishingDetailComponent } from './finishing-detail/finishing-detail.co
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalo
     FinishingDetailComponent,
     CatalogComponent,
     CatalogDetailComponent,
-    CatalogCustomCreationComponent
+    CatalogCustomCreationComponent,
+    OrderDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
