@@ -41,6 +41,7 @@ export class ProductComponent implements OnInit {
 
   initializeProduct(): any {
     this.product = new Product();
+    this.product.category = new Category();
   }
 
   save(): void {
@@ -50,7 +51,9 @@ export class ProductComponent implements OnInit {
     this.product.description = this.product.description.trim();
     if (!this.product.description) { return; }
 
-    if (this.product.category == null) { return; }
+    if (this.selectedCategory == null) { return; }
+
+    this.product.category = this.categories.find(c => c.categoryId == this.selectedCategory);
 
     this.productService.addProduct(this.product).subscribe(() => window.location.reload());
   }

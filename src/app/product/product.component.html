@@ -23,8 +23,8 @@
   </div>
 
   <h2>Add a Category</h2>
-  <select name="category" [(ngModel)]="product.category">
-      <option *ngFor="let category of categories" value=category>{{category.name}}: {{category.description}}</option>
+  <select name="category" [(ngModel)]="selectedCategory">
+      <option *ngFor="let category of categories" value={{category.categoryId}}>{{category.name}}: {{category.description}}</option>
   </select>
 
   <div>

@@ -31,6 +31,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RgpdComponent } from './rgpd/rgpd.component';
 import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.component';
+import { FactoriesComponent } from './factories/factories.component';
+import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.com
     LoginComponent,
     RegisterComponent,
     RgpdComponent,
-    SicDmDashboardComponent
+    SicDmDashboardComponent,
+    FactoriesComponent,
+    FactoryDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

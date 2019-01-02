@@ -25,6 +25,8 @@ import { FinishingDetailComponent } from './finishing-detail/finishing-detail.co
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';  
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component'; 
+import { FactoriesComponent } from './factories/factories.component'; 
+import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -53,6 +55,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'delete', component: DeleteComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'Factories', component: FactoriesComponent },
+  { path: 'Factories/:factoryId', component: FactoryDetailComponent}
 ];
 
 @NgModule({
