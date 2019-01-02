@@ -13,6 +13,7 @@ import { DimensionComponent } from './dimension/dimension.component';
 import { CombinationComponent } from './combination/combination.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderComponent } from './order/order.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'Combination', component: CombinationComponent},
   { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
   { path: 'Order', component: OrderComponent},
+  { path: 'Order/:orderId', component: OrderDetailComponent},
   { path: 'Catalog', component: CatalogComponent},
   { path: 'Catalog/:catalogId', component: CatalogDetailComponent},
   { path: 'Catalog/Creator', component: CatalogCustomCreationComponent}

@@ -1,0 +1,44 @@
+<div *ngIf="order">
+    <h2>Order Details</h2>
+
+    <h3>Basic Informations</h3>
+
+    <div>
+        <label>Name: <input [(ngModel)]="order.orderName" placeholder="name" /></label>
+    </div>
+
+    <div>
+        <label>Address: <input [(ngModel)]="order.address" placeholder="address" /></label>
+    </div>
+
+    <div>
+        <label>Date: <input [(ngModel)]="order.date" placeholder="date" /></label>
+    </div>
+
+    <div>
+        <label>Status: <input [value]="order.status" placeholder="status" /></label>
+    </div>
+
+    <div>
+        <label>Cost: <input [value]="order.cost" placeholder="cost" /></label>
+    </div>
+
+    <h3>Products:</h3>
+    <ul class="order">
+        <li *ngFor="let item of itens">
+            <a routerLink="/order/{{order.orderId}}/itemproduct/{{itemproduct.productId}}">
+                <span class="badge">.</span> {{itemproduct.name}}
+            </a>
+        </li>
+    </ul>
+
+    <div>
+        <button (click)="reset()">Reset basic informations</button>
+        &nbsp;
+        <button (click)="save()">Save basic informations</button>
+    </div>
+
+    <div>
+        <button (click)="goBack()">Go Back</button>
+    </div>
+</div>

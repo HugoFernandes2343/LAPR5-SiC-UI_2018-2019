@@ -3,7 +3,6 @@ import { Location } from '@angular/common';
 import { Order } from '../model/Order';
 import { OrderService } from '../order.service';
 
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -21,13 +20,18 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.displayList();
+    this.getOrders();
   }
 
-  displayList(): void {
+  getOrders(): void {
 
     this.orderService.getOrders()
       .subscribe(orders => this.orders = orders);
+  }
+
+  delete(order: Order): void {
+    this.orders = this.orders.filter(h => h !== order);
+    this.orderService.deleteOrder(order).subscribe(() => window.location.reload());
   }
 
   goBack(): void {

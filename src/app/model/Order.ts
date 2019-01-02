@@ -6,5 +6,6 @@ export class Order {
     cost : number;
     address : string;
     date : Date;
+    status : string;
     item: ItemProduct;
 }
