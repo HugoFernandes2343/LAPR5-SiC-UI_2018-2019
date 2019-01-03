@@ -47,6 +47,14 @@ export class CatalogService {
     );
   }
 
+  addProductToCatalog(catalogId: number, productId: number) {
+    const url = `${this.catalogUrl}/${catalogId}/Product/${productId}`;
+    return this.http.put(url, httpOptions).pipe(
+      tap(_ => this.log(`added new product to catalog`)),
+      catchError(this.handleError<any>('addProductToCatalog'))
+    );
+  }
+
   updateCatalog(catalog: Catalog): Observable<Catalog> {
     const url = `${this.catalogUrl}/${catalog.catalogId}`;
     return this.http.put(url, JSON.stringify(catalog), httpOptions).pipe(
@@ -77,6 +85,6 @@ export class CatalogService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`ProductService: ${message}`);
+    this.messageService.add(`CatalogService: ${message}`);
   }
 }

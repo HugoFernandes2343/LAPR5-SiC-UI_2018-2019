@@ -2,8 +2,8 @@ import { Product } from './product';
 
 export class Catalog {
     catalogId: number;
-    name: string;
-    description: string;
+    catalogName: string;
+    catalogDescription: string;
     date: Date;
-    product_list: Product[];
+    products: Product[];
 }

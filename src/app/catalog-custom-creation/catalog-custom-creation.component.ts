@@ -18,22 +18,24 @@ export class CatalogCustomCreationComponent implements OnInit {
   @Input() name: string;
   @Input() description: string;
 
+  isVisible: boolean;
   size: number;
+  justAddedCatalog: Catalog;
   products: Product[];
   current_product: Product;
   selectedProducts: Product[];
-  //selectedProducts: Array<Product>;
 
   constructor(
     private catalogService: CatalogService,
     private productService: ProductService,
     private location: Location
   ) {
-    this.catalog = new Catalog();
     this.selectedProducts = [];
+    this.isVisible = false;
   }
 
   ngOnInit() {
+    this.catalog = new Catalog();
     this.displayList();
   }
 
@@ -46,12 +48,20 @@ export class CatalogCustomCreationComponent implements OnInit {
       });
   }
 
-  createCustomCatalog(prodList: Product[]): void {
+  createCustomCatalog(): void {
     this.catalog.date = new Date();
-    this.catalog.name = this.name;
-    this.catalog.description = this.description;
-    this.catalog.product_list = prodList;
-    this.catalogService.addCatalog(this.catalog);
+    this.catalog.catalogName = this.name;
+    this.catalog.catalogDescription = this.description;
+    this.catalogService.addCatalog(this.catalog).subscribe(cat => {
+      this.justAddedCatalog = cat;
+      this.isVisible = !this.isVisible;
+    });
+  }
+
+  addProductsToCatalog(): void {
+    for (let p of this.selectedProducts) {
+      this.catalogService.addProductToCatalog(this.justAddedCatalog.catalogId, p.productId);
+    }
   }
 
   addProductToList(product: Product): void {
@@ -90,15 +100,16 @@ export class CatalogCustomCreationComponent implements OnInit {
     window.location.reload();
   }
 
+  saveFirstStage(): void {
+    this.createCustomCatalog();
+  }
+
   save(): void {
-    let productFinalList: Product[];
-    productFinalList = this.getSelectedProducts();
-    this.createCustomCatalog(productFinalList);
-    console.log("Saving : ",this.catalog.name);
+    this.addProductsToCatalog();
+    console.log("Saving : ", this.catalog.catalogName);
   }
 
   goBack(): void {
-    //console.log("this.size : ", this.size);
     this.location.back();
   }
 
