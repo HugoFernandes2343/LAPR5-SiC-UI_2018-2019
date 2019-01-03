@@ -19,7 +19,6 @@ export class CatalogCustomCreationComponent implements OnInit {
   @Input() description: string;
 
   isVisible: boolean;
-  size: number;
   justAddedCatalog: Catalog;
   products: Product[];
   current_product: Product;
@@ -29,13 +28,12 @@ export class CatalogCustomCreationComponent implements OnInit {
     private catalogService: CatalogService,
     private productService: ProductService,
     private location: Location
-  ) {
-    this.selectedProducts = [];
-    this.isVisible = false;
-  }
+  ) { }
 
   ngOnInit() {
     this.catalog = new Catalog();
+    this.selectedProducts = [];
+    this.isVisible = false;
     this.displayList();
   }
 
@@ -43,7 +41,6 @@ export class CatalogCustomCreationComponent implements OnInit {
   displayList(): void {
     this.productService.getProducts()
       .subscribe(products => {
-        this.size = products.length;
         this.products = products;
       });
   }
@@ -55,13 +52,14 @@ export class CatalogCustomCreationComponent implements OnInit {
     this.catalogService.addCatalog(this.catalog).subscribe(cat => {
       this.justAddedCatalog = cat;
       this.isVisible = !this.isVisible;
-    });
+    }).remove;
   }
 
   addProductsToCatalog(): void {
     for (let p of this.selectedProducts) {
       this.catalogService.addProductToCatalog(this.justAddedCatalog.catalogId, p.productId);
     }
+    window.alert("Products Added");
   }
 
   addProductToList(product: Product): void {
