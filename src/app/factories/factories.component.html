@@ -19,8 +19,8 @@
 </div>
 
 <h2>Chose a city</h2>
-<select name="city" [(ngModel)]="factory.city">
-  <option *ngFor="let city of cities" value=city>{{city.name}}</option>
+<select name="city" [(ngModel)]="selectedCity">
+  <option *ngFor="let city of cities" value={{city.cityId}}>{{city.name}}</option>
 </select>
 
 <div>
