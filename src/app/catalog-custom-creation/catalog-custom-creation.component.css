@@ -1,89 +1,116 @@
-
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-.cards{
-    padding:20px 0;
-    display:flex;
-    justify-content:space-around;
-    flex-flow:wrap;
-  }
-  .card{
-    background-color:white;
-    height:300px;
-    width:300px;
-    margin-bottom:30px;
-    box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    border-radius:2px;
-    transition:all 0.5s ease;
-    font-weight:100;
-    overflow:hidden;
-  }
-  .card:hover{
-    box-shadow:0 20px 30px 0 rgba(0, 0, 0, 0.2);
-  }
-  .card-header{
-    height:155px;
-    background-image:url("//placehold.it/350x250/78c5d6/fff/image1.jpg");
-    background-size:cover;
-    background-position:center center;
-  }
-  .card-header.ch2{
-    background-image:url("//placehold.it/350x250/459ba8/fff/image2.jpg");
-  }
-  .card-header.ch3{
-    background-image:url("//placehold.it/350x250/79c267/fff/image3.jpg");
-  }
-  .card-header.ch4{
-    background-image:url("//placehold.it/350x250/c5d647/fff/image4.jpg");
-  }
-  .card-header.ch5{
-    background-image:url("//placehold.it/350x250/f28c33/fff/image5.jpg");
-  }
-  .card-header.ch6{
-    background-image:url("//placehold.it/350x250/e868a2/fff/image6.jpg");
-  }
-  .card-body{
-    padding:15px 15px 5px 15px;
-    color:#555;
-  }
-  .card-title{
-    font-size:1.4em;
-    margin-bottom:5px;
-  }
-  .card-sub-title{
-    color:#b3b3b3;
-    font-size:1em;
-    margin-bottom:15px;
-  }
-  .card-desc{
-    font-size:0.85rem;
-    line-height:17px;
-  }
+  box-sizing: border-box;
+}
 
-  button {
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
-    font-family: Arial;
-  }
-  
-  button:hover {
-    background-color: #cfd8dc;
-  }
+body {
+  margin: 0;
+}
 
-  .endButtons{
-    display:flex;
-    justify-content:space-around;
-    flex-flow:wrap;
-  }
-  .checkForm{
-    height:30px;
-    width:30px; 
-  }
+.cards {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.card {
+  background-color: white;
+  height: 300px;
+  width: 300px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  font-weight: 100;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  height: 155px;
+  background-image: url("//placehold.it/350x250/78c5d6/fff/image1.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.card-header.ch2 {
+  background-image: url("//placehold.it/350x250/459ba8/fff/image2.jpg");
+}
+
+.card-header.ch3 {
+  background-image: url("//placehold.it/350x250/79c267/fff/image3.jpg");
+}
+
+.card-header.ch4 {
+  background-image: url("//placehold.it/350x250/c5d647/fff/image4.jpg");
+}
+
+.card-header.ch5 {
+  background-image: url("//placehold.it/350x250/f28c33/fff/image5.jpg");
+}
+
+.card-header.ch6 {
+  background-image: url("//placehold.it/350x250/e868a2/fff/image6.jpg");
+}
+
+.card-body {
+  padding: 15px 15px 5px 15px;
+  color: #555;
+}
+
+.card-title {
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
+
+.card-sub-title {
+  color: #b3b3b3;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  line-height: 17px;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+.endButtons {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.checkForm {
+  height: 30px;
+  width: 30px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: .4em;
+  box-sizing: border-box;
+  border: 2px solid #607D8B;
+  font-family: Arial;
+  font-size: 1em;
+  border-radius: 4px;
+  background-color: #ffffff;
+  resize: none;
+}

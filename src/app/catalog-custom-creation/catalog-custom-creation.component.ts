@@ -94,6 +94,7 @@ export class CatalogCustomCreationComponent implements OnInit {
     let productFinalList: Product[];
     productFinalList = this.getSelectedProducts();
     this.createCustomCatalog(productFinalList);
+    console.log("Saving : ",this.catalog.name);
   }
 
   goBack(): void {
