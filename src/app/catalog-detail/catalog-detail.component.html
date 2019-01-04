@@ -21,32 +21,33 @@
 
 <div class="cards">
   <div *ngFor="let product of products">
-    <a routerLink="/Product/{{product.productId}}">
-      <div class="card">
-        <div class="card-header">
-          <div><input class="checkForm" type="checkbox"></div>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <button mat-button title="delete product" (click)="delete(product)">x</button>
         </div>
-        <div class="card-body">
+        <div><input class="checkForm" type="checkbox"></div>
+      </div>
+      <div class="card-body">
+        <a routerLink="/Product/{{product.productId}}">
           <div class="card-title">{{product.name}}
           </div>
-          <div class="card-desc">{{product.description}}
-          </div>
+        </a>
+        <div class="card-desc">{{product.description}}
         </div>
       </div>
-    </a>
+    </div>
   </div>
 </div>
 
-<h1>==============WIP==============</h1>
-
 <div class="endButtons">
   <div>
-    <button (click)="save()">Save</button>
+    <button mat-button (click)="save()">Save</button>
   </div>
   <div>
-    <button (click)="reset()">Reset</button>
+    <button mat-button (click)="reset()">Reset</button>
   </div>
   <div>
-    <button (click)="goBack()">Go Back</button>
+    <button mat-button (click)="goBack()">Go Back</button>
   </div>
 </div>

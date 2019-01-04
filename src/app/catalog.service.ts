@@ -47,7 +47,7 @@ export class CatalogService {
     );
   }
 
-  addProductToCatalog(catalogId: number, productId: number) {
+  addProductToCatalog(catalogId: number, productId: number) : Observable<Catalog> {
     const url = `${this.catalogUrl}/${catalogId}/Product/${productId}`;
     return this.http.put(url, httpOptions).pipe(
       tap(_ => this.log(`added new product to catalog`)),
@@ -60,6 +60,14 @@ export class CatalogService {
     return this.http.put(url, JSON.stringify(catalog), httpOptions).pipe(
       tap(_ => this.log(`updated catalog`)),
       catchError(this.handleError<any>('updateCatalog'))
+    );
+  }
+
+  deleteCatalog(catalog: Catalog): any {
+    const url = `${this.catalogUrl}/${catalog.catalogId}`;
+    return this.http.delete<Catalog>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted catalog`)),
+      catchError(this.handleError<Product>('deleteCatalog'))
     );
   }
 
