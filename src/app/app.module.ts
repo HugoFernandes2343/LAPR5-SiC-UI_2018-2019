@@ -36,7 +36,6 @@ import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.com
 import { FactoriesComponent } from './factories/factories.component';
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 import { PriceDetailComponent } from './price-detail/price-detail.component';
-import { PriceComponent } from './price/price.component';
 import { TimeoutComponent } from './timeout/timeout.component';
 
 
@@ -81,8 +80,8 @@ import { TimeoutComponent } from './timeout/timeout.component';
     FactoriesComponent,
     FactoryDetailComponent,
     PriceDetailComponent,
-    PriceComponent,
-    TimeoutComponent
+    TimeoutComponent,
+    PriceDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

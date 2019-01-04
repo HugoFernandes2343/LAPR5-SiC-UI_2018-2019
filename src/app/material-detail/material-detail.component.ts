@@ -5,6 +5,8 @@ import { Material } from '../model/material';
 import { Finishing } from '../model/finishing';
 import { MaterialService } from '../material.service';
 import { FinishingService } from '../finishing.service';
+import { Price } from '../model/price';
+import { PriceService } from '../price.service';
 
 @Component({
   selector: 'app-material-detail',
@@ -13,13 +15,18 @@ import { FinishingService } from '../finishing.service';
 })
 export class MaterialDetailComponent implements OnInit {
   @Input() material: Material;
+  @Input() value: number;
+  @Input() date: Date;
+  price: Price;
   finishings: Finishing[];
+  prices: Price[];
   selectedFinishing: number;
 
   constructor(
     private route: ActivatedRoute,
     private materialService: MaterialService,
     private finishingService: FinishingService,
+    private priceService: PriceService,
     private location: Location
   ) { }
 
@@ -29,13 +36,17 @@ export class MaterialDetailComponent implements OnInit {
   }
 
   getFinishings(): any {
-    this.finishingService.getFinishings().subscribe(finishings => this.finishings = finishings)
+    this.finishingService.getFinishings().subscribe(finishings => this.finishings = finishings);
+  }
+
+  getPrices(): any {
+    this.priceService.getPricesByEntity(this.material.name).subscribe(prices => this.prices = prices);
   }
 
   getMaterial(): void {
     const id = +this.route.snapshot.paramMap.get('materialId');
     this.materialService.getMaterial(id)
-      .subscribe(material => this.material = material);
+      .subscribe(material => { this.material = material, this.getPrices() });
   }
 
   addFin(): void {
@@ -44,6 +55,22 @@ export class MaterialDetailComponent implements OnInit {
 
   delFin(finishingId: number): void {
     this.materialService.removeFinishing(this.material.materialId, finishingId)
+      .subscribe(() => window.location.reload());
+  }
+
+  addPrice(): void {
+    if (this.value == null) { return; }
+    this.price = new Price();
+    this.price.price = this.value;
+    this.price.designation = this.material.name;
+    this.price.dateTime = this.date;
+
+    this.priceService.addPrice(this.price).subscribe(() => window.location.reload());
+
+  }
+
+  delPrice(priceId: number): void {
+    this.priceService.deletePrice(priceId)
       .subscribe(() => window.location.reload());
   }
 

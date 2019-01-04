@@ -56,12 +56,20 @@ export class PriceService {
   }
 
   /* DELETE price*/
-  deletePrice(price: Price): Observable<Price> {
-    const url = `${this.priceUrl}/${price.priceId}`;
+  deletePrice(priceId: number): Observable<Price> {
+    const url = `${this.priceUrl}/${priceId}`;
 
     return this.http.delete<Price>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted price id=${price.priceId}`)),
+      tap(_ => this.log(`deleted price`)),
       catchError(this.handleError<Price>('deletePrice'))
+    );
+  }
+
+  getPricesByEntity(name: string): any {
+    const url = `${this.priceUrl}/Search/${name}`;
+    return this.http.get<Price>(url).pipe(
+      tap(_ => this.log(`fetched prices`)),
+      catchError(this.handleError<Price>(`getPricesByEntity`))
     );
   }
 

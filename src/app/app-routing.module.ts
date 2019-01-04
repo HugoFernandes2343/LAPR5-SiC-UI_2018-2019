@@ -28,6 +28,7 @@ import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalo
 import { FactoriesComponent } from './factories/factories.component'; 
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 import { TimeoutComponent } from'./timeout/timeout.component';
+import { PriceDetailComponent } from './price-detail/price-detail.component';
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'timeout', component: TimeoutComponent },
   { path: 'delete', component: DeleteComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'Price/:priceId', component: PriceDetailComponent },
   { path: 'Factories', component: FactoriesComponent },
   { path: 'Factories/:factoryId', component: FactoryDetailComponent}
 ];

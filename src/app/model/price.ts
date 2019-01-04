@@ -1,5 +1,5 @@
 export class Price {
-    priceId: string;
+    priceId: number;
     designation: string;
     price: number;
     dateTime: Date;
