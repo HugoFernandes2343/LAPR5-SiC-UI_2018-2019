@@ -1,11 +1,13 @@
-<h1>List of all the Orders</h1>
-
-<ul class="orders">
-  <li *ngFor="let order of orders">
-    <a routerLink="/Order/{{order.orderId}}">
-      <span class="badge"></span> {{order.orderName}} {{order.date}} 
-    </a>
-    <button class="delete" title="delete order" (click)="delete(order)">Delete</button>
-    <button class="back" title="back" (click)="goBack()">Go Back</button>
-  </li>
-</ul>
+<h3>What do you want to do?</h3>
+<div class="grid grid-pad">
+  <a  class="col-1-4">
+    <div class="module" routerLink="/CreateOrder">
+      <h4>CreateOrder</h4>
+    </div>
+  </a>
+  <a  class="col-1-4">
+    <div class="module" routerLink="/ConsultOrder">
+      <h4>ConsultOrder</h4>
+    </div>
+  </a>
+</div>

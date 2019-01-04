@@ -21,12 +21,14 @@ import { DimensionComponent } from './dimension/dimension.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
+import { ConsultOrderComponent } from './consultorder/consultorder.component';
+import { CreateOrderComponent } from './createorder/createorder.component';
+import { ConsultOrderDetailComponent } from './consultorder-detail/consultorder-detail.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailComponent } from './catalog-detail/catalog-detail.component';
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
@@ -151,12 +153,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ItemproductDetailComponent,
     CombinationComponent,
     OrderComponent,
+    ConsultOrderComponent,
+    CreateOrderComponent,
+    ConsultOrderDetailComponent,
     MaterialDetailComponent,
     FinishingDetailComponent,
     CatalogComponent,
     CatalogDetailComponent,
     CatalogCustomCreationComponent,
-    OrderDetailComponent,
     AuthenticationComponent,
     DeleteComponent,
     LoginComponent,

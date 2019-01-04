@@ -19,7 +19,9 @@ import { DimensionComponent } from './dimension/dimension.component';
 import { CombinationComponent } from './combination/combination.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderComponent } from './order/order.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { ConsultOrderComponent } from './consultorder/consultorder.component';
+import { CreateOrderComponent } from './createorder/createorder.component';
+import { ConsultOrderDetailComponent } from './consultorder-detail/consultorder-detail.component'; 
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -34,6 +36,7 @@ import {CollectionDetailComponent} from "./collection-detail/collection-detail.c
 import {CollectionCreationComponent} from "./collection-creation/collection-creation.component";
 
 const routes: Routes = [
+  
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
   { path: 'SiC_it2', component: SicClientDashboardComponent},
   { path: 'SiC_it3', component: SicDmDashboardComponent},
@@ -50,7 +53,9 @@ const routes: Routes = [
   { path: 'Combination', component: CombinationComponent},
   { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
   { path: 'Order', component: OrderComponent},
-  { path: 'Order/:orderId', component: OrderDetailComponent},
+  { path: 'ConsultOrder', component: ConsultOrderComponent},
+  { path: 'ConsultOrder/:orderId', component: ConsultOrderDetailComponent},
+  { path: 'CreateOrder', component: CreateOrderComponent},
   { path: 'Catalog', component: CatalogComponent},
   { path: 'Catalog/:catalogId', component: CatalogDetailComponent},
   { path: 'CatalogCreator', component: CatalogCustomCreationComponent},
