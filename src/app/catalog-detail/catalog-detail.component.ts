@@ -58,4 +58,9 @@ export class CatalogDetailComponent implements OnInit {
     this.catalogService.updateCatalog(this.catalog)
       .subscribe(() => window.location.reload());
   }
+
+  /*delete(product: Product): void {
+    this.productService.deleteProduct(product).subscribe(() => window.location.reload());
+  }*/
+
 }

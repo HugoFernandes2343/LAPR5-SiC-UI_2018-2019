@@ -38,4 +38,8 @@ export class CatalogComponent implements OnInit {
     this.location.back();
   }
 
+  delete(catalog: Catalog): void {
+    this.catalogService.deleteCatalog(catalog).subscribe(() => window.location.reload());
+  }
+
 }

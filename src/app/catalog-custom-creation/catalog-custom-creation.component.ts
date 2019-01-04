@@ -8,6 +8,7 @@ import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-catalog-custom-creation',
@@ -27,6 +28,7 @@ export class CatalogCustomCreationComponent implements OnInit {
   selectedProducts: Product[];
 
   constructor(
+    private snackBar : MatSnackBar,
     private catalogService: CatalogService,
     private productService: ProductService,
     private location: Location,
@@ -39,11 +41,23 @@ export class CatalogCustomCreationComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.catalog = new Catalog();
+    this.justAddedCatalog = new Catalog();
     this.selectedProducts = [];
     this.isVisible = false;
     this.displayList();
   }
 
+  displayAddProduct(){
+    this.snackBar.open("Product added","Dismiss", {
+      duration: 500,
+    });
+  }
+
+  displayRemProduct(){
+    this.snackBar.open("Product removed","Dismiss", {
+      duration: 500,
+    });
+  }
 
   displayList(): void {
     this.productService.getProducts()
@@ -59,14 +73,17 @@ export class CatalogCustomCreationComponent implements OnInit {
     this.catalogService.addCatalog(this.catalog).subscribe(cat => {
       this.justAddedCatalog = cat;
       this.isVisible = !this.isVisible;
-    }).remove;
+      console.log("Added : ", JSON.stringify(this.justAddedCatalog));
+    });
   }
 
-  addProductsToCatalog(): void {
-    for (let p of this.selectedProducts) {
-      this.catalogService.addProductToCatalog(this.justAddedCatalog.catalogId, p.productId);
-    }
-    window.alert("Products Added");
+  addProductsToCatalog(p): void {
+    this.catalogService.addProductToCatalog(this.justAddedCatalog.catalogId, p.productId/*this.selectedProducts[0].productId*/)
+      .subscribe(endCatalog => console.log("End with : " + JSON.stringify(endCatalog)));
+    //console.log("Added : ", JSON.stringify(p));
+    //}
+    //this.catalogService.updateCatalog(this.justAddedCatalog);
+    console.log("Added : ", JSON.stringify(this.justAddedCatalog));
   }
 
   addProductToList(product: Product): void {
@@ -74,7 +91,7 @@ export class CatalogCustomCreationComponent implements OnInit {
       prod => {
         this.current_product = prod;
         console.log(prod.name);
-        this.selectedProducts.push(this.current_product);
+        this.selectedProducts.push(prod);
       }
     );
   }
@@ -110,8 +127,16 @@ export class CatalogCustomCreationComponent implements OnInit {
   }
 
   save(): void {
-    this.addProductsToCatalog();
-    console.log("Saving : ", this.catalog.catalogName);
+    if (this.selectedProducts.length == 0) {
+      window.alert("Choose at least one Product");
+    } else {
+      for (let p of this.selectedProducts) {
+        this.justAddedCatalog.products.push(p);
+        this.addProductsToCatalog(p);
+      }
+      console.log("Saving : ", this.catalog.catalogName);
+      window.location.reload();
+    }
   }
 
   goBack(): void {

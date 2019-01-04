@@ -3,21 +3,21 @@
 
 <div class="cards">
   <div *ngFor="let catalog of catalogs">
-    <a routerLink="/Catalog/{{catalog.catalogId}}">
-      <div class="card">
-        <div class="card-header">
-        </div>
-        <div class="card-body">
-          <div class="card-title">{{catalog.name}}
-          </div>
-          <div class="card-desc">{{catalog.description}}
-          </div>
-          <div>
-            <button class="delete" title="delete catalog" (click)="delete(catalog)">x</button>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <button mat-button title="delete catalog" (click)="delete(catalog)">x</button>
         </div>
       </div>
-    </a>
+      <div class="card-body">
+        <a routerLink="/Catalog/{{catalog.catalogId}}">
+          <div class="card-title">{{catalog.catalogName}}
+          </div>
+        </a>
+        <div class="card-desc">{{catalog.catalogDescription}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
