@@ -27,6 +27,7 @@ export class PriceDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('priceId');
     this.priceService.getPrice(id)
       .subscribe(price => this.price = price);
+    this.price.date = this.price.date.substring(0,10);
   }
 
   save(): void {
