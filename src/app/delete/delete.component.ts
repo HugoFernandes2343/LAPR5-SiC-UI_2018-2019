@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
-import { User } from '../user';
+import { User } from '../model/user';
 import { Location } from '@angular/common';
 
 @Component({
@@ -19,6 +19,9 @@ export class DeleteComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.user = this.usersService.getUser();
   }
 

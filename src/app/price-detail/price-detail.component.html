@@ -1,0 +1,19 @@
+<h1>Price Details</h1>
+<h2>This price is applied to {{price.designation}}</h2>
+
+<div>
+  <h3>Price:</h3>
+  <input [(ngModel)]="price.price" placeholder="Value for new price" />
+</div>
+
+<div>
+  <h3>Date:</h3>
+  <input [(ngModel)]="price.dateTime" placeholder="Date to apply new price" />
+</div>
+<p></p>
+<div>
+  <button (click)="goBack()">Go Back</button>
+  &nbsp;
+  <button (click)="save()">Save</button>
+</div>
+

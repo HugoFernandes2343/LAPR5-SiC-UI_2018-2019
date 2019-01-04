@@ -1,25 +1,5 @@
 <h1>Custom Catalog Creator Page</h1>
 
-<h2>List of available Products</h2>
-
-<div class="cards">
-  <div *ngFor="let product of products">
-    <div class="card">
-      <div class="card-header">
-        <button class="endButtons" title="add product" (click)="addProductToList(product)">Add</button>
-        <button class="endButtons" title="del product" (click)="removeProductFromList(product)">Remove</button>
-      </div>
-      <div class="card-body">
-        <a routerLink="/Product/{{product.productId}}">
-          <div class="card-title">{{product.name}}</div>
-        </a>
-        <div class="card-desc">{{product.description}}</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div>
   <h3>Name:</h3>
   <textarea [(ngModel)]="name" placeholder="name"></textarea>
@@ -32,12 +12,42 @@
 
 <div class="endButtons">
   <div>
-    <button (click)="save()">Save Catalog</button>
+    <button mat-button (click)="saveFirstStage()">Save First Stage Catalog</button>
+  </div>
+</div>
+
+<label></label>
+
+<ng-container *ngIf="this.isVisible">
+  <h2>List of available Products</h2>
+  <div class="cards">
+    <div *ngFor="let product of products">
+      <div class="card">
+        <div class="card-header">
+          <button mat-button class="endButtons" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button>
+          <button mat-button class="endButtons" title="del product" (click)="removeProductFromList(product);displayRemProduct()">Remove</button>
+        </div>
+        <div class="card-body">
+          <a routerLink="/Product/{{product.productId}}">
+            <div class="card-title">{{product.name}}</div>
+          </a>
+          <div class="card-desc">{{product.description}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="save()">Save Catalog</button>
+    </div>
+  </div>
+</ng-container>
+
+<div class="endButtons">
+  <div>
+    <button mat-button (click)="reset()">Reset</button>
   </div>
   <div>
-    <button (click)="reset()">Reset</button>
-  </div>
-  <div>
-    <button (click)="goBack()">Go Back</button>
+    <button mat-button (click)="goBack()">Go Back</button>
   </div>
 </div>

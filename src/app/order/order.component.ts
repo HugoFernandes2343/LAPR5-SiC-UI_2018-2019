@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Location } from '@angular/common';
-import { Order } from '../model/Order';
-import { OrderService } from '../order.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrdersService } from '../order.service';
 
 @Component({
   selector: 'app-order',
@@ -10,32 +9,11 @@ import { OrderService } from '../order.service';
 })
 export class OrderComponent implements OnInit {
 
-  orders: Order[];
-
-  @Input() order: Order;
-
   constructor(
-    private orderService: OrderService,
-    private location: Location
+    private ordersService: OrdersService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.getOrders();
   }
-
-  getOrders(): void {
-
-    this.orderService.getOrders()
-      .subscribe(orders => this.orders = orders);
-  }
-
-  delete(order: Order): void {
-    this.orders = this.orders.filter(h => h !== order);
-    this.orderService.deleteOrder(order).subscribe(() => window.location.reload());
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
 }

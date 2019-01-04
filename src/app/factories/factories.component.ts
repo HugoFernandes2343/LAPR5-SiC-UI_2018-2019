@@ -7,6 +7,9 @@ import { CityService } from '../city.service'
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { stringify } from 'querystring';
 import { PrologService } from '../prolog.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
+
 
 @Component({
   selector: 'app-factories',
@@ -23,10 +26,15 @@ export class FactoriesComponent implements OnInit {
     private factoryService: FactoryService,
     private prologService: PrologService,
     private cityService: CityService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getFactories();
     this.getCities();
     this.initializeFactory();

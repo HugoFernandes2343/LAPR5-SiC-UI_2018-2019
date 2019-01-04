@@ -16,6 +16,32 @@
       &nbsp;
       <button (click)="save()">Save</button>
     </div>
+
+    <h3>Prices (Press x to remove price from finishing history)</h3>
+
+  <ul class="finishings">
+    <li *ngFor="let price of prices">
+      <a routerLink="/Price/{{price.priceId}}">
+        <span class="badge"></span> {{price.price}} applied in {{price.dateTime}}
+      </a>
+      <button class="delete" title="delete" (click)="delPrice(price.priceId)">x</button>
+    </li>
+  </ul>
+
+  <h3>Add a Price</h3>
+  
+  <div>
+    <h3>Value:</h3>
+    <input [(ngModel)]="value" placeholder="Value for new price" />
+  </div>
+  
+  <div>
+    <h3>Date:</h3>
+    <input [(ngModel)]="date" placeholder="Date to apply new price" />
+  </div>
+
+  <button (click)="addPrice()">Add Price</button>
+
   
     <div>
       <button (click)="goBack()">Go Back</button>

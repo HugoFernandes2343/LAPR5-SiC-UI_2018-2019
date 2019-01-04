@@ -6,6 +6,9 @@ import { CatalogService } from '../catalog.service';
 import { ProductService } from '../product.service';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-catalog-custom-creation',
@@ -18,40 +21,69 @@ export class CatalogCustomCreationComponent implements OnInit {
   @Input() name: string;
   @Input() description: string;
 
-  size: number;
+  isVisible: boolean;
+  justAddedCatalog: Catalog;
   products: Product[];
   current_product: Product;
   selectedProducts: Product[];
-  //selectedProducts: Array<Product>;
 
   constructor(
+    private snackBar : MatSnackBar,
     private catalogService: CatalogService,
     private productService: ProductService,
-    private location: Location
-  ) {
-    this.catalog = new Catalog();
-    this.selectedProducts = [];
-  }
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
+    this.catalog = new Catalog();
+    this.justAddedCatalog = new Catalog();
+    this.selectedProducts = [];
+    this.isVisible = false;
     this.displayList();
   }
 
+  displayAddProduct(){
+    this.snackBar.open("Product added","Dismiss", {
+      duration: 500,
+    });
+  }
+
+  displayRemProduct(){
+    this.snackBar.open("Product removed","Dismiss", {
+      duration: 500,
+    });
+  }
 
   displayList(): void {
     this.productService.getProducts()
       .subscribe(products => {
-        this.size = products.length;
         this.products = products;
       });
   }
 
-  createCustomCatalog(prodList: Product[]): void {
+  createCustomCatalog(): void {
     this.catalog.date = new Date();
-    this.catalog.name = this.name;
-    this.catalog.description = this.description;
-    this.catalog.product_list = prodList;
-    this.catalogService.addCatalog(this.catalog);
+    this.catalog.catalogName = this.name;
+    this.catalog.catalogDescription = this.description;
+    this.catalogService.addCatalog(this.catalog).subscribe(cat => {
+      this.justAddedCatalog = cat;
+      this.isVisible = !this.isVisible;
+      console.log("Added : ", JSON.stringify(this.justAddedCatalog));
+    });
+  }
+
+  addProductsToCatalog(p): void {
+    this.catalogService.addProductToCatalog(this.justAddedCatalog.catalogId, p.productId/*this.selectedProducts[0].productId*/)
+      .subscribe(endCatalog => console.log("End with : " + JSON.stringify(endCatalog)));
+    //console.log("Added : ", JSON.stringify(p));
+    //}
+    //this.catalogService.updateCatalog(this.justAddedCatalog);
+    console.log("Added : ", JSON.stringify(this.justAddedCatalog));
   }
 
   addProductToList(product: Product): void {
@@ -59,7 +91,7 @@ export class CatalogCustomCreationComponent implements OnInit {
       prod => {
         this.current_product = prod;
         console.log(prod.name);
-        this.selectedProducts.push(this.current_product);
+        this.selectedProducts.push(prod);
       }
     );
   }
@@ -90,15 +122,24 @@ export class CatalogCustomCreationComponent implements OnInit {
     window.location.reload();
   }
 
+  saveFirstStage(): void {
+    this.createCustomCatalog();
+  }
+
   save(): void {
-    let productFinalList: Product[];
-    productFinalList = this.getSelectedProducts();
-    this.createCustomCatalog(productFinalList);
-    console.log("Saving : ",this.catalog.name);
+    if (this.selectedProducts.length == 0) {
+      window.alert("Choose at least one Product");
+    } else {
+      for (let p of this.selectedProducts) {
+        this.justAddedCatalog.products.push(p);
+        this.addProductsToCatalog(p);
+      }
+      console.log("Saving : ", this.catalog.catalogName);
+      window.location.reload();
+    }
   }
 
   goBack(): void {
-    //console.log("this.size : ", this.size);
     this.location.back();
   }
 

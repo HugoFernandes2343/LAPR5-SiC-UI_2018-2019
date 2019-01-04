@@ -19,6 +19,9 @@ export class AuthenticationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.code = this.usersService.getUser().code;
     this.role = this.usersService.getUser().role;
   }

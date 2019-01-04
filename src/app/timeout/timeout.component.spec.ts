@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrderDetailComponent } from './order-detail.component';
+import { TimeoutComponent } from './timeout.component';
 
-describe('OrderDetailComponent', () => {
-  let component: OrderDetailComponent;
-  let fixture: ComponentFixture<OrderDetailComponent>;
+describe('TimeoutComponent', () => {
+  let component: TimeoutComponent;
+  let fixture: ComponentFixture<TimeoutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderDetailComponent ]
+      declarations: [ TimeoutComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrderDetailComponent);
+    fixture = TestBed.createComponent(TimeoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

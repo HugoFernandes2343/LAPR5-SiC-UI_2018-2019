@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
+import { UsersService } from '../users.service';
 import { Catalog } from '../model/catalog';
 import { CatalogService } from '../catalog.service';
 import { Product } from '../model/product';
@@ -23,9 +25,14 @@ export class CatalogDetailComponent implements OnInit {
     private catalogService: CatalogService,
     private productService: ProductService,
     private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayCustomProducts();
   }
 
@@ -51,4 +58,9 @@ export class CatalogDetailComponent implements OnInit {
     this.catalogService.updateCatalog(this.catalog)
       .subscribe(() => window.location.reload());
   }
+
+  /*delete(product: Product): void {
+    this.productService.deleteProduct(product).subscribe(() => window.location.reload());
+  }*/
+
 }
