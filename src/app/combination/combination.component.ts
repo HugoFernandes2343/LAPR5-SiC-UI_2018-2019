@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Combination } from '../model/combination';
 import { CombinationService } from '../combination.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-combination',
@@ -18,12 +20,17 @@ export class CombinationComponent implements OnInit {
 
   constructor(
     private combinationService: CombinationService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) {
 
   }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayList();
   }
 

@@ -6,6 +6,8 @@ import { CatalogService } from '../catalog.service';
 import { ProductService } from '../product.service';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-catalog-custom-creation',
@@ -27,10 +29,15 @@ export class CatalogCustomCreationComponent implements OnInit {
   constructor(
     private catalogService: CatalogService,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.catalog = new Catalog();
     this.selectedProducts = [];
     this.isVisible = false;

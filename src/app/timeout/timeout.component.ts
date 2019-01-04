@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-timeout',
@@ -8,9 +10,12 @@ import { Location } from '@angular/common';
 })
 export class TimeoutComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private router: Router, private usersService: UsersService) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
   }
 
   goBack(): void {

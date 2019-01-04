@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Product } from '../model/product';
 import { ProductService } from '../product.service';
@@ -11,6 +12,7 @@ import { ShareService } from '../share.service';
 import { Measure } from '../model/measure';
 import { DimensionService } from '../dimension.service';
 import { MaterialService } from '../material.service';
+import { UsersService } from '../users.service';
 
 
 @Component({
@@ -33,10 +35,15 @@ export class ProductDetailComponent implements OnInit {
     private dimensionService: DimensionService,
     private materialService: MaterialService,
     private location: Location,
-    private share: ShareService
+    private share: ShareService,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getProduct();
     this.getMaterials();
     this.initializeDim();

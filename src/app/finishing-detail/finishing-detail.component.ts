@@ -5,6 +5,8 @@ import { Finishing } from '../model/finishing';
 import { FinishingService } from '../finishing.service';
 import { Price } from '../model/price';
 import { PriceService } from '../price.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-finishing-detail',
@@ -23,10 +25,15 @@ export class FinishingDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private finishingService: FinishingService,
     private priceService: PriceService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit(): void {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getFinishing();
   }
 

@@ -4,6 +4,8 @@ import { Product } from '../model/product';
 import { ProductService } from '../product.service';
 import { CategoryService } from '../category.service';
 import { Category } from '../model/category';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-product',
@@ -20,10 +22,15 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayList();
     this.getCategories();
     this.initializeProduct();

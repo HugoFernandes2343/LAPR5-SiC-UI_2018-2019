@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PriceService } from '../price.service';
 import { Price } from '../model/price';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 
 @Component({
@@ -16,10 +18,15 @@ export class PriceDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private priceService: PriceService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getPrice();
   }
 
