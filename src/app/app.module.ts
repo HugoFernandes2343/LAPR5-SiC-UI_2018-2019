@@ -33,6 +33,7 @@ import { RgpdComponent } from './rgpd/rgpd.component';
 import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.component';
 import { FactoriesComponent } from './factories/factories.component';
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
+import { CalcsComponent } from './calcs/calcs.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { FactoryDetailComponent } from './factory-detail/factory-detail.componen
     RgpdComponent,
     SicDmDashboardComponent,
     FactoriesComponent,
-    FactoryDetailComponent
+    FactoryDetailComponent,
+    CalcsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
