@@ -29,6 +29,9 @@ import { FactoriesComponent } from './factories/factories.component';
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 import { TimeoutComponent } from'./timeout/timeout.component';
 import { PriceDetailComponent } from './price-detail/price-detail.component';
+import {CollectionComponent} from "./collection/collection.component";
+import {CollectionDetailComponent} from "./collection-detail/collection-detail.component";
+import {CollectionCreationComponent} from "./collection-creation/collection-creation.component";
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -60,7 +63,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'Price/:priceId', component: PriceDetailComponent },
   { path: 'Factories', component: FactoriesComponent },
-  { path: 'Factories/:factoryId', component: FactoryDetailComponent}
+  { path: 'Factories/:factoryId', component: FactoryDetailComponent},
+  { path: 'Collection', component: CollectionComponent},
+  { path: 'Collection/:CollectionId', component: CollectionDetailComponent},
+  { path: 'CollectionCreation', component: CollectionCreationComponent}
 ];
 
 @NgModule({

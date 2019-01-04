@@ -37,6 +37,9 @@ import { FactoriesComponent } from './factories/factories.component';
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 import { PriceDetailComponent } from './price-detail/price-detail.component';
 import { TimeoutComponent } from './timeout/timeout.component';
+import { CollectionComponent } from './collection/collection.component';
+import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
+import { CollectionCreationComponent } from './collection-creation/collection-creation.component';
 
 
 @NgModule({
@@ -81,7 +84,10 @@ import { TimeoutComponent } from './timeout/timeout.component';
     FactoryDetailComponent,
     PriceDetailComponent,
     TimeoutComponent,
-    PriceDetailComponent
+    PriceDetailComponent,
+    CollectionComponent,
+    CollectionDetailComponent,
+    CollectionCreationComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

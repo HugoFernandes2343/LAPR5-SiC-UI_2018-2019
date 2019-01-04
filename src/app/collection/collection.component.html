@@ -1,0 +1,41 @@
+<h1> Collections </h1>
+
+<div class="cards">
+
+  <div *ngFor="let collection of collections">
+
+    <a routerLink="/Collection/{{collection.CollectionId}}">
+
+      <div class="card">
+
+      <div class="card-header"></div>
+
+      <div class="card-body">
+
+        <div class="card-title">{{collection.collectionName}}</div>
+
+        <div class="card-sub-title">{{collection.aestheticParameter}}</div>
+
+        <div>
+          <button class="delete" title="delete collection" (click)="delete(collection)">x</button>
+        </div>
+
+      </div>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</div>
+
+<div>
+  <a routerLink="/CollectionCreation">
+    <button>Create Collection</button>
+  </a>
+</div>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>
