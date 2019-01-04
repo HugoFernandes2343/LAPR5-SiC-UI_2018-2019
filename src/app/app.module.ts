@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { MomentModule } from 'angular2-moment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +37,7 @@ import { FactoriesComponent } from './factories/factories.component';
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
 import { PriceDetailComponent } from './price-detail/price-detail.component';
 import { PriceComponent } from './price/price.component';
+import { TimeoutComponent } from './timeout/timeout.component';
 
 
 @NgModule({
@@ -43,6 +46,8 @@ import { PriceComponent } from './price/price.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MomentModule,
+    NgIdleKeepaliveModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -76,7 +81,8 @@ import { PriceComponent } from './price/price.component';
     FactoriesComponent,
     FactoryDetailComponent,
     PriceDetailComponent,
-    PriceComponent
+    PriceComponent,
+    TimeoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

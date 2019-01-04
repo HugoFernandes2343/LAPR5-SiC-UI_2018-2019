@@ -27,6 +27,7 @@ import { CatalogDetailComponent } from './catalog-detail/catalog-detail.componen
 import { CatalogCustomCreationComponent } from './catalog-custom-creation/catalog-custom-creation.component'; 
 import { FactoriesComponent } from './factories/factories.component'; 
 import { FactoryDetailComponent } from './factory-detail/factory-detail.component';
+import { TimeoutComponent } from'./timeout/timeout.component';
 
 const routes: Routes = [
   { path: 'SiC_it1', component: SiCCMDashboardComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'authentication', component: AuthenticationComponent },
   { path: 'RGPD', component: RgpdComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'timeout', component: TimeoutComponent },
   { path: 'delete', component: DeleteComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'Factories', component: FactoriesComponent },
