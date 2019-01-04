@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { Dimension } from '../model/dimension';
 import { DimensionService } from '../dimension.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-dimension',
@@ -15,12 +17,17 @@ export class DimensionComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dimensionService: DimensionService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) {
 
   }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getDimension();
   }
 

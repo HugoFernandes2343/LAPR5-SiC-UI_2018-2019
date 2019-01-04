@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Finishing } from '../model/finishing';
 import { FinishingService } from '../finishing.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-finishing',
@@ -14,12 +16,17 @@ export class FinishingComponent implements OnInit {
 
   constructor(
     private finishingService: FinishingService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) {
 
   }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayList();
     this.initializeFinishing();
   }

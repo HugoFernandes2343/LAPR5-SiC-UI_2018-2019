@@ -9,7 +9,6 @@ import { SicDmDashboardComponent } from './sic-dm-dashboard/sic-dm-dashboard.com
 import { SiCCMDashboardComponent } from './si-c-cm-dashboard/si-c-cm-dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ItemProductComponent } from './itemproduct/itemproduct.component';
 import { SicClientDashboardComponent } from './sic-client-dashboard/sic-client-dashboard.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
@@ -17,11 +16,10 @@ import { MaterialComponent } from './material/material.component';
 import { FinishingComponent } from './finishing/finishing.component';
 import { DimensionComponent } from './dimension/dimension.component';
 import { CombinationComponent } from './combination/combination.component';
-import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderComponent } from './order/order.component';
 import { ConsultOrderComponent } from './consultorder/consultorder.component';
 import { CreateOrderComponent } from './createorder/createorder.component';
-import { ConsultOrderDetailComponent } from './consultorder-detail/consultorder-detail.component'; 
+import { ConsultOrderDetailComponent } from './consultorder-detail/consultorder-detail.component';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { FinishingDetailComponent } from './finishing-detail/finishing-detail.component';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -42,7 +40,6 @@ const routes: Routes = [
   { path: 'SiC_it3', component: SicDmDashboardComponent},
   { path: 'Product', component: ProductComponent },
   { path: 'Product/:productId', component: ProductDetailComponent },
-  { path: 'ItemProduct', component: ItemProductComponent},
   { path: 'Category', component: CategoryComponent},
   { path: 'Category/:categoryId', component: CategoryDetailComponent },
   { path: 'Finishing', component: FinishingComponent},
@@ -51,7 +48,6 @@ const routes: Routes = [
   { path: 'Material/:materialId', component: MaterialDetailComponent },
   { path: 'Dimension/:dimensionId', component: DimensionComponent},
   { path: 'Combination', component: CombinationComponent},
-  { path: 'ItemProduct/:itemId', component: ItemproductDetailComponent},
   { path: 'Order', component: OrderComponent},
   { path: 'ConsultOrder', component: ConsultOrderComponent},
   { path: 'ConsultOrder/:orderId', component: ConsultOrderDetailComponent},

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { Catalog } from '../model/catalog';
 import { CatalogService } from '../catalog.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-catalog',
@@ -15,10 +17,15 @@ export class CatalogComponent implements OnInit {
 
   constructor(
     private catalogService: CatalogService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayList();
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from './users.service';
 import { Router } from '@angular/router';
-import { User } from './user';
+import { User } from './model/user';
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 import { Keepalive } from '@ng-idle/keepalive';
 

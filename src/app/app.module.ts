@@ -4,21 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { MomentModule } from 'angular2-moment';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiCCMDashboardComponent } from './si-c-cm-dashboard/si-c-cm-dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ItemProductComponent } from './itemproduct/itemproduct.component';
 import { SicClientDashboardComponent } from './sic-client-dashboard/sic-client-dashboard.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { MaterialComponent } from './material/material.component';
 import { FinishingComponent } from './finishing/finishing.component';
 import { DimensionComponent } from './dimension/dimension.component';
-import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { CombinationComponent } from './combination/combination.component';
 import { OrderComponent } from './order/order.component';
 import { ConsultOrderComponent } from './consultorder/consultorder.component';
@@ -86,6 +83,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
+
 @NgModule({
   imports: [
     CdkTableModule,
@@ -143,14 +141,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MessagesComponent,
     ProductComponent,
     ProductDetailComponent,
-    ItemProductComponent,
     SicClientDashboardComponent,
     CategoryComponent,
     CategoryDetailComponent,
     MaterialComponent,
     FinishingComponent,
     DimensionComponent,
-    ItemproductDetailComponent,
     CombinationComponent,
     OrderComponent,
     ConsultOrderComponent,

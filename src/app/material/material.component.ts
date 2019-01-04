@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { Material } from '../model/material';
 import { MaterialService } from '../material.service';
 import { windowTime } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-material',
@@ -15,12 +17,17 @@ export class MaterialComponent implements OnInit {
 
   constructor(
     private materialService: MaterialService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) {
 
   }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.displayList();
     this.initializeMaterial();
   }

@@ -4,6 +4,10 @@ import { Catalog } from '../model/catalog';
 import { Product } from '../model/product';
 import { CatalogService } from '../catalog.service';
 import { ProductService } from '../product.service';
+import { SelectMultipleControlValueAccessor } from '@angular/forms';
+import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -24,18 +28,22 @@ export class CatalogCustomCreationComponent implements OnInit {
   selectedProducts: Product[];
 
   constructor(
-    public snackBar : MatSnackBar,
+    private snackBar : MatSnackBar,
     private catalogService: CatalogService,
     private productService: ProductService,
-    private location: Location
-  ) {
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
+  ) { }
+
+  ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.catalog = new Catalog();
     this.justAddedCatalog = new Catalog();
     this.selectedProducts = [];
     this.isVisible = false;
-  }
-
-  ngOnInit() {
     this.displayList();
   }
 

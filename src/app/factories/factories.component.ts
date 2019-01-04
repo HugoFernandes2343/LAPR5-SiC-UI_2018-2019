@@ -6,6 +6,10 @@ import { FactoryService } from '../factory.service'
 import { CityService } from '../city.service'
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { stringify } from 'querystring';
+import { PrologService } from '../prolog.service';
+import { Router } from '@angular/router';
+import { UsersService } from '../users.service';
+
 
 @Component({
   selector: 'app-factories',
@@ -20,11 +24,17 @@ export class FactoriesComponent implements OnInit {
 
   constructor(
     private factoryService: FactoryService,
+    private prologService: PrologService,
     private cityService: CityService,
-    private location: Location
+    private location: Location,
+    private router: Router, 
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    if(this.usersService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getFactories();
     this.getCities();
     this.initializeFactory();
@@ -64,7 +74,7 @@ export class FactoriesComponent implements OnInit {
     this.factory.city = this.cities.find(c => c.cityId == this.selectedCity);
 
     if(this.factory.city.name === undefined){
-      window.alert("Es um burro");
+      window.alert("Choose a city");
       return;
     }
 
@@ -73,8 +83,8 @@ export class FactoriesComponent implements OnInit {
       return;
     }
     
-    this.factoryService.addFactory(this.factory).subscribe();
-    this.factoryService.addFactoryProlog(this.factory.city.name.toLowerCase().replace(" ", "_")).subscribe(() => window.location.reload());
+    this.factoryService.addFactory(this.factory)
+      .subscribe(() => this.prologService.copyFactoryDb().subscribe(() => window.location.reload()));
   }
 
   reset(): void {
@@ -82,7 +92,9 @@ export class FactoriesComponent implements OnInit {
   }
 
   delete(factory: Factory): void {
-    this.factoryService.deleteFactory(factory).subscribe(() => window.location.reload());
+    this.factoryService.deleteFactory(factory)
+      .subscribe(() => this.prologService.copyFactoryDb().subscribe(() => window.location.reload()));
+
   }
 
   goBack(): void {

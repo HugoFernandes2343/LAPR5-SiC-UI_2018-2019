@@ -10,14 +10,16 @@ const httpOptions = {
 };
 
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class FactoryService {
 
-  //private factoryUrl = 'https://lapr5-gc.azurewebsites.net/api/Factory'
-  private factoryUrl = 'https://localhost:5001/api/Factory'
-  private prologUrl = 'http://localhost:3500/';
+  private factoryUrl = 'https://lapr5-gc.azurewebsites.net/api/Factory'
+  //private factoryUrl = 'https://localhost:5001/api/Factory'
+
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -27,14 +29,6 @@ export class FactoryService {
         tap(_ => this.log('fetched factories')),
         catchError(this.handleError('getFactories', []))
       );
-  }
-
-  addFactoryProlog(name: string){
-    const url = `${this.prologUrl}add_factory?city=${name}`
-    return this.http.get<string>(url).pipe(
-      tap(_ => this.log('post factory prolog')),
-      catchError(this.handleError('add_factory', []))
-    );
   }
 
   /** POST: add a new factory to the server */
