@@ -4,8 +4,8 @@
       <form class="login-form">
         <input #Username type="text" placeholder="username" />
         <input #Email type="text" placeholder="email" />
-        <input #Role type="text" placeholder=" Role (Client, Delivery Manager, Content Manager)" />
-        <input #Password type="password" placeholder="password" />
+        <input #Role type="text" placeholder=" role (Client, Delivery Manager, Content Manager)" />
+        <input #Password type="password" placeholder="password min. 8 char, 1 upper letter and 1 number" />
         <input #confirmPassword type="password" placeholder="confirmPassword" />
         <button type="button" (click)="register(Username.value,Email.value,Role.value,Password.value,confirmPassword.value);
       Username.value='';Password.value='';Email.value='';Role.value='';confirmPassword.value='';">create</button>
