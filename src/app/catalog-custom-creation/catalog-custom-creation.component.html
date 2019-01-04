@@ -1,45 +1,52 @@
 <h1>Custom Catalog Creator Page</h1>
+<h2>Create your Catalog</h2>
 
-<div>
-  <h3>Name:</h3>
-  <textarea [(ngModel)]="name" placeholder="name"></textarea>
-</div>
-
-<div>
-  <h3>Description:</h3>
-  <textarea [(ngModel)]="description" placeholder="description"></textarea>
-</div>
-
-<div class="endButtons">
+<ng-container *ngIf="!(this.isVisible)">
+  <h2>Step 1 : Customize your Catalog</h2>
+  <h3>Basic Information</h3>
   <div>
-    <button mat-button (click)="saveFirstStage()">Save First Stage Catalog</button>
+    <h3>Name:</h3>
+    <textarea [(ngModel)]="name" placeholder="name"></textarea>
   </div>
-</div>
+
+  <div>
+    <h3>Description:</h3>
+    <textarea [(ngModel)]="description" placeholder="description"></textarea>
+  </div>
+
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="saveFirstStage()">Save First Stage Catalog</button>
+    </div>
+  </div>
+</ng-container>
 
 <label></label>
 
 <ng-container *ngIf="this.isVisible">
-  <h2>List of available Products</h2>
+  <h2>Step 2 : Add Products</h2>
+  <h3>List of available Products</h3>
   <div class="cards">
     <div *ngFor="let product of products">
-      <div class="card">
-        <div class="card-header">
-          <button mat-button class="endButtons" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button>
-          <button mat-button class="endButtons" title="del product" (click)="removeProductFromList(product);displayRemProduct()">Remove</button>
-        </div>
-        <div class="card-body">
+      <mat-card class="card">
+        <mat-card-header class="card-header">
+        </mat-card-header>
+        <mat-card-content class="card-body">
           <a routerLink="/Product/{{product.productId}}">
-            <div class="card-title">{{product.name}}</div>
+            <div class="card-title">{{product.name}}
+            </div>
           </a>
           <div class="card-desc">{{product.description}}</div>
-        </div>
-      </div>
-    </div>
+        </mat-card-content>
+        <mat-card-actions class="mat-card-actions">
+          <button mat-button class="mat-button" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button>
+          <button mat-button class="mat-button" title="del product" (click)="removeProductFromList(product);displayRemProduct()">Remove</button>
+        </mat-card-actions>
+      </mat-card>
   </div>
-  <div class="endButtons">
-    <div>
-      <button mat-button (click)="save()">Save Catalog</button>
-    </div>
+  </div>
+  <div>
+    <button mat-button (click)="save()">Save Catalog</button>
   </div>
 </ng-container>
 
