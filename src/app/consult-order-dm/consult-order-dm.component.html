@@ -2,10 +2,9 @@
 <h3>List</h3>
 <ul class="consultorder">
     <li *ngFor="let order of orders">
-        <a routerLink="/ConsultOrder/{{order.orderId}}">
+        <a routerLink="/ConsultOrderDM/{{order.orderId}}">
             <span class="badge">.</span> {{order.name}} {{order.date}} 
         </a>
         <button class="delete" title="delete order" (click)="delete(order)">x</button>
     </li>
 </ul>
-<button (click)="goBack()">go back</button>

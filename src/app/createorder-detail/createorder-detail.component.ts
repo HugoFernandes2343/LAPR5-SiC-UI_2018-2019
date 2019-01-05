@@ -32,7 +32,7 @@ export class CreateorderDetailComponent implements OnInit {
     if (Profundidade == "" || Profundidade == null) { window.alert("Depth is Empty or null"); return; }
     if (MateriaisAcabamentos == "" || MateriaisAcabamentos == null) { window.alert("Materials and Finishes is Empty or null"); return; }
 
-    const encomendaId = +this.route.snapshot.paramMap.get('id');
+    const encomendaId = +this.route.snapshot.paramMap.get('orderId');
     nome.trim(); Altura.trim();Largura.trim();Profundidade.trim();MateriaisAcabamentos.trim();Partes.trim();
     var altura: number = +Altura;
     var largura: number= +Largura;
@@ -54,10 +54,17 @@ export class CreateorderDetailComponent implements OnInit {
     var idProduto:string ="";
     var categoria:string ="";
     var partesObrigatorias:string[] =[];
+    var message: string = "";
 
-    this.service.addItemProduct({ idProduto, nome , custo, categoria, altura ,largura, profundidade,
-    materiaisAcabamentos, partesOpcionais, partesObrigatorias} as ItemProduct, encomendaId)
-      .subscribe();
+    this.service.addItemProduct({ idProduto, nome , custo, categoria, altura ,profundidade, largura,
+      materiaisAcabamentos, partesOpcionais, partesObrigatorias, message} as ItemProduct, encomendaId)
+      .subscribe(product => {
+        if (product.message != "Item Produto saved!") {
+          window.alert(product.message);
+        }else{
+          window.alert("Item Produto saved!");
+        }
+      });
   }
 
 }

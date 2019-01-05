@@ -1,0 +1,15 @@
+<div *ngIf="item">
+
+  <h2>Item Product Details</h2>
+  <div><label>Name: <label>{{item.nome}}</label></label></div>
+  <div><label>Category: <label>{{item.categoria}}</label> </label></div>
+  <div><label>Heigth: <label>{{item.altura}}</label></label></div>
+  <div><label>Width: <label>{{item.largura}}</label> </label></div>
+  <div><label>Depth: <label>{{item.profundidade}}</label></label></div>
+  <div><label>Materials Finishes: <label>{{item.materiaisAcabamentos}}</label></label></div>
+  <div><label>Opcional Parts: <label>{{item.partesOpcionais}}</label></label></div>
+  <div><label>Required Parts: <label>{{item.partesObrigatorias}}</label></label></div>
+
+  <button (click)="goBack()">go back</button>
+
+</div>

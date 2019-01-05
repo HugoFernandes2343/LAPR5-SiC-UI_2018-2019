@@ -24,7 +24,7 @@ export class ItemproductDetailComponent implements OnInit {
 
   getItemProduct(): void {
     const product = this.route.snapshot.paramMap.get('itemName');
-    const idOrder = +this.route.snapshot.paramMap.get('id');
+    const idOrder = +this.route.snapshot.paramMap.get('orderId');
     this.service.getItemProduct(idOrder,product)
       .subscribe(item => this.item = item);
   }
@@ -56,9 +56,17 @@ export class ItemproductDetailComponent implements OnInit {
     this.item.materiaisAcabamentos = listString3;
 
     const product = this.route.snapshot.paramMap.get('itemName');
-    const idOrder = +this.route.snapshot.paramMap.get('id');
+    const idOrder = +this.route.snapshot.paramMap.get('orderId');
     this.service.updateItemProduct(idOrder, product, this.item)
-      .subscribe(() => this.goBack());
+      .subscribe(product => {
+        if (product.message != "Item Produto updated!") {
+          window.alert(product.message);
+          this.getItemProduct();
+        } else {
+          window.alert("Item Produto updated!");
+          this.goBack();
+        }
+      });
 
   }
 }

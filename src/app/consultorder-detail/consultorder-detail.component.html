@@ -1,7 +1,7 @@
-<div *ngIf="encomenda">
+<div *ngIf="order">
 
   <h2>Order Details </h2>
-  <div><label>Client Name: <input [(ngModel)]="order.name" placeholder="Name" /></label></div>
+  <div><label>Client Name: <label>{{order.name}}</label></label></div>
   <div><label>Date: <input [(ngModel)]="order.date" placeholder="Date" /></label></div>
   <div><label>Address: <input [(ngModel)]="order.address" placeholder="Address" /></label></div>
 
@@ -9,12 +9,12 @@
   <ul class="consultorder">
     <li *ngFor="let item of itens">
       <a routerLink="/ConsultOrder/{{order.orderId}}/itens/{{item.nome}}">
-        <span class="badge">.</span> {{item.name}}
+        <span class="badge">.</span> {{item.nome}}
       </a>
     </li>
   </ul>
 
   <button (click)="save()">save order details</button>
-  <button routerLink="/ConsultOrder/{{order.orderId}}/createitem">add Item</button>
+  <button routerLink="/ConsultOrder/{{order.orderId}}/CreateItem">add Item</button>
   <button (click)="goBack()">go back</button>
 </div>

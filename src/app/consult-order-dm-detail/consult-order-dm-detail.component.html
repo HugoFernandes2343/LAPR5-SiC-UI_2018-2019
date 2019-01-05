@@ -1,0 +1,18 @@
+<div *ngIf="order">
+
+  <h2>Order Details </h2>
+  <div><label>Client Name: <label>{{order.name}}</label></label></div>
+  <div><label>Date: <label>{{order.date}}</label></label></div>
+  <div><label>Address: <label>{{order.address}}</label></label></div>
+
+  <h3>Products</h3>
+  <ul class="consultorder">
+    <li *ngFor="let item of itens">
+      <a routerLink="/ConsultOrderDM/{{order.orderId}}/itens/{{item.nome}}">
+        <span class="badge">.</span> {{item.nome}}
+      </a>
+    </li>
+  </ul>
+
+  <button (click)="goBack()">go back</button>
+</div>

@@ -10,4 +10,5 @@ export class ItemProduct {
     materiaisAcabamentos: string[];
     partesOpcionais: string[];
     partesObrigatorias: string[];
+    message:string;
 }

@@ -33,7 +33,12 @@ import {CollectionComponent} from "./collection/collection.component";
 import {CollectionDetailComponent} from "./collection-detail/collection-detail.component";
 import {CollectionCreationComponent} from "./collection-creation/collection-creation.component";
 import {CreateorderDetailComponent} from "./createorder-detail/createorder-detail.component";
-import { OrderCalcsComponent } from './order-calcs/order-calcs.component'
+import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
+import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
+import { ItemproductCreateComponent } from './itemproduct-create/itemproduct-create.component';
+import { ConsultOrderDmComponent } from './consult-order-dm/consult-order-dm.component';
+import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult-order-dm-detail.component';
+import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 
 const routes: Routes = [
   
@@ -51,8 +56,13 @@ const routes: Routes = [
   { path: 'Dimension/:dimensionId', component: DimensionComponent},
   { path: 'Combination', component: CombinationComponent},
   { path: 'Order', component: OrderComponent},
+  { path: 'ConsultOrderDM', component: ConsultOrderDmComponent},
+  { path: 'ConsultOrderDM/:orderId', component: ConsultOrderDmDetailComponent},
+  { path: 'ConsultOrderDM/:orderId/itens/:itemName', component: ItemProductDmDetailComponent},
   { path: 'ConsultOrder', component: ConsultOrderComponent},
   { path: 'ConsultOrder/:orderId', component: ConsultOrderDetailComponent},
+  { path: 'ConsultOrder/:orderId/itens/:itemName', component: ItemproductDetailComponent},
+  { path: 'ConsultOrder/:orderId/CreateItem', component: ItemproductCreateComponent},
   { path: 'CreateOrder', component: CreateOrderComponent},
   { path: 'CreateOrder/:orderId', component: CreateorderDetailComponent},
   { path: 'Catalog', component: CatalogComponent},

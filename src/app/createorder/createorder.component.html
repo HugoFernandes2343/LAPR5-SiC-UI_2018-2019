@@ -1,15 +1,13 @@
 <h2>Encomenda</h2>
 <h3>Create</h3>
 <div>
-  <label>Date (DD/MM/AA) :
-    <input #CriarencomendaDate />
+  <label>Date (AAAA-MM-DD) :
+    <input #Date />
   </label><br />
-  <label>Address (Distrito):
-    <input #CriarencomendaAddress />
+  <label>Address (District):
+    <input #Address />
   </label><br />
-  <button (click)="add(CriarencomendaName.value, CriarencomendaDate.value, 
-    CriarencomendaAddress.value); CriarencomendaName.value=''; CriarencomendaDate.value=''; 
-    CriarencomendaAddress.value='';">
+  <button (click)="add(Date.value, Address.value); Date.value=''; Address.value='';">
     Create Details
   </button>
   <button (click)="goBack()">Go Back</button>

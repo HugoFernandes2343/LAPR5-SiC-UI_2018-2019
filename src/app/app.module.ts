@@ -85,6 +85,9 @@ import { CreateorderDetailComponent } from './createorder-detail/createorder-det
 import { ItemproductCreateComponent } from './itemproduct-create/itemproduct-create.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
+import { ConsultOrderDmComponent } from './consult-order-dm/consult-order-dm.component';
+import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult-order-dm-detail.component';
+import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 
 
 @NgModule({
@@ -177,7 +180,10 @@ import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
     CreateorderDetailComponent,
     ItemproductCreateComponent,
     ItemproductDetailComponent,
-    OrderCalcsComponent
+    OrderCalcsComponent,
+    ConsultOrderDmComponent,
+    ConsultOrderDmDetailComponent,
+    ItemProductDmDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
-import { ConsultOrderService } from '../consultorder.service';
+import { OrdersService } from '../order.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Order } from '../model/Order';
@@ -23,7 +23,7 @@ export class CreateOrderComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private service: ConsultOrderService,
+    private service: OrdersService,
     private location: Location,
     private userService: UsersService) { }
 
@@ -75,5 +75,4 @@ export class CreateOrderComponent implements OnInit {
     this.service.addOrder({ orderId, name, date, address, cost, itens } as Order)
       .subscribe(() => this.goItens());
   }
-  addProduct():void{}
 }

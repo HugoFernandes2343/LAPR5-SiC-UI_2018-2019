@@ -15,12 +15,12 @@ const httpOptions = {
 
 export class OrdersService {
 
-  private encomendasUrl = 'https://lapr5-enc.herokuapp.com/api/';
+  private encomendasUrl = 'https://lapr5-enc.herokuapp.com/api';
 
   constructor(private http: HttpClient) { }
 
     addOrder(encomenda: Order): Observable<Order> {
-      const url = `${this.encomendasUrl}/encomendasDetails/${encomenda.orderId}/itens`;
+      const url = `${this.encomendasUrl}/encomendasDetails`;
       return this.http.post<Order>(url, encomenda, httpOptions).pipe(
         catchError(this.handleError<Order>('addEncomenda'))
       );
@@ -28,6 +28,14 @@ export class OrdersService {
 
     getOrders(): Observable<Order[]> {
       const url = `${this.encomendasUrl}/encomendas`;
+      return this.http.get<Order[]>(url)
+      .pipe(
+        catchError(this.handleError('getEncomendas', []))
+      );
+    }
+
+    getOrdersByUsername(username: string): Observable<Order[]> {
+      const url = `${this.encomendasUrl}/encomendas/user/${username}`;
       return this.http.get<Order[]>(url)
       .pipe(
         catchError(this.handleError('getEncomendas', []))
@@ -80,7 +88,7 @@ export class OrdersService {
     }
 
     addItemProduct(item: ItemProduct, idEncomenda: number): Observable<ItemProduct> {
-      const url = `${this.encomendasUrl}/${idEncomenda}/itens`;
+      const url = `${this.encomendasUrl}/encomendasDetails/${idEncomenda}/itens`;
       return this.http.post<ItemProduct>(url, item, httpOptions).pipe(
         catchError(this.handleError<ItemProduct>('addItemProduto'))
       );
