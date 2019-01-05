@@ -78,8 +78,8 @@ export class PrologService {
   shorterPath(name: string){
     const url = `${this.prologUrl}shorter_path?city=${name}`
     return this.http.get<string>(url).pipe(
-      tap(_ => this.log('list cities prolog')),
-      catchError(this.handleError('list_cities', []))
+      tap(_ => this.log('shorter_path prolog')),
+      catchError(this.handleError('shorter_path', []))
     );
   }
 
