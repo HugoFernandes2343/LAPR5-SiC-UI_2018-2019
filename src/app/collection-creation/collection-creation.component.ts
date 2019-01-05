@@ -79,7 +79,7 @@ export class CollectionCreationComponent implements OnInit {
     }
 
     addProductsToCollection(p): void {
-        this.collectionService.addProductToCollection(this.justAddedCollection.CollectionId, p.productId/*this.selectedProducts[0].productId*/)
+        this.collectionService.addProductToCollection(this.justAddedCollection.collectionId, p.productId/*this.selectedProducts[0].productId*/)
             .subscribe(endCollection => console.log("End with : " + JSON.stringify(endCollection)));
         //console.log("Added : ", JSON.stringify(p));
         //}
@@ -115,9 +115,6 @@ export class CollectionCreationComponent implements OnInit {
         }
     }
 
-    getSelectedProducts(): Product[] {
-        return this.selectedProducts;
-    }
 
     reset(): void {
         window.location.reload();

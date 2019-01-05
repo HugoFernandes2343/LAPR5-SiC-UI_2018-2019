@@ -1,0 +1,11 @@
+<h1>List of all the Factories</h1>
+<h2>Chose a factory to see the shortest path</h2>
+<div *ngIf="factories">
+  <ul class="factories">
+    <li *ngFor="let factory of factories">
+      <a (click)="calculation(factory)">
+        <span class="badge"></span> {{factory.description}}
+      </a>
+    </li>
+  </ul>
+</div>
