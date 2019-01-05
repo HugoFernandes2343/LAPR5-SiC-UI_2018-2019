@@ -7,7 +7,7 @@ import { OrdersService } from '../order.service';
   templateUrl: './gerirencomendas.component.html',
   styleUrls: ['./gerirencomendas.component.css']
 })
-export class GerirencomendasComponent implements OnInit {
+export class ConsultOrderComponent implements OnInit {
 
   orders: Order[];
 

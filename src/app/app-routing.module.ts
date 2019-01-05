@@ -33,6 +33,7 @@ import {CollectionComponent} from "./collection/collection.component";
 import {CollectionDetailComponent} from "./collection-detail/collection-detail.component";
 import {CollectionCreationComponent} from "./collection-creation/collection-creation.component";
 import {CreateorderDetailComponent} from "./createorder-detail/createorder-detail.component";
+import { OrderCalcsComponent } from './order-calcs/order-calcs.component'
 
 const routes: Routes = [
   
@@ -68,8 +69,10 @@ const routes: Routes = [
   { path: 'Factories', component: FactoriesComponent },
   { path: 'Factories/:factoryId', component: FactoryDetailComponent},
   { path: 'Collection', component: CollectionComponent},
-  { path: 'Collection/:CollectionId', component: CollectionDetailComponent},
-  { path: 'CollectionCreation', component: CollectionCreationComponent}
+  { path: 'Collection/:collectionId', component: CollectionDetailComponent},
+  { path: 'CollectionCreation', component: CollectionCreationComponent},
+  { path: 'Calcs', component: OrderCalcsComponent}
+
 ];
 
 @NgModule({

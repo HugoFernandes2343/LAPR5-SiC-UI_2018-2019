@@ -84,7 +84,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CreateorderDetailComponent } from './createorder-detail/createorder-detail.component';
 import { ItemproductCreateComponent } from './itemproduct-create/itemproduct-create.component';
 import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
-
+import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
 
 
 @NgModule({
@@ -176,7 +176,8 @@ import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-det
     CollectionCreationComponent,
     CreateorderDetailComponent,
     ItemproductCreateComponent,
-    ItemproductDetailComponent
+    ItemproductDetailComponent,
+    OrderCalcsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

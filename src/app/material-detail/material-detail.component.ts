@@ -18,7 +18,7 @@ import { UsersService } from '../users.service';
 export class MaterialDetailComponent implements OnInit {
   @Input() material: Material;
   @Input() value: number;
-  @Input() date: Date;
+  @Input() date: string;
   price: Price;
   finishings: Finishing[];
   prices: Price[];
@@ -68,11 +68,27 @@ export class MaterialDetailComponent implements OnInit {
   addPrice(): void {
     if (this.value == null) { return; }
     this.price = new Price();
-    this.price.price = this.value;
-    this.price.designation = this.material.name;
-    this.price.dateTime = this.date;
-
-    this.priceService.addPrice(this.price).subscribe(() => window.location.reload());
+    var today = new Date();
+    if(this.value == null || this.value < 0.0){
+      return window.alert("Insira um valor válido");
+    }
+    
+    if(this.date == null){
+      return window.alert("Insira uma data no formato AAAA-MM-DD");
+    }
+    
+    if(Number(this.date.substring(0,4)) < today.getFullYear()-1 ){
+      return window.alert("Ano inválido");
+    } else if(Number(this.date.substring(5,7)) < 1 || Number(this.date.substring(5,7)) > 12) {
+      return window.alert("Mês inválido");
+    } else if(Number(this.date.substring(8,10)) < 1 || Number(this.date.substring(8,10)) > 31) {
+      return window.alert("Dia inválido");
+    } else {
+      this.price.price = this.value;
+      this.price.designation = this.material.name;
+      this.price.date = this.date.substring(0,4).concat("-").concat(this.date.substring(5,7)).concat("-").concat(this.date.substring(8,10));
+      this.priceService.addPrice(this.price).subscribe(() => window.location.reload());
+    }
 
   }
 

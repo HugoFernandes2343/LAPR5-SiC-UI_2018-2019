@@ -10,7 +10,7 @@ import { OrdersService } from '../order.service';
   templateUrl: './gerirencomendas-detail.component.html',
   styleUrls: ['./gerirencomendas-detail.component.css']
 })
-export class GerirencomendasDetailComponent implements OnInit {
+export class ConsultOrderDetailComponent implements OnInit {
 
   locations = ["Porto", "Lisboa", "Aveiro", "Beja", "Braga", "Bragança",
     "Castelo Branco", "Coimbra", "Évora", "Faro", "Guarda", "Leiria", "Portalegre", "Santarém",

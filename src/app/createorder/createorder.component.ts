@@ -75,5 +75,5 @@ export class CreateOrderComponent implements OnInit {
     this.service.addOrder({ orderId, name, date, address, cost, itens } as Order)
       .subscribe(() => this.goItens());
   }
-
+  addProduct():void{}
 }
