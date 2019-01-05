@@ -1,49 +1,58 @@
-<h1>Collection Details</h1>
+<div *ngIf="collection">
+    <h1>Collection Details</h1>
 
-<h2>Collection {{collection.collectionName}} Details</h2>
+    <h2>Collection {{collection.collectionName}} Details</h2>
 
-<div>
-  <h3>Name:</h3>
-  <input [(ngModel)]="collection.collectionName" placeholder="name" />
-</div>
-
-<div>
-  <h3>Aesthetic Parameter:</h3>
-  <textarea [(ngModel)]="collection.aestheticParameter"></textarea>
-</div>
-
-
-<h2>List of Products</h2>
-
-<div class="cards">
-  <div *ngFor="let product of products">
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <button mat-button title="delete product" (click)="delete(product)">x</button>
-        </div>
-        <div><input class="checkForm" type="checkbox"></div>
-      </div>
-      <div class="card-body">
-        <a routerLink="/Product/{{product.productId}}">
-          <div class="card-title">{{product.name}}
-          </div>
-        </a>
-        <div class="card-desc">{{product.description}}
-        </div>
-      </div>
+    <div>
+        <h3>Name:</h3>
+        <input [(ngModel)]="collection.collectionName" placeholder="name"/>
     </div>
-  </div>
-</div>
 
-<div class="endButtons">
-  <div>
-    <button mat-button (click)="save()">Save</button>
-  </div>
-  <div>
-    <button mat-button (click)="reset()">Reset</button>
-  </div>
-  <div>
-    <button mat-button (click)="goBack()">Go Back</button>
-  </div>
+    <div>
+        <h3>Aesthetic Parameter:</h3>
+        <textarea [(ngModel)]="collection.aestheticParameter"></textarea>
+    </div>
+
+
+    <h2>List of Products</h2>
+
+    <ng-container>
+        <div class="cards">
+            <div *ngFor="let product of products">
+                <mat-card class="card">
+                    <mat-card-header class="card-header">
+                    </mat-card-header>
+                    <mat-card-content class="card-body">
+                        <a routerLink="/Product/{{product.productId}}">
+                            <div class="card-title">{{product.name}}
+                            </div>
+                        </a>
+                        <div class="card-desc">{{product.description}}</div>
+                        <div *ngFor="let material of product.materials">
+                            <div class="card-sub-title">{{material.name}}</div>
+                            <div *ngFor="let finish of material.finishes">
+                                <div class="card-sub-title">{{finish.name}}</div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions class="mat-card-actions">
+                        <button mat-button class="mat-button" title="del product" (click)="deleteFromCollection(product.productId);displayRemProduct()">Remove</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="endButtons">
+        <div>
+            <button mat-button (click)="save()">Save</button>
+        </div>
+        <div>
+            <button mat-button (click)="reset()">Reset</button>
+        </div>
+        <div>
+            <button mat-button (click)="goBack()">Go Back</button>
+        </div>
+    </div>
+
 </div>
