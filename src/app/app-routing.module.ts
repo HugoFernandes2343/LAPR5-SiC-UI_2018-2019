@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'Factories', component: FactoriesComponent },
   { path: 'Factories/:factoryId', component: FactoryDetailComponent},
   { path: 'Collection', component: CollectionComponent},
-  { path: 'Collection/:CollectionId', component: CollectionDetailComponent},
+  { path: 'Collection/:collectionId', component: CollectionDetailComponent},
   { path: 'CollectionCreation', component: CollectionCreationComponent}
 ];
 
