@@ -1,16 +1,10 @@
-<h1>List of all the Orders</h1>
-
-<ul class="orders">
-  <li *ngFor="let order of orders">
-    <a routerLink="/Order/{{order.orderId}}">
-      <span class="badge"></span> {{order.orderName}}
-    </a>
-    <button class="delete" title="delete order" (click)="delete(order)">x</button>
-  </li>
+<h2>Orders</h2>
+<h3>List</h3>
+<ul class="consultorder">
+    <li *ngFor="let order of orders">
+        <a routerLink="/ConsultOrder/{{order.orderId}}">
+            <span class="badge">.</span> {{order.name}} {{order.date}} 
+        </a>
+        <button class="delete" title="delete order" (click)="delete(order)">x</button>
+    </li>
 </ul>
-
-<div>
-  <button (click)="reset()">Reset Fields</button>
-  &nbsp;
-  <button (click)="goBack()">Go Back</button>
-</div>

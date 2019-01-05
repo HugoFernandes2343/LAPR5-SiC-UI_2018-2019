@@ -1,147 +1,62 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Order } from '../model/Order';
+import { ItemProduct } from '../model/ItemProduct';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Order } from '../model/order';
-import { Product } from '../model/product';
-import { ProductService } from '../product.service';
-import { Dimension } from '../model/dimension';
-import { Material } from '../model/material';
-import { Finishing } from '../model/finishing';
-import { ShareService } from '../share.service';
-import { Measure } from '../model/measure';
-import { DimensionService } from '../dimension.service';
-import { MaterialService } from '../material.service';
-import { ConsultOrderService } from '../consultorder.service';
-
+import { OrdersService } from '../order.service';
 
 @Component({
   selector: 'app-consultorder-detail',
   templateUrl: './consultorder-detail.component.html',
   styleUrls: ['./consultorder-detail.component.css']
 })
-
 export class ConsultOrderDetailComponent implements OnInit {
-  @Input() order: Order;
-  @Input() product: Product;
-  @Input() dim: Dimension;
-  @Input() mat: Material;
-  @Input() mat_type: string;
-  materials: Material[];
-  selectedMaterial: number;
 
-  constructor(
-    private route: ActivatedRoute,
-	private orderService: ConsultOrderService,
-    private productService: ProductService,
-    private dimensionService: DimensionService,
-    private materialService: MaterialService,
-    private location: Location,
-    private share: ShareService
-  ) { }
+  locations = ["Porto", "Lisboa", "Aveiro", "Beja", "Braga", "Bragança",
+    "Castelo Branco", "Coimbra", "Évora", "Faro", "Guarda", "Leiria", "Portalegre", "Santarém",
+    "Setúbal", "Viana do Castelo", "Vila Real", "Viseu"];
+    
+  order: Order;
+  itens: ItemProduct[];
 
-  ngOnInit(): void {
-  this.getOrder();
+  constructor(private route: ActivatedRoute,
+    private service: OrdersService,
+    private location: Location) { }
+
+  ngOnInit() {
     this.getOrder();
-	this.getProduct();
-    this.getMaterials();
-    this.initializeDim();
-    this.initializeMat();
   }
 
-  getMaterials(): any {
-    this.materialService.getMaterials().subscribe(materials => this.materials = materials)
-  }
-
-  initializeDim(): any {
-    this.dim = new Dimension;
-    this.dim.depth = new Measure;
-    this.dim.height = new Measure;
-    this.dim.width = new Measure;
-  }
-  initializeMat(): any {
-    this.mat = new Material;
-    this.mat.finishes = [];
-  }
-
-  getProduct(): void {
-    const id = +this.route.snapshot.paramMap.get('productId');
-    this.productService.getProduct(id)
-      .subscribe(product => this.product = product);
-  }
-  
   getOrder(): void {
-    const id = +this.route.snapshot.paramMap.get('orderId');
-    this.orderService.getOrder(id)
-      .subscribe(order => this.order = order);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getOrder(id)
+      .subscribe(order => {
+        this.order = order;
+        const id = +this.route.snapshot.paramMap.get('id');
+        this.service.getOrderItens(id)
+          .subscribe(itens => {
+            this.itens = itens;
+          });
+      });
   }
 
-  addDim(): void {
-    if (this.dim.depth.value == null || this.dim.depth.value <= 0.0) {
-      this.initializeDim();
-      window.alert("Depth has invalid value");
-      return
-    }
+  save(): void {
 
-    if (this.dim.height.value == null || this.dim.height.value <= 0.0) {
-      this.initializeDim();
-      window.alert("Height has invalid value");
-      return
-    }
+    if (this.order.date == "" || this.order.date == null) { window.alert("Date is Empty or null"); return; }
+    if (this.order.address == "" || this.order.address == null) { window.alert("Address is Empty or null"); return; }
+    if (!this.locations.includes(this.order.address)) { window.alert("Address is Invalid!"); return; }
 
-    if (this.dim.width.value == null || this.dim.width.value <= 0.0) {
-      this.initializeDim();
-      window.alert("Width has invalid value");
-      return;
-    }
+    var CurrentDate = new Date();
+    var GivenDate = new Date(this.order.date);
 
-    if (this.dim.depth.valueMax == null) {
-      this.dim.depth.valueMax = 0;
-    } else if (this.dim.depth.value >= this.dim.depth.valueMax) {
-      this.initializeDim();
-      window.alert("Max Depth must be bigger than Depth or non-existent");
-      return
-    }
+    if (GivenDate < CurrentDate) { window.alert('Given date is Invalid!'); return; }
 
-    if (this.dim.height.valueMax == null) {
-      this.dim.height.valueMax = 0;
-    } else if (this.dim.height.value >= this.dim.height.valueMax) {
-      this.initializeDim();
-      window.alert("Max Height must be bigger than Height or non-existent");
-      return
-    }
-
-    if (this.dim.width.valueMax == null) {
-      this.dim.width.valueMax = 0;
-    } else if (this.dim.width.value >= this.dim.width.valueMax) {
-      this.initializeDim();
-      window.alert("Max Width must be bigger than Width or non-existent");
-      return
-    }
-
-    this.dimensionService.addDimension(this.dim)
-      .subscribe(dimension => this.productService.addDimension(this.product.productId, dimension.dimensionId)
-        .subscribe(() => window.location.reload()));
-  }
-
-  addMat(): void {
-    this.productService.addMaterial(this.product.productId, this.selectedMaterial).subscribe(() => window.location.reload());
-  }
-
-  delMat(materialId: number): void {
-    this.productService.removeMaterial(this.product.productId, materialId)
-      .subscribe(() => window.location.reload());
-  }
-
-  reset(): void {
-    window.location.reload();
+    this.service.updateOrderDetails(this.order)
+      .subscribe(() => this.goBack());
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.orderService.updateOrder(this.order)
-      .subscribe(() => window.location.reload());
-  }
 }

@@ -32,6 +32,7 @@ import { PriceDetailComponent } from './price-detail/price-detail.component';
 import {CollectionComponent} from "./collection/collection.component";
 import {CollectionDetailComponent} from "./collection-detail/collection-detail.component";
 import {CollectionCreationComponent} from "./collection-creation/collection-creation.component";
+import {CreateorderDetailComponent} from "./createorder-detail/createorder-detail.component";
 import { OrderCalcsComponent } from './order-calcs/order-calcs.component'
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'ConsultOrder', component: ConsultOrderComponent},
   { path: 'ConsultOrder/:orderId', component: ConsultOrderDetailComponent},
   { path: 'CreateOrder', component: CreateOrderComponent},
+  { path: 'CreateOrder/:orderId', component: CreateorderDetailComponent},
   { path: 'Catalog', component: CatalogComponent},
   { path: 'Catalog/:catalogId', component: CatalogDetailComponent},
   { path: 'CatalogCreator', component: CatalogCustomCreationComponent},
