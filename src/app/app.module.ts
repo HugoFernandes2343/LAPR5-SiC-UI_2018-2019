@@ -81,6 +81,9 @@ import { CdkTreeModule } from '@angular/cdk/tree';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CreateorderDetailComponent } from './createorder-detail/createorder-detail.component';
+import { ItemproductCreateComponent } from './itemproduct-create/itemproduct-create.component';
+import { ItemproductDetailComponent } from './itemproduct-detail/itemproduct-detail.component';
 
 
 
@@ -170,7 +173,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     PriceDetailComponent,
     CollectionComponent,
     CollectionDetailComponent,
-    CollectionCreationComponent
+    CollectionCreationComponent,
+    CreateorderDetailComponent,
+    ItemproductCreateComponent,
+    ItemproductDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

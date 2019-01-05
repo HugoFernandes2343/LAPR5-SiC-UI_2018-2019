@@ -1,33 +1,16 @@
-<h1>Create a new Order</h1>
-
-  <div>
-    <h2>Name:</h2>
-    <input [(ngModel)]="order.orderName" placeholder="name" />
-  </div>
-
-  <div>
-    <h2>Address:</h2>
-    <input [(ngModel)]="order.address" placeholder="address" />
-  </div>
-
-  <div>
-    <h2>Date (DD/MM/AAAA):</h2>
-    <input [(ngModel)]="order.address" placeholder="date"/>
-  </div>
-
-  <h2>Add a Product</h2>
-  <select name="product" [(ngModel)]="selectedProduct">
-      <option *ngFor="let product of products" value={{product.productId}}>{{product.name}}: {{product.description}}</option>
-  </select>
-
-  <div>
-    <button (click)="reset()">Reset Fields</button>
-    &nbsp;
-    <button (click)="addProduct()">Add product</button>
-    &nbsp;
-    <button (click)="save()">Save Order</button>
-  </div>
-
+<h2>Encomenda</h2>
+<h3>Create</h3>
 <div>
+  <label>Date (DD/MM/AA) :
+    <input #CriarencomendaDate />
+  </label><br />
+  <label>Address (Distrito):
+    <input #CriarencomendaAddress />
+  </label><br />
+  <button (click)="add(CriarencomendaName.value, CriarencomendaDate.value, 
+    CriarencomendaAddress.value); CriarencomendaName.value=''; CriarencomendaDate.value=''; 
+    CriarencomendaAddress.value='';">
+    Create Details
+  </button>
   <button (click)="goBack()">Go Back</button>
 </div>

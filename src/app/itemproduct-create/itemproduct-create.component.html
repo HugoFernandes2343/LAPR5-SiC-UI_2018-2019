@@ -1,0 +1,26 @@
+<h3>Add Item Produto</h3>
+<div>
+  <label>Name:
+    <input #Nome />
+  </label><br />
+  <label>Heigth:
+    <input #Altura />
+  </label><br />
+  <label>Width:
+    <input #Largura />
+  </label><br />
+  <label>Depth:
+    <input #Profundidade />
+  </label><br />
+  <label>Materials e Finishes (X com acabamentos de Y;....):
+    <input #MateriaisAcabamentos />
+  </label><br />
+  <label>Parts (X,Y...):
+    <input #Partes />
+  </label><br />
+  <button (click)="add(Nome.value,Altura.value,Largura.value,Profundidade.value,MateriaisAcabamentos.value,Partes.value);
+  Nome.value=''; Altura.value='';Largura.value='';Profundidade.value='';MateriaisAcabamentos.value='';Partes.value='';">
+    Add
+  </button>
+  <button (click)="goBack()">go back</button>
+</div>
