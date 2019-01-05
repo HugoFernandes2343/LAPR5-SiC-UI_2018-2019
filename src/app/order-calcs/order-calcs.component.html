@@ -9,3 +9,14 @@
     </li>
   </ul>
 </div>
+
+<div *ngIf="cities">
+  <h1>Path for the factory {{factory.description}}</h1>
+  <ul class="factories">
+    <li *ngFor="let city of cities">
+      <a>
+        <span class="badge"></span> {{city.name}}
+      </a>
+    </li>
+  </ul>
+</div>

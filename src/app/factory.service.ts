@@ -17,8 +17,8 @@ const httpOptions = {
 
 export class FactoryService {
 
-  private factoryUrl = 'https://lapr5-gc.azurewebsites.net/api/Factory'
-  //private factoryUrl = 'https://localhost:5001/api/Factory'
+  //private factoryUrl = 'https://lapr5-gc.azurewebsites.net/api/Factory'
+  private factoryUrl = 'https://localhost:5001/api/Factory'
 
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
