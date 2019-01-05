@@ -3,9 +3,9 @@ import { Order } from '../model/Order';
 import { OrdersService } from '../order.service';
 
 @Component({
-  selector: 'app-gerirencomendas',
-  templateUrl: './gerirencomendas.component.html',
-  styleUrls: ['./gerirencomendas.component.css']
+  selector: 'app-consultorder',
+  templateUrl: './consultorder.component.html',
+  styleUrls: ['./consultorder.component.css']
 })
 export class ConsultOrderComponent implements OnInit {
 

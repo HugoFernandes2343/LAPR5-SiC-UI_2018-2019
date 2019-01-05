@@ -74,7 +74,7 @@ export class ItemProductService {
   }
 
   deleteItem(item: ItemProduct | number): Observable<ItemProduct> {
-    const id = typeof item === 'number' ? item : item.itemId;
+    const id = typeof item === 'number' ? item : item.idProduto;
     const url = `${this.itemProductUrl}/${id}`;
 
     return this.http.delete<ItemProduct>(url, httpOptions).pipe(

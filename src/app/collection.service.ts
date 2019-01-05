@@ -52,7 +52,7 @@ export class CollectionService {
     }
 
     updateCollection(collection: Collection): Observable<Collection> {
-        const url = `${this.collectionUrl}/${collection.CollectionId}`;
+        const url = `${this.collectionUrl}/${collection.collectionId}`;
         return this.http.put(url, JSON.stringify(collection), httpOptions)
             .pipe(
                 tap(_ => this.log(`updated collection`)),
@@ -61,7 +61,7 @@ export class CollectionService {
     }
 
     deleteCollection(collection: Collection): any {
-        const url = `${this.collectionUrl}/${collection.CollectionId}`;
+        const url = `${this.collectionUrl}/${collection.collectionId}`;
         return this.http.delete<Collection>(url, httpOptions)
             .pipe(
                 tap(_ => this.log(`deleted Collection`)),

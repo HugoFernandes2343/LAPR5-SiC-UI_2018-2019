@@ -6,9 +6,9 @@ import { Location } from '@angular/common';
 import { OrdersService } from '../order.service';
 
 @Component({
-  selector: 'app-gerirencomendas-detail',
-  templateUrl: './gerirencomendas-detail.component.html',
-  styleUrls: ['./gerirencomendas-detail.component.css']
+  selector: 'app-consultorder-detail',
+  templateUrl: './consultorder-detail.component.html',
+  styleUrls: ['./consultorder-detail.component.css']
 })
 export class ConsultOrderDetailComponent implements OnInit {
 
