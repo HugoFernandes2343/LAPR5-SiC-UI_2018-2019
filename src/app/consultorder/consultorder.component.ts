@@ -16,6 +16,9 @@ export class ConsultOrderComponent implements OnInit {
   constructor(private service: OrdersService, private router: Router, private userService: UsersService) { }
 
   ngOnInit() {
+    if(this.userService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getOrdersByUsername();
   }
 

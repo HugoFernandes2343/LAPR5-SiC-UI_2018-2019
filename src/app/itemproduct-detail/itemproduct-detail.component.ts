@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { OrdersService } from '../order.service';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-itemproduct-detail',
@@ -16,9 +17,14 @@ export class ItemproductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private service: OrdersService,
-    private location: Location) { }
+    private location: Location,
+    private router: Router, 
+    private userService: UsersService) { }
 
   ngOnInit() {
+    if(this.userService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getItemProduct();
   }
 

@@ -28,6 +28,9 @@ export class CreateOrderComponent implements OnInit {
     private userService: UsersService) { }
 
   ngOnInit() {
+    if(this.userService.getUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.getOrders();
   }
 
