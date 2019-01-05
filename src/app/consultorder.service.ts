@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
-import { Order } from './model/order';
+import { Order } from './model/Order';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {

@@ -129,7 +129,7 @@ export class CatalogCustomCreationComponent implements OnInit {
         this.addProductsToCatalog(p);
       }
       console.log("Saving : ", this.catalog.catalogName);
-      window.location.reload();
+      this.location.back();
     }
   }
 
