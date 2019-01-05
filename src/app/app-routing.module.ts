@@ -39,6 +39,8 @@ import { ItemproductCreateComponent } from './itemproduct-create/itemproduct-cre
 import { ConsultOrderDmComponent } from './consult-order-dm/consult-order-dm.component';
 import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult-order-dm-detail.component';
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
+import {UserCollectionComponent} from "./user-collection/user-collection.component";
+import {UserCollectionDetailComponent} from "./user-collection-detail/user-collection-detail.component";
 
 const routes: Routes = [
   
@@ -81,7 +83,9 @@ const routes: Routes = [
   { path: 'Collection', component: CollectionComponent},
   { path: 'Collection/:collectionId', component: CollectionDetailComponent},
   { path: 'CollectionCreation', component: CollectionCreationComponent},
-  { path: 'Calcs', component: OrderCalcsComponent}
+  { path: 'Calcs', component: OrderCalcsComponent},
+  { path: 'UserCollection', component: UserCollectionComponent},
+  { path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent}
 
 ];
 

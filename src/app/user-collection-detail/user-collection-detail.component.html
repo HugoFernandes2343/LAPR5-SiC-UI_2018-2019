@@ -1,0 +1,42 @@
+<div *ngIf="collection">
+    <h1>Collection Details</h1>
+
+    <div>
+        <h3>Name: <a>{{collection.collectionName}}</a></h3>
+    </div>
+
+    <div>
+        <h3>Aesthetic Parameter: <a>{{collection.aestheticParameter}}</a></h3>
+    </div>
+
+    <h2>List of Products</h2>
+
+    <ng-container>
+        <div class="cards">
+            <div *ngFor="let product of products">
+                <mat-card class="card">
+                    <mat-card-header class="card-header">
+                    </mat-card-header>
+                    <mat-card-content class="card-body">
+                        <div class="card-title">{{product.name}}
+                        </div>
+                        <div class="card-desc">{{product.description}}</div>
+                        <div *ngFor="let material of product.materials">
+                            <div class="card-sub-title">{{material.name}}</div>
+                            <div *ngFor="let finish of material.finishes">
+                                <div class="card-sub-title">{{finish.name}}</div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="endButtons">
+        <div>
+            <button mat-button (click)="goBack()">Go Back</button>
+        </div>
+    </div>
+
+</div>

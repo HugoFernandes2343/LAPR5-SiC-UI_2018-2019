@@ -88,6 +88,8 @@ import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
 import { ConsultOrderDmComponent } from './consult-order-dm/consult-order-dm.component';
 import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult-order-dm-detail.component';
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
+import { UserCollectionComponent } from './user-collection/user-collection.component';
+import { UserCollectionDetailComponent } from './user-collection-detail/user-collection-detail.component';
 
 
 @NgModule({
@@ -183,7 +185,9 @@ import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-prod
     OrderCalcsComponent,
     ConsultOrderDmComponent,
     ConsultOrderDmDetailComponent,
-    ItemProductDmDetailComponent
+    ItemProductDmDetailComponent,
+    UserCollectionComponent,
+    UserCollectionDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
