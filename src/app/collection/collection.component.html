@@ -1,41 +1,30 @@
 <h1> Collections </h1>
 
 <div class="cards">
+    <div *ngFor="let collection of collections">
+        <mat-card class="card">
+            <mat-card-header class="card-header">
+            </mat-card-header>
+            <mat-card-content class="card-body">
+                <a routerLink="/Collection/{{collection.CollectionId}}">
+                    <div class="card-title">{{collection.collectionName}}</div>
+                </a>
+                <div class="card-sub-title">{{collection.aestheticParameter}}</div>
+            </mat-card-content>
+            <mat-card-actions class="mat-card-actions">
+                <button mat-button class="mat-button" title="delete collection" (click)="delete(collection)">Delete
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
 
-  <div *ngFor="let collection of collections">
-
-    <a routerLink="/Collection/{{collection.CollectionId}}">
-
-      <div class="card">
-
-      <div class="card-header"></div>
-
-      <div class="card-body">
-
-        <div class="card-title">{{collection.collectionName}}</div>
-
-        <div class="card-sub-title">{{collection.aestheticParameter}}</div>
-
-        <div>
-          <button class="delete" title="delete collection" (click)="delete(collection)">x</button>
-        </div>
-
-      </div>
-
-      </div>
-
+<div>
+    <a routerLink="/CollectionCreation">
+        <button>Create Collection</button>
     </a>
-
-  </div>
-
 </div>
 
 <div>
-  <a routerLink="/CollectionCreation">
-    <button>Create Collection</button>
-  </a>
-</div>
-
-<div>
-  <button (click)="goBack()">Go Back</button>
+    <button (click)="goBack()">Go Back</button>
 </div>

@@ -15,11 +15,13 @@ const httpOptions = {
 })
 export class CollectionService {
 
-   // private collectionUrl = 'https://lapr5-gc.azurewebsites.net/api/Collection';
+    private collectionUrl = 'https://lapr5-gc.azurewebsites.net/api/Collection';
+    //private collectionUrl = 'https://localhost:5001/api/Collection';
 
-    private collectionUrl = 'https://localhost:5001/api/Collection';
-
-    constructor(private  http: HttpClient, private messageService: MessageService) {
+    constructor(
+        private  http: HttpClient,
+        private messageService: MessageService
+    ) {
     }
 
     /** GET Collections **/
@@ -58,7 +60,7 @@ export class CollectionService {
             );
     }
 
-    deleteCollection(collection: Collection): Observable<Collection> {
+    deleteCollection(collection: Collection): any {
         const url = `${this.collectionUrl}/${collection.CollectionId}`;
         return this.http.delete<Collection>(url, httpOptions)
             .pipe(
@@ -100,6 +102,6 @@ export class CollectionService {
 
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-        this.messageService.add(`CatalogService: ${message}`);
+        this.messageService.add(`CollectionService: ${message}`);
     }
 }

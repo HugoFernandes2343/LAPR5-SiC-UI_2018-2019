@@ -1,3 +1,63 @@
-<p>
- TODO creation collection
-</p>
+<h1>Collection Creation Page</h1>
+<h2>Create the Collection</h2>
+
+<ng-container *ngIf="!(this.isVisible)">
+    <h2>Basic Information</h2>
+    <div>
+        <h3>Name:</h3>
+        <textarea [(ngModel)]="name" placeholder="name"></textarea>
+    </div>
+
+    <div>
+        <h3>Aesthetic Parameter:</h3>
+        <textarea [(ngModel)]="aestheticParameter" placeholder="parameter"></textarea>
+    </div>
+
+    <div class="endButtons">
+        <div>
+            <button mat-button (click)="saveFirstStage()">Next</button>
+        </div>
+    </div>
+</ng-container>
+
+<label></label>
+
+<ng-container *ngIf="this.isVisible">
+    <h2>Add Products to the Collection</h2>
+    <h3>List of available Products</h3>
+    <div class="cards">
+        <div *ngFor="let product of products">
+            <mat-card class="card">
+                <mat-card-header class="card-header">
+                </mat-card-header>
+                <mat-card-content class="card-body">
+                    <a routerLink="/Product/{{product.productId}}">
+                        <div class="card-title">{{product.name}}
+                        </div>
+                    </a>
+                    <div class="card-desc">{{product.description}}</div>
+                </mat-card-content>
+                <mat-card-actions class="mat-card-actions">
+                    <button mat-button class="mat-button" title="add product"
+                            (click)="addProductToList(product);displayAddProduct()">Add
+                    </button>
+                    <button mat-button class="mat-button" title="del product"
+                            (click)="removeProductFromList(product);displayRemProduct()">Remove
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    <div>
+        <button mat-button (click)="save()">Save Collection</button>
+    </div>
+</ng-container>
+
+<div class="endButtons">
+    <div>
+        <button mat-button (click)="reset()">Reset</button>
+    </div>
+    <div>
+        <button mat-button (click)="goBack()">Go Back</button>
+    </div>
+</div>

@@ -1,3 +1,49 @@
-<p>
-  collection-detail works!
-</p>
+<h1>Collection Details</h1>
+
+<h2>Collection {{collection.collectionName}} Details</h2>
+
+<div>
+  <h3>Name:</h3>
+  <input [(ngModel)]="collection.collectionName" placeholder="name" />
+</div>
+
+<div>
+  <h3>Aesthetic Parameter:</h3>
+  <textarea [(ngModel)]="collection.aestheticParameter"></textarea>
+</div>
+
+
+<h2>List of Products</h2>
+
+<div class="cards">
+  <div *ngFor="let product of products">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <button mat-button title="delete product" (click)="delete(product)">x</button>
+        </div>
+        <div><input class="checkForm" type="checkbox"></div>
+      </div>
+      <div class="card-body">
+        <a routerLink="/Product/{{product.productId}}">
+          <div class="card-title">{{product.name}}
+          </div>
+        </a>
+        <div class="card-desc">{{product.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="endButtons">
+  <div>
+    <button mat-button (click)="save()">Save</button>
+  </div>
+  <div>
+    <button mat-button (click)="reset()">Reset</button>
+  </div>
+  <div>
+    <button mat-button (click)="goBack()">Go Back</button>
+  </div>
+</div>

@@ -2,7 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Location} from '@angular/common';
 import {Collection} from '../model/collection';
 import {CollectionService} from "../collection.service";
-
+import {Router} from '@angular/router';
+import {UsersService} from '../users.service';
 
 @Component({
     selector: 'app-collection',
@@ -15,15 +16,23 @@ export class CollectionComponent implements OnInit {
 
     collections: Collection[];
 
-    constructor(private collectionService: CollectionService, private location: Location) {
+    constructor(
+        private collectionService: CollectionService,
+        private location: Location,
+        private router: Router,
+        private usersService: UsersService) {
     }
 
     ngOnInit() {
+        if(this.usersService.getUser() == null){
+            this.router.navigate(['/login']);
+        }
         this.displayList();
     }
 
     displayList(): void {
-        this.collectionService.getCollections().subscribe(collections => this.collections = collections);
+        this.collectionService.getCollections()
+            .subscribe(collections => this.collections = collections);
     }
 
     goBack(): void {
@@ -31,6 +40,7 @@ export class CollectionComponent implements OnInit {
     }
 
     delete(collection: Collection): void {
-        this.collectionService.deleteCollection(collection).subscribe(() => window.location.reload());
+        this.collectionService.deleteCollection(collection)
+            .subscribe(() => window.location.reload());
     }
 }
