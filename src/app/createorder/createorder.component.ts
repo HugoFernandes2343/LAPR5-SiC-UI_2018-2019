@@ -64,5 +64,5 @@ export class CreateOrderComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
+  addProduct():void{}
 }
