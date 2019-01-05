@@ -81,7 +81,7 @@ import { CdkTreeModule } from '@angular/cdk/tree';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { OrderCalcsComponent } from './order-calcs/order-calcs.component';
 
 
 @NgModule({
@@ -170,7 +170,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     PriceDetailComponent,
     CollectionComponent,
     CollectionDetailComponent,
-    CollectionCreationComponent
+    CollectionCreationComponent,
+    OrderCalcsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
