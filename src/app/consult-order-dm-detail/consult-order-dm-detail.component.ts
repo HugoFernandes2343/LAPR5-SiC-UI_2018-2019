@@ -15,10 +15,11 @@ import { Status } from '../model/status';
 })
 export class ConsultOrderDmDetailComponent implements OnInit {
 
+
   @Input() order: Order;
 
-  selectedStatus: number;
-  status: Status[];
+  status = ["Submitted", "Validated", "Assigned", "Production", "Packing", "Ready",
+    "Expedited", "Delivered", "Recieved"]; 
   itens: ItemProduct[];
 
   constructor(private route: ActivatedRoute,
@@ -48,9 +49,9 @@ export class ConsultOrderDmDetailComponent implements OnInit {
   }
 
   save(): void {
-    if (this.selectedStatus == null) { return; }
+    if( this.order.status == ""){window.alert("Order status is empty or null!");return;}
 
-    this.order.status = this.status.find(s => s.statusId == this.selectedStatus).statusName;
+    if (!this.status.includes(this.order.status)) { window.alert("Status is Invalid!"); return; }
 
     this.service.updateOrderDetails(this.order).subscribe(() => window.location.reload());
   }

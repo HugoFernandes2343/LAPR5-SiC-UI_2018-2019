@@ -5,19 +5,8 @@
   <div><label>Date: <label>{{order.date}}</label></label></div>
   <div><label>Address: <label>{{order.address}}</label></label></div>
   <div><label>Cost: <label>{{order.cost}}</label></label></div>
-
-  <h3>Status</h3>
-  <select name="status" [(ngModel)]="selectedStatus">
-    <option value="submetida" selected>Submitted</option>
-    <option value="validada">Validated</option>
-    <option value="atribuida">Attributed</option>
-    <option value="producao">Assigned</option>
-    <option value="embalamento">In packaging</option>
-    <option value="prontaExpedir">Ready to ship</option>
-    <option value="expedida">Issued</option>
-    <option value="entregue">Delivered</option>
-    <option value="rececionada">Received</option>
-  </select>
+  <div><label>Status (Submitted, Validated, Assigned, Production, Packing, Ready,
+      Expedited, Delivered, Recieved): <input [(ngModel)]="order.date" placeholder="Date" /></label></div>
 
   <h3>Products</h3>
   <ul class="consultorder">
