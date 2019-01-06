@@ -90,6 +90,7 @@ import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 import { UserCollectionComponent } from './user-collection/user-collection.component';
 import { UserCollectionDetailComponent } from './user-collection-detail/user-collection-detail.component';
+import { ThreejsViewerComponent } from './threejs-viewer/threejs-viewer.component';
 
 
 @NgModule({
@@ -187,7 +188,8 @@ import { UserCollectionDetailComponent } from './user-collection-detail/user-col
     ConsultOrderDmDetailComponent,
     ItemProductDmDetailComponent,
     UserCollectionComponent,
-    UserCollectionDetailComponent
+    UserCollectionDetailComponent,
+    ThreejsViewerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

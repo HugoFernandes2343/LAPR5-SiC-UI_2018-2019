@@ -54,7 +54,7 @@ export class CollectionDetailComponent implements OnInit {
 
     save(): void {
         this.collectionService.updateCollection(this.collection)
-            .subscribe(() => window.location.reload());
+            .subscribe(() => this.location.back());
     }
 
     displayAddProduct() {

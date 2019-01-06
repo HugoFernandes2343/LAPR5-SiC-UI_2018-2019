@@ -41,6 +41,7 @@ import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 import {UserCollectionComponent} from "./user-collection/user-collection.component";
 import {UserCollectionDetailComponent} from "./user-collection-detail/user-collection-detail.component";
+import { ThreejsViewerComponent } from './threejs-viewer/threejs-viewer.component';
 
 const routes: Routes = [
   
@@ -85,7 +86,8 @@ const routes: Routes = [
   { path: 'CollectionCreation', component: CollectionCreationComponent},
   { path: 'Calcs', component: OrderCalcsComponent},
   { path: 'UserCollection', component: UserCollectionComponent},
-  { path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent}
+  { path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent},
+  { path: 'Three', component: ThreejsViewerComponent} 
 
 ];
 

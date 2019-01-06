@@ -221,7 +221,7 @@ export class CollectionCreationComponent implements OnInit {
                 this.addProductsToCollection(p);
             }
             console.log("Saving : ", this.collection.collectionName);
-            window.location.reload();
+            this.location.back();
         }
     }
 
