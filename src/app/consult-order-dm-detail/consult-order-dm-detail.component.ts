@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { OrdersService } from '../order.service';
 import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
+import { Status } from '../model/status';
 
 @Component({
   selector: 'app-consult-order-dm-detail',
@@ -15,16 +16,18 @@ import { UsersService } from '../users.service';
 export class ConsultOrderDmDetailComponent implements OnInit {
 
   order: Order;
+  selectedStatus: number;
+  status: Status[];
   itens: ItemProduct[];
 
   constructor(private route: ActivatedRoute,
     private service: OrdersService,
     private location: Location,
-    private router: Router, 
+    private router: Router,
     private userService: UsersService) { }
 
   ngOnInit() {
-    if(this.userService.getUser() == null){
+    if (this.userService.getUser() == null) {
       this.router.navigate(['/login']);
     }
     this.getOrder();
@@ -41,6 +44,23 @@ export class ConsultOrderDmDetailComponent implements OnInit {
             this.itens = itens;
           });
       });
+  }
+
+  save(): void {
+    this.order.name = this.order.name.trim();
+    if(!this.order.name) { return; }
+
+    this.order.address = this.order.address.trim();
+    if(!this.order.address) { return; }
+
+    this.order.date = this.order.date.trim();
+
+    if (this.selectedStatus == null) { return; }
+
+    this.order.status = this.status.find(s => s.statusId == this.selectedStatus);
+
+    this.service.updateOrderDetails(this.order).subscribe(() => window.location.reload());
+    
   }
 
   goBack(): void {

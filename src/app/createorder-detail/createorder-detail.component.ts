@@ -42,6 +42,7 @@ export class CreateorderDetailComponent implements OnInit {
     var altura: number = +Altura;
     var largura: number= +Largura;
     var profundidade: number= +Profundidade;
+    var cost: number = +custo;
 
     var listString1 = Partes.split(',');
     if(listString1[0] == ""){

@@ -19,6 +19,7 @@ export class ConsultOrderDetailComponent implements OnInit {
     "Setúbal", "Viana do Castelo", "Vila Real", "Viseu"];
     
   order: Order;
+  item: ItemProduct;
   itens: ItemProduct[];
 
   constructor(private route: ActivatedRoute,
