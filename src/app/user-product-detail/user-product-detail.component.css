@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+
+.cards {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.card {
+    background-color: rgb(247, 245, 245);
+    height: 400px;
+    width: 300px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    transition: all 0.5s ease;
+    font-weight: 100;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    height: 180px;
+    background-image: url("//placehold.it/350x250/78c5d6/fff/image1.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.card-header.ch2 {
+    background-image: url("//placehold.it/350x250/459ba8/fff/image2.jpg");
+}
+
+.card-header.ch3 {
+    background-image: url("//placehold.it/350x250/79c267/fff/image3.jpg");
+}
+
+.card-header.ch4 {
+    background-image: url("//placehold.it/350x250/c5d647/fff/image4.jpg");
+}
+
+.card-header.ch5 {
+    background-image: url("//placehold.it/350x250/f28c33/fff/image5.jpg");
+}
+
+.card-header.ch6 {
+    background-image: url("//placehold.it/350x250/e868a2/fff/image6.jpg");
+}
+
+.card-body {
+    padding: 15px 15px 5px 15px;
+    color: rgb(219, 219, 219);
+    height: 140px;
+}
+
+.card-title {
+    color: dodgerblue;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+.a{
+    color: dodgerblue;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+.card-sub-title {
+    color: #808080;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.card-desc {
+    font-size: 0.90rem;
+    line-height: 17px;
+    margin-bottom: 10px;
+}
+
+.endButtons {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.mat-button {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    min-width: 64px;
+    line-height: 36px;
+    border-radius: 4px;
+    overflow: visible;
+}
+
+.mat-button:hover {
+    background: rgb(139, 183, 209);
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-actions {
+    margin-left: -8px;
+    margin-bottom: -8px;
+    padding-top: 0px;
+}
+
+/* ProductDetailComponent's private CSS styles */
+table {
+    table-layout: fixed;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+th {
+    height: 30px;
+    background-color: #607D8B;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    color: #ccc;
+    text-align: center;
+}
+td {
+    height: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    color: black;
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 100%;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: .4em;
+    box-sizing: border-box;
+    border: 2px solid #607D8B;
+    font-family: Arial;
+    font-size: 1em;
+    border-radius: 4px;
+    background-color: #ffffff;
+    resize: none;
+}
+input {
+    height: 2em;
+    padding: .4em;
+    box-sizing: border-box;
+    border: 2px solid #607D8B;
+    font-family: Arial;
+    font-size: 1em;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+button {
+    margin-top: 20px;
+    font-family: Arial;
+    font-size: 1em;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer; cursor: hand;
+}
+button:hover {
+    background-color: #cfd8dc;
+}
+button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+}
+.materials {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+}
+.materials li {
+    position: relative;
+    cursor: pointer;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+}
+
+.materials li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.materials a {
+    color: #888;
+    text-decoration: none;
+    top:-16px;
+    position: relative;
+    display: block;
+    width: 250px;
+}
+
+.materials a:hover {
+    color:#607D8B;
+}
+
+.materials .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #607D8B;
+    line-height: 1em;
+    position: relative;
+    top: 12px;
+    left: -1px;
+    height: 1.8em;
+    min-width: 16px;
+    text-align: right;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+
+select{
+    width: 100%;
+    resize: vertical;
+    height: 2em;
+    padding: .4em;
+    box-sizing: border-box;
+    border: 2px solid #607D8B;
+    font-family: Arial;
+    font-size: 1em;
+    border-radius: 4px;
+    background-color: #ffffff;
+}

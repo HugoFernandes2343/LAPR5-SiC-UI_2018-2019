@@ -41,6 +41,8 @@ import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 import {UserCollectionComponent} from "./user-collection/user-collection.component";
 import {UserCollectionDetailComponent} from "./user-collection-detail/user-collection-detail.component";
+import {UserProductComponent} from "./user-product/user-product.component";
+import {UserProductDetailComponent} from "./user-product-detail/user-product-detail.component";
 
 const routes: Routes = [
   
@@ -85,8 +87,9 @@ const routes: Routes = [
   { path: 'CollectionCreation', component: CollectionCreationComponent},
   { path: 'Calcs', component: OrderCalcsComponent},
   { path: 'UserCollection', component: UserCollectionComponent},
-  { path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent}
-
+  { path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent},
+  { path: 'UserProduct', component: UserProductComponent},
+  { path: 'UserProduct/:productId', component: UserProductDetailComponent}
 ];
 
 @NgModule({

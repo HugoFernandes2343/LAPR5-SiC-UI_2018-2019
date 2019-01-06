@@ -90,6 +90,8 @@ import { ConsultOrderDmDetailComponent } from './consult-order-dm-detail/consult
 import { ItemProductDmDetailComponent } from './item-product-dm-detail/item-product-dm-detail.component';
 import { UserCollectionComponent } from './user-collection/user-collection.component';
 import { UserCollectionDetailComponent } from './user-collection-detail/user-collection-detail.component';
+import { UserProductComponent } from './user-product/user-product.component';
+import { UserProductDetailComponent } from './user-product-detail/user-product-detail.component';
 
 
 @NgModule({
@@ -187,7 +189,9 @@ import { UserCollectionDetailComponent } from './user-collection-detail/user-col
     ConsultOrderDmDetailComponent,
     ItemProductDmDetailComponent,
     UserCollectionComponent,
-    UserCollectionDetailComponent
+    UserCollectionDetailComponent,
+    UserProductComponent,
+    UserProductDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

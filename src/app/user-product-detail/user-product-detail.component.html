@@ -1,0 +1,68 @@
+<div *ngIf="product">
+    <h2>{{product.name | uppercase}} Details</h2>
+
+    <h3>Basic Information</h3>
+
+    <div>
+        <h3>Name: <a>{{product.name}}</a></h3>
+    </div>
+
+    <div>
+        <h3>Description: <a>{{product.description}}</a></h3>
+    </div>
+
+    <h3>Dimensions</h3>
+
+    <table style="width: 100%">
+        <tr>
+            <th>Depth</th>
+            <th>Height</th>
+            <th>Width</th>
+            <th>Max Depth</th>
+            <th>Max Height</th>
+            <th>Max Width</th>
+            <th>Press for details</th>
+        </tr>
+    </table>
+
+    <li *ngFor="let dimension of product.dimensions">
+        <table style="width: 100%">
+            <tr>
+                <td>{{dimension.depth.value}}</td>
+                <td>{{dimension.height.value}}</td>
+                <td>{{dimension.width.value}}</td>
+                <td>{{dimension.depth.valueMax}}</td>
+                <td>{{dimension.height.valueMax}}</td>
+                <td>{{dimension.width.valueMax}}</td>
+                <td>
+                    <a routerLink="/Dimension/{{dimension.dimensionId}}">
+                        <span class="badge"></span> Details
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </li>
+
+    <h3>Materials</h3>
+
+    <ng-container>
+        <div class="cards">
+            <div *ngFor="let material of product.materials">
+                <mat-card class="card">
+                    <mat-card-header class="card-header"></mat-card-header>
+                    <mat-card-content class="card-body">
+                        <div class="card-title">{{material.name}}</div>
+                        <div class="card-desc">{{material.description}}</div>
+                        <div *ngFor="let finish of material.finishes">
+                            <div class="card-sub-title">{{finish.name}}</div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="endButtons">
+        <button (click)="goBack()">Go Back</button>
+    </div>
+</div>
