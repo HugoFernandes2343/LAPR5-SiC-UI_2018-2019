@@ -48,20 +48,11 @@ export class ConsultOrderDmDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.order.name = this.order.name.trim();
-    if (!this.order.name) { return; }
-
-    this.order.address = this.order.address.trim();
-    if (!this.order.address) { return; }
-
-    this.order.date = this.order.date.trim();
-
     if (this.selectedStatus == null) { return; }
 
     this.order.status = this.status.find(s => s.statusId == this.selectedStatus);
 
-    this.service.addOrder(this.order).subscribe(() => window.location.reload());
-
+    this.service.updateOrderDetails(this.order).subscribe(() => window.location.reload());
   }
 
   goBack(): void {

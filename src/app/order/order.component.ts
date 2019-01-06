@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -10,12 +11,13 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private router: Router, 
   ) { }
 
   ngOnInit() {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/SiC_it2',]);
   }
 }
