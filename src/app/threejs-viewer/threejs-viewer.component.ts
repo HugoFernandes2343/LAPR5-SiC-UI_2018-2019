@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
 
@@ -22,15 +23,13 @@ export class ThreejsViewerComponent implements OnInit {
   private ambientLight;
 
 
-  constructor() {
+  constructor(private location: Location) {
     console.log(THREE);
   }
 
   ngOnInit() {
     this.container = this.elementRef.nativeElement;
-
     console.log(this.container);
-
     this.init();
   }
 
@@ -479,6 +478,10 @@ export class ThreejsViewerComponent implements OnInit {
     this.renderer.clear();
     this.renderer.clearDepth();
     this.renderer.render(this.scene, this.camera);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

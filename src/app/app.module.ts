@@ -93,6 +93,8 @@ import {UserCollectionDetailComponent} from './user-collection-detail/user-colle
 import {UserProductComponent} from './user-product/user-product.component';
 import {UserProductDetailComponent} from './user-product-detail/user-product-detail.component';
 import {ThreejsViewerComponent} from './threejs-viewer/threejs-viewer.component';
+import { UserCatalogComponent } from './user-catalog/user-catalog.component';
+import { UserCatalogDetailComponent } from './user-catalog-detail/user-catalog-detail.component';
 
 
 @NgModule({
@@ -193,7 +195,9 @@ import {ThreejsViewerComponent} from './threejs-viewer/threejs-viewer.component'
         UserCollectionDetailComponent,
         UserProductComponent,
         UserProductDetailComponent,
-        ThreejsViewerComponent
+        ThreejsViewerComponent,
+        UserCatalogComponent,
+        UserCatalogDetailComponent
     ],
     providers: [],
     bootstrap: [AppComponent]
