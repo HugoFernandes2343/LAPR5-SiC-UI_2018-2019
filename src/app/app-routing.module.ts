@@ -44,6 +44,8 @@ import {UserCollectionDetailComponent} from "./user-collection-detail/user-colle
 import {UserProductComponent} from "./user-product/user-product.component";
 import {UserProductDetailComponent} from "./user-product-detail/user-product-detail.component";
 import {ThreejsViewerComponent} from './threejs-viewer/threejs-viewer.component';
+import { UserCatalogComponent } from './user-catalog/user-catalog.component';
+import { UserCatalogDetailComponent } from './user-catalog-detail/user-catalog-detail.component';
 
 
 const routes: Routes = [
@@ -92,6 +94,8 @@ const routes: Routes = [
     {path: 'UserCollection/:collectionId', component: UserCollectionDetailComponent},
     {path: 'UserProduct', component: UserProductComponent},
     {path: 'UserProduct/:productId', component: UserProductDetailComponent},
+    {path: 'UserCatalog', component: UserCatalogComponent},
+    {path: 'UserCatalog/:catalogId', component: UserCatalogDetailComponent},
     {path: 'Three', component: ThreejsViewerComponent}
 
 ];

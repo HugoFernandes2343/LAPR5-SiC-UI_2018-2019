@@ -1,0 +1,22 @@
+<h1>Catalogs</h1>
+
+<div class="cards">
+  <div *ngFor="let catalog of catalogs">
+    <mat-card class="card">
+      <mat-card-header class="card-header">
+      </mat-card-header>
+      <mat-card-content class="card-body">
+        <a routerLink="/Catalog/{{catalog.catalogId}}">
+          <div class="card-title">{{catalog.catalogName}}
+          </div>
+        </a>
+        <div class="card-desc">{{catalog.catalogDescription}}
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div>
+  <button (click)="goBack()">Go Back</button>
+</div>

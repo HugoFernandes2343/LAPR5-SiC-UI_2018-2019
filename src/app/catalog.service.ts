@@ -15,7 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CatalogService {
-
+  
   private catalogUrl = 'https://lapr5-gc.azurewebsites.net/api/Catalog';
   //private catalogUrl = 'https://localhost:5001/api/Catalog';
 

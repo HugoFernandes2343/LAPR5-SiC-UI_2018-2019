@@ -1,0 +1,43 @@
+<div *ngIf="catalog">
+  <h1>Catalog Details</h1>
+
+  <div>
+    <h3>Name:<a>{{catalog.catalogName}}</a></h3>
+  </div>
+
+  <div>
+    <h3>Description:<a>{{catalog.catalogDescription}}</a></h3>
+  </div>
+
+  <div>
+    <h3>Date of creation: {{catalog.date}}</h3>
+  </div>
+
+
+  <h2>List of Products</h2>
+
+  <ng-container>
+    <h3>List of available Products</h3>
+    <div class="cards">
+      <div *ngFor="let product of products">
+        <mat-card class="card">
+          <mat-card-header class="card-header">
+          </mat-card-header>
+          <mat-card-content class="card-body">
+            <a routerLink="/Product/{{product.productId}}">
+              <div class="card-title">{{product.name}}
+              </div>
+            </a>
+            <div class="card-desc">{{product.description}}</div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+</div>
