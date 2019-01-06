@@ -9,6 +9,7 @@
   <div><label>Materials Finishes: <input [(ngModel)]="item.materiaisAcabamentos" placeholder="Materials Finishes" /></label></div>
   <div><label>Opcional Parts: <input [(ngModel)]="item.partesOpcionais" placeholder="Opcional Parts" /></label></div>
   <div><label>Required Parts: <label>{{item.partesObrigatorias}}</label></label></div>
+  <div><label>Cost: <input [(ngModel)]="item.cost" placeholder="Cost" /></label></div>
 
   <button (click)="save()">save</button>
   <button (click)="goBack()">go back</button>
