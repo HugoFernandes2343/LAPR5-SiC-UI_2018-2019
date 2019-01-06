@@ -22,13 +22,20 @@
       <button mat-button (click)="saveBasicChanges()">Save Basic Changes</button>
     </div>
   </div>
+  <p></p>
+  <mat-divider></mat-divider>
+  <p></p>
 
-  <h2>List of Products</h2>
-  <h3>Pick and choose Products in the Catalog</h3>
-  <label>Changes made here are immediate</label>
+  <!--ADD NEW PRODUCTS-->
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="showAddProductsSection()">Toggle ADD Products Section</button>
+    </div>
+  </div>
 
-  <ng-container>
+  <ng-container *ngIf="this.isVisible">
     <h3>List of available Products</h3>
+    <p>Add or remove products in this selection process (Save makes changes permanent)</p>
     <div class="cards">
       <div *ngFor="let product of products">
         <mat-card class="card">
@@ -42,15 +49,44 @@
             <div class="card-desc">{{product.description}}</div>
           </mat-card-content>
           <mat-card-actions class="mat-card-actions">
-            <!--button mat-button class="mat-button" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button-->
-            <button mat-button class="mat-button" title="del product" (click)="deleteFromCatalog(product.productId);displayRemProduct()">Remove</button>
+            <button mat-button class="mat-button" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button>
+            <button mat-button class="mat-button" title="del product" (click)="removeProductFromList(product);displayRemProduct()">Remove</button>
           </mat-card-actions>
         </mat-card>
       </div>
     </div>
-    <!--div>
-    <button mat-button (click)="save()">Save Catalog</button>
-  </div-->
+    <div>
+      <button mat-button (click)="save()">Save Selection To Catalog</button>
+    </div>
+  </ng-container>
+  <!--End of ADD NEW Products-->
+  <p></p>
+
+  <mat-divider></mat-divider>
+  
+  <p></p>
+
+  <ng-container>
+    <h3>Pick and choose Products in the Catalog</h3>
+    <label>Changes made here are immediate</label>
+    <div class="cards">
+      <div *ngFor="let cproduct of cproducts">
+        <mat-card class="card">
+          <mat-card-header class="card-header">
+          </mat-card-header>
+          <mat-card-content class="card-body">
+            <a routerLink="/Product/{{cproduct.productId}}">
+              <div class="card-title">{{cproduct.name}}
+              </div>
+            </a>
+            <div class="card-desc">{{cproduct.description}}</div>
+          </mat-card-content>
+          <mat-card-actions class="mat-card-actions">
+            <button mat-button class="mat-button" title="del product" (click)="deleteFromCatalog(cproduct.productId);displayRemovalProduct()">Remove</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
   </ng-container>
 
   <div class="endButtons">
