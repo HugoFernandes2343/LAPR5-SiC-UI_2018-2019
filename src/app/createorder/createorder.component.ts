@@ -75,7 +75,9 @@ export class CreateOrderComponent implements OnInit {
 
     if (GivenDate < CurrentDate) { window.alert('Given date is Invalid!'); return; }
 
-    this.service.addOrder({ orderId, name, date, address, cost, itens } as Order)
+    var status = "Submitted";
+
+    this.service.addOrder({ orderId, name, date, address, status, cost, itens } as Order)
       .subscribe(() => this.goItens());
   }
 }

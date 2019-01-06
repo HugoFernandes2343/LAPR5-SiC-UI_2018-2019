@@ -58,7 +58,7 @@ export class ConsultOrderDmDetailComponent implements OnInit {
 
     if (this.selectedStatus == null) { return; }
 
-    this.order.status = this.status.find(s => s.statusId == this.selectedStatus);
+    this.order.status = this.status.find(s => s.statusId == this.selectedStatus).statusName;
 
     this.service.addOrder(this.order).subscribe(() => window.location.reload());
 

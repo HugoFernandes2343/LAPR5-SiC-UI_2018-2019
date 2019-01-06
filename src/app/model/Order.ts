@@ -5,7 +5,7 @@ export class Order {
     name: string;
     date: string;
     address: string;
-    status: Status;
+    status: string;
     cost: number;
     itens: string[];
 }
