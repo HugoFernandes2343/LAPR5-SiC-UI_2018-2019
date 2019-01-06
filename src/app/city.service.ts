@@ -14,8 +14,8 @@ const httpOptions = {
 })
 export class CityService {
 
-  //private cityUrl = 'https://lapr5-gc.azurewebsites.net/api/City'
-  private cityUrl = 'https://localhost:5001/api/City'
+  private cityUrl = 'https://lapr5-gc.azurewebsites.net/api/City'
+  //private cityUrl = 'https://localhost:5001/api/City'
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
