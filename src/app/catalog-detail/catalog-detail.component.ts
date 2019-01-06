@@ -43,16 +43,17 @@ export class CatalogDetailComponent implements OnInit {
     this.displayCatalog();
     this.selectedProducts = [];
     this.isVisible = false;
+    this.retrieveProducts();
   }
 
-  displayAddProduct(){
-    this.snackBar.open("Product added to selection","Dismiss", {
+  displayAddProduct() {
+    this.snackBar.open("Product added to selection", "Dismiss", {
       duration: 700,
     });
   }
 
-  displayRemProduct(){
-    this.snackBar.open("Product removed from selection","Dismiss", {
+  displayRemProduct() {
+    this.snackBar.open("Product removed from selection", "Dismiss", {
       duration: 700,
     });
   }
@@ -66,8 +67,15 @@ export class CatalogDetailComponent implements OnInit {
       });
   }
 
-  showAddProductsSection(){
+  showAddProductsSection(): void {
     this.isVisible = !this.isVisible;
+  }
+
+  retrieveProducts(): void {
+    this.productService.getProducts()
+      .subscribe(products => {
+        this.products = products;
+      });
   }
 
   addProductToList(product: Product): void {
