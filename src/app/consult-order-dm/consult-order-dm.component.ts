@@ -34,5 +34,7 @@ export class ConsultOrderDmComponent implements OnInit {
     this.service.deleteOrder(order).subscribe();
   }
 
-
+  goBack(): void {
+    this.router.navigate(['/SiC_it3',]);
+  }
 }
