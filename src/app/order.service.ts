@@ -68,7 +68,7 @@ export class OrdersService {
 
     updateOrderDetails(encomenda: Order): Observable<Order> {
       const url = `${this.encomendasUrl}/encomendasDetails/${encomenda.orderId}`;
-      return this.http.put(url,  JSON.stringify(encomenda), httpOptions).pipe(
+      return this.http.put(url, encomenda, httpOptions).pipe(
         catchError(this.handleError<any>('updateEncomendaDetails'))
       );
     }

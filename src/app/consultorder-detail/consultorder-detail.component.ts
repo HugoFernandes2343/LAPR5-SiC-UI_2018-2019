@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Order } from '../model/Order';
 import { ItemProduct } from '../model/ItemProduct';
 import { ActivatedRoute } from '@angular/router';
