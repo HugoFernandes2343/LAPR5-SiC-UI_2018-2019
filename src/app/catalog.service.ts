@@ -71,6 +71,14 @@ export class CatalogService {
     );
   }
 
+  deleteProductCatalog(catalogId: number,productId: number): any {
+    const url = `${this.catalogUrl}/${catalogId}/Product/${productId}`;
+    return this.http.delete(url, httpOptions).pipe(
+      tap(_ => this.log(`removed product from catalog`)),
+      catchError(this.handleError<any>('deleteProductCatalog'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

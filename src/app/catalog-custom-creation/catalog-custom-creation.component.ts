@@ -49,13 +49,13 @@ export class CatalogCustomCreationComponent implements OnInit {
 
   displayAddProduct(){
     this.snackBar.open("Product added","Dismiss", {
-      duration: 500,
+      duration: 700,
     });
   }
 
   displayRemProduct(){
     this.snackBar.open("Product removed","Dismiss", {
-      duration: 500,
+      duration: 700,
     });
   }
 
@@ -97,9 +97,7 @@ export class CatalogCustomCreationComponent implements OnInit {
   }
 
   removeProductFromList(product: Product): void {
-    console.log("To delete : ", product.name);
     if (this.selectedProducts.length == 0) {
-      console.log("Empty array. Exiting");
       return;
     } else {
       for (let prod of this.selectedProducts) {
@@ -112,10 +110,6 @@ export class CatalogCustomCreationComponent implements OnInit {
         }
       }
     }
-  }
-
-  getSelectedProducts(): Product[] {
-    return this.selectedProducts;
   }
 
   reset(): void {
@@ -135,7 +129,7 @@ export class CatalogCustomCreationComponent implements OnInit {
         this.addProductsToCatalog(p);
       }
       console.log("Saving : ", this.catalog.catalogName);
-      window.location.reload();
+      this.location.back();
     }
   }
 

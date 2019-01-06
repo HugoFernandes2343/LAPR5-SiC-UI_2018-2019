@@ -18,6 +18,11 @@
   <label>Parts (X,Y...):
     <input #Partes />
   </label><br />
+
+  <h3>
+    <div><label>Final price: <label>{{order.cost}}</label></label></div>
+  </h3>
+
   <button (click)="add(Nome.value,Altura.value,Largura.value,Profundidade.value,MateriaisAcabamentos.value,Partes.value);
   Nome.value=''; Altura.value='';Largura.value='';Profundidade.value='';MateriaisAcabamentos.value='';Partes.value='';">
     Add

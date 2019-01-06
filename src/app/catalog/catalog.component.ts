@@ -4,6 +4,7 @@ import { Catalog } from '../model/catalog';
 import { CatalogService } from '../catalog.service';
 import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-catalog',
@@ -16,6 +17,7 @@ export class CatalogComponent implements OnInit {
   catalogs: Catalog[];
 
   constructor(
+    private snackBar : MatSnackBar,
     private catalogService: CatalogService,
     private location: Location,
     private router: Router, 

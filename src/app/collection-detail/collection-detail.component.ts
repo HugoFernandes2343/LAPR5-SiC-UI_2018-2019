@@ -8,7 +8,7 @@ import {Collection} from '../model/collection';
 import {CollectionService} from '../collection.service';
 import {Product} from '../model/product';
 import {ProductService} from '../product.service';
-
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-collection-detail',
@@ -21,6 +21,7 @@ export class CollectionDetailComponent implements OnInit {
     products: Product[];
 
     constructor(
+        private snackBar: MatSnackBar,
         private route: ActivatedRoute,
         private collectionService: CollectionService,
         private productService: ProductService,
@@ -53,7 +54,23 @@ export class CollectionDetailComponent implements OnInit {
 
     save(): void {
         this.collectionService.updateCollection(this.collection)
-            .subscribe(() => window.location.reload());
+            .subscribe(() => this.location.back());
+    }
+
+    displayAddProduct() {
+        this.snackBar.open("Product added", "Dismiss", {
+            duration: 700,
+        });
+    }
+
+    displayRemProduct() {
+        this.snackBar.open("Product will be removed from Catalog", "Dismiss", {
+            duration: 700,
+        });
+    }
+
+    deleteFromCollection(productId: number): void {
+        this.collectionService.deleteProductCollection(this.collection.collectionId, productId).subscribe();
     }
 
 }

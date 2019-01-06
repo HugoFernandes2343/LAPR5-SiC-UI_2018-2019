@@ -10,7 +10,7 @@
 
     <div>
         <h3>Aesthetic Parameter:</h3>
-        <textarea [(ngModel)]="aestheticParameter" placeholder="parameter"></textarea>
+        <textarea [(ngModel)]="aestheticParameter" placeholder="parameter(material,finishin)"></textarea>
     </div>
 
     <div class="endButtons">
@@ -36,6 +36,12 @@
                         </div>
                     </a>
                     <div class="card-desc">{{product.description}}</div>
+                    <div *ngFor="let material of product.materials">
+                        <div class="card-sub-title">{{material.name}}</div>
+                        <div *ngFor="let finish of material.finishes">
+                            <div class="card-sub-title">{{finish.name}}</div>
+                        </div>
+                    </div>
                 </mat-card-content>
                 <mat-card-actions class="mat-card-actions">
                     <button mat-button class="mat-button" title="add product"

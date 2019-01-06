@@ -4,6 +4,8 @@
   <div><label>Client Name: <label>{{order.name}}</label></label></div>
   <div><label>Date: <input [(ngModel)]="order.date" placeholder="Date" /></label></div>
   <div><label>Address: <input [(ngModel)]="order.address" placeholder="Address" /></label></div>
+  <div><label>Cost: <label>{{order.cost}}</label></label></div>
+  <div><label>Status: <label>{{order.status}}</label></label></div>
 
   <h3>Products</h3>
   <ul class="consultorder">
@@ -13,7 +15,7 @@
       </a>
     </li>
   </ul>
-
+  
   <button (click)="save()">save order details</button>
   <button routerLink="/ConsultOrder/{{order.orderId}}/CreateItem">add Item</button>
   <button (click)="goBack()">go back</button>

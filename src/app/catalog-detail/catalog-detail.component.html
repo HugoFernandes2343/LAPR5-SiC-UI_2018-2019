@@ -1,53 +1,64 @@
-<h1>Catalog Details</h1>
+<div *ngIf="catalog">
+  <h1>Catalog Details</h1>
 
-<h2>Catalog {{catalog.catalogName}} Details</h2>
+  <h2>Catalog {{catalog.catalogName}} Details</h2>
 
-<div>
-  <h3>Name:</h3>
-  <input [(ngModel)]="catalog.catalogName" placeholder="name" />
-</div>
+  <div>
+    <h3>Name:</h3>
+    <input [(ngModel)]="catalog.catalogName" placeholder="name" />
+  </div>
 
-<div>
-  <h3>Description:</h3>
-  <textarea [(ngModel)]="catalog.catalogDescription"></textarea>
-</div>
+  <div>
+    <h3>Description:</h3>
+    <textarea [(ngModel)]="catalog.catalogDescription" placeholder="description"></textarea>
+  </div>
 
-<div>
-  <h3>Date of creation: {{catalog.date}}</h3>
-</div>
+  <div>
+    <h3>Date of creation: {{catalog.date}}</h3>
+  </div>
 
-
-<h2>List of Products</h2>
-
-<div class="cards">
-  <div *ngFor="let product of products">
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <button mat-button title="delete product" (click)="delete(product)">x</button>
-        </div>
-        <div><input class="checkForm" type="checkbox"></div>
-      </div>
-      <div class="card-body">
-        <a routerLink="/Product/{{product.productId}}">
-          <div class="card-title">{{product.name}}
-          </div>
-        </a>
-        <div class="card-desc">{{product.description}}
-        </div>
-      </div>
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="saveBasicChanges()">Save Basic Changes</button>
     </div>
   </div>
-</div>
 
-<div class="endButtons">
-  <div>
-    <button mat-button (click)="save()">Save</button>
-  </div>
-  <div>
-    <button mat-button (click)="reset()">Reset</button>
-  </div>
-  <div>
-    <button mat-button (click)="goBack()">Go Back</button>
+  <h2>List of Products</h2>
+  <h3>Pick and choose Products in the Catalog</h3>
+  <label>Changes made here are immediate</label>
+
+  <ng-container>
+    <h3>List of available Products</h3>
+    <div class="cards">
+      <div *ngFor="let product of products">
+        <mat-card class="card">
+          <mat-card-header class="card-header">
+          </mat-card-header>
+          <mat-card-content class="card-body">
+            <a routerLink="/Product/{{product.productId}}">
+              <div class="card-title">{{product.name}}
+              </div>
+            </a>
+            <div class="card-desc">{{product.description}}</div>
+          </mat-card-content>
+          <mat-card-actions class="mat-card-actions">
+            <!--button mat-button class="mat-button" title="add product" (click)="addProductToList(product);displayAddProduct()">Add</button-->
+            <button mat-button class="mat-button" title="del product" (click)="deleteFromCatalog(product.productId);displayRemProduct()">Remove</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <!--div>
+    <button mat-button (click)="save()">Save Catalog</button>
+  </div-->
+  </ng-container>
+
+  <div class="endButtons">
+    <div>
+      <button mat-button (click)="reset()">Reset</button>
+    </div>
+    <div>
+      <button mat-button (click)="goBack()">Go Back</button>
+    </div>
   </div>
 </div>

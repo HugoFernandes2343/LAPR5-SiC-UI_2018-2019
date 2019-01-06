@@ -78,7 +78,14 @@ export class CollectionService {
             );
     }
 
-    ///TODO: remove prod from collection
+    deleteProductCollection(collectionId: number,productId: number): any {
+        const url = `${this.collectionUrl}/${collectionId}/Product/${productId}`;
+        return this.http.delete(url, httpOptions).pipe(
+            tap(_ => this.log(`removed product from collection`)),
+            catchError(this.handleError<any>('deleteProductcollection'))
+        );
+    }
+
 
     /**
      * Handle Http operation that failed.

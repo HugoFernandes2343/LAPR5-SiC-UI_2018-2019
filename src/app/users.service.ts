@@ -14,7 +14,8 @@ const httpOptions = {
 
 export class UsersService {
 
-  private user : User = null;
+  //private user : User = null;
+  private user : User = JSON.parse(localStorage.getItem('loggedIn' || 'false'));
   private usersUrl = 'https://sic-utilizadores.herokuapp.com/api/utilizadores';
 
   constructor(private http: HttpClient) { }
@@ -48,6 +49,7 @@ export class UsersService {
 
   public setUser(user: User) : void {
     this.user = user;
+    localStorage.setItem('loggedIn',JSON.stringify(user));
   }
 
   public getUser() : User {

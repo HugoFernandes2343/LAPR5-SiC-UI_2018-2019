@@ -8,6 +8,7 @@ import { Catalog } from '../model/catalog';
 import { CatalogService } from '../catalog.service';
 import { Product } from '../model/product';
 import { ProductService } from '../product.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-catalog-detail',
@@ -21,29 +22,29 @@ export class CatalogDetailComponent implements OnInit {
   products: Product[];
 
   constructor(
+    private snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private catalogService: CatalogService,
     private productService: ProductService,
     private location: Location,
-    private router: Router, 
+    private router: Router,
     private usersService: UsersService
   ) { }
 
   ngOnInit() {
-    if(this.usersService.getUser() == null){
+    if (this.usersService.getUser() == null) {
       this.router.navigate(['/login']);
     }
-    this.displayCustomProducts();
+    this.displayCatalog();
   }
 
-  getCatalog(): void {
+  displayCatalog(): void {
     const id = +this.route.snapshot.paramMap.get('catalogId');
     this.catalogService.getCatalog(id)
-      .subscribe(catalog => this.catalog = catalog);
-  } 
-
-  displayCustomProducts(): any {
-    this.productService.getProducts().subscribe(products => this.products = products);
+      .subscribe(catalog => {
+        this.catalog = catalog;
+        this.products = catalog.products;
+      });
   }
 
   reset(): void {
@@ -54,13 +55,25 @@ export class CatalogDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  saveBasicChanges(): void {
     this.catalogService.updateCatalog(this.catalog)
       .subscribe(() => window.location.reload());
   }
 
-  /*delete(product: Product): void {
-    this.productService.deleteProduct(product).subscribe(() => window.location.reload());
-  }*/
+  displayAddProduct() {
+    this.snackBar.open("Product added", "Dismiss", {
+      duration: 700,
+    });
+  }
+
+  displayRemProduct() {
+    this.snackBar.open("Product will be removed from Catalog", "Dismiss", {
+      duration: 700,
+    });
+  }
+
+  deleteFromCatalog(productId: number): void {
+    this.catalogService.deleteProductCatalog(this.catalog.catalogId, productId).subscribe();
+  }
 
 }

@@ -9,7 +9,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 import {Router} from '@angular/router';
 import {UsersService} from '../users.service';
 import {MatSnackBar} from '@angular/material';
-
+import {Material} from "../model/material";
 
 
 @Component({
@@ -39,7 +39,7 @@ export class CollectionCreationComponent implements OnInit {
     }
 
     ngOnInit() {
-        if(this.usersService.getUser() == null){
+        if (this.usersService.getUser() == null) {
             this.router.navigate(['/login']);
         }
         this.collection = new Collection();
@@ -49,23 +49,113 @@ export class CollectionCreationComponent implements OnInit {
         this.displayList();
     }
 
-    displayAddProduct(){
-        this.snackBar.open("Product added","Dismiss", {
+    displayAddProduct() {
+        this.snackBar.open("Product added", "Dismiss", {
             duration: 500,
         });
     }
 
-    displayRemProduct(){
-        this.snackBar.open("Product removed","Dismiss", {
+    displayRemProduct() {
+        this.snackBar.open("Product removed", "Dismiss", {
             duration: 500,
         });
     }
 
+    //TODO fix so it only displays the products that abide by the parameter
     displayList(): void {
         this.productService.getProducts()
             .subscribe(products => {
                 this.products = products;
             });
+       /* if (this.collection.aestheticParameter == '') {
+            this.productService.getProducts()
+                .subscribe(products => {
+                    this.products = products;
+                });
+
+        } else {
+            var parameters: string[];
+            parameters = this.collection.aestheticParameter.split(',');
+            if (parameters.length > 2) {
+                this.snackBar.open("Please correct the parameter", "Dismiss", {
+                    duration: 500,
+                });
+
+            }
+            if (parameters[1] == '') {
+                // search by material
+                let list: Product[];
+                this.productService.getProducts().subscribe(products => {
+                    list = products
+                });
+
+                for (let p of list) {
+                    if (this.isMaterialInList(parameters[0], p.materials)) {
+                        //list.splice(list.indexOf(p),1);
+                        this.products.push(p);
+                    }
+                }
+
+
+            } else if (parameters[0] == '') {
+                //search by finish
+
+                let list: Product[];
+                this.productService.getProducts().subscribe(products => {
+                    list = products
+                });
+
+                for (let p of list) {
+                    if (this.isFinishInList(parameters[1], p.materials)) {
+                        //list.splice(list.indexOf(p),1);
+                        this.products.push(p);
+                    }
+                }
+
+
+            } else if (parameters[0] !== '' && parameters[1] !== '') {
+                //search by both
+
+                let list: Product[];
+                this.productService.getProducts().subscribe(products => {
+                    list = products
+                });
+
+                for (let p of list) {
+                    if (this.isMaterialInList(parameters[0], p.materials) && this.isFinishInList(parameters[1], p.materials)) {
+                        //list.splice(list.indexOf(p),1);
+                        this.products.push(p);
+                    }
+                }
+
+            } else if (parameters[0] == '' && parameters[1] == '') {
+                this.productService.getProducts()
+                    .subscribe(products => {
+                        this.products = products;
+                    });
+
+            }
+        }*/
+    }
+
+    isMaterialInList(nameTest: string, mats: Material[]): boolean {
+        for (let m of mats) {
+            if (m.name == nameTest) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    isFinishInList(nameTest: string, mats: Material[]): boolean {
+        for (let m of mats) {
+            for (let f of m.finishes) {
+                if (f.name == nameTest) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     createCollection(): void {
@@ -81,10 +171,8 @@ export class CollectionCreationComponent implements OnInit {
     addProductsToCollection(p): void {
         this.collectionService.addProductToCollection(this.justAddedCollection.collectionId, p.productId/*this.selectedProducts[0].productId*/)
             .subscribe(endCollection => console.log("End with : " + JSON.stringify(endCollection)));
-        //console.log("Added : ", JSON.stringify(p));
-        //}
-        //this.collectionService.updateCollection(this.justAddedCollection);
-        console.log("Added : ", JSON.stringify(this.justAddedCollection));
+
+        //console.log("Added : ", JSON.stringify(this.justAddedCollection));
     }
 
     addProductToList(product: Product): void {
@@ -129,11 +217,11 @@ export class CollectionCreationComponent implements OnInit {
             window.alert("Choose at least one Product");
         } else {
             for (let p of this.selectedProducts) {
-                this.justAddedCollection.products.push(p);
+               // this.justAddedCollection.products.push(p);
                 this.addProductsToCollection(p);
             }
             console.log("Saving : ", this.collection.collectionName);
-            window.location.reload();
+            this.location.back();
         }
     }
 

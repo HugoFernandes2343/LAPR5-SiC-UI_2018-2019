@@ -61,10 +61,15 @@
 }
 
 .card-title {
+    color: dodgerblue;
     font-size: 1.4em;
     margin-bottom: 5px;
 }
-
+.a{
+    color: dodgerblue;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
 .card-sub-title {
     color: #808080;
     font-size: 1em;
